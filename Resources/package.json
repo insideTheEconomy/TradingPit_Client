@@ -1,0 +1,24 @@
+{
+  "main": "index.html",
+  "name": "Decisions",
+  "description": "FedApp",
+  "version": "0.1.0",
+  "keywords": [ "monadnock", "node-webkit" ],
+  "window": {
+    "title": "Decisions Calculator",
+    "toolbar": true,
+    "frame": true,
+	"fullscreen":false,
+    "width": 1024,
+    "height": 768,
+	"position": "center",
+	"kiosk":false
+  },"dependencies": {
+     
+  },
+  "webkit": {
+    "plugin": true,
+	"java": true
+	
+  }
+}
