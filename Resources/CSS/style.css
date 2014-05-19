@@ -36,6 +36,10 @@
   font-style: normal;
 }
 /*-- General Styles --*/
+.webkit-reflect {
+  -webkit-box-reflect: below -54px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54)));
+  position: absolute;
+}
 body {
   overflow: hidden;
   width: 1024px;
@@ -52,21 +56,25 @@ body {
 h1 {
   margin: 25px;
   font-family: "title";
-  font-size: 84px;
+  font-size: 88px;
   color: #bda36c;
-  text-shadow: 4px 4px 0px #222222;
+  text-shadow: 2px 2px 0px #222222;
+  -webkit-box-reflect: below -54px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54)));
+  position: absolute;
 }
 h2 {
   position: absolute;
   margin: 0px;
-  font-family: "title";
-  font-size: 84px;
+  font-family: "sub-title";
+  font-size: 36px;
   color: #ffffff;
-  text-shadow: 4px 4px 0px #222222;
+  text-shadow: 4px 4px 3px #222222;
 }
-.webkit-reflect {
-  -webkit-box-reflect: below -50px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54)));
-  position: absolute;
+h2.yours {
+  left: 45px;
+}
+h2.theirs {
+  left: 395px;
 }
 /*-- Header Styles --*/
 #headerWrap {
@@ -126,7 +134,7 @@ h2 {
   height: 448px;
   width: 100%;
 }
-.flex-container {
+.flex-offers {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -155,6 +163,20 @@ h2 {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  height: 365px;
+  width: 580px;
+  left: 395px;
+  top: 210px;
+}
+.your-offer {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  height: 365px;
+  width: 330px;
+  left: 40px;
+  top: 210px;
 }
 /*-- Footer Styles --*/
 #footerWrap {
