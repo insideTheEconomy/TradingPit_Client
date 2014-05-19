@@ -36,7 +36,7 @@
   font-style: normal;
 }
 /*-- General Styles --*/
-.webkit-reflect {
+.reflect {
   -webkit-box-reflect: below -54px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54)));
   position: absolute;
 }
@@ -104,7 +104,7 @@ h2.theirs {
   text-shadow: 0px 0px 10px #00FF00;
   font-family: "clock";
 }
-.moneyCounter {
+.moneyWrap {
   position: absolute;
   width: 270px;
   height: 135px;
@@ -117,10 +117,14 @@ h2.theirs {
   text-shadow: 4px 4px 0px #222222;
   color: #ffffff;
 }
-.money {
+.dollar {
   margin-left: 5px;
   width: 260px;
   height: 105px;
+  text-align: center;
+  font-size: 60px;
+  font-family: "title";
+  color: #95ba6a;
   background: #465726;
   background: -moz-radial-gradient(center, ellipse cover, #465726 0%, #1d2404 100%);
   background: -webkit-radial-gradient(center, ellipse cover, #465726 0%, #1d2404 100%);
@@ -128,6 +132,27 @@ h2.theirs {
   background: -ms-radial-gradient(center, ellipse cover, #465726 0%, #1d2404 100%);
   background: radial-gradient(ellipse at center, #465726 0%, #1d2404 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#465726', endColorstr='#1d2404', GradientType=1);
+}
+.moneyCounter {
+  width: 95px;
+  height: 95px;
+  border-radius: 46px;
+  line-height: 115px;
+  overflow: hidden;
+  margin-top: 5px;
+  margin-left: 80px;
+  position: absolute;
+  text-align: center;
+  font-size: 60px;
+  font-family: "title";
+  color: #95ba6a;
+  background: #1b3808;
+  background: -moz-radial-gradient(center, ellipse cover, #1b3808 0%, #111c0a 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, #1b3808 0%, #111c0a 100%);
+  background: -o-radial-gradient(center, ellipse cover, #1b3808 0%, #111c0a 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #1b3808 0%, #111c0a 100%);
+  background: radial-gradient(ellipse at center, #1b3808 0%, #111c0a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1b3808', endColorstr='#111c0a', GradientType=1);
 }
 /*-- Content Styles --*/
 #contentWrap {
