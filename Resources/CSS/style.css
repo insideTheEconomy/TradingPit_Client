@@ -1,3 +1,4 @@
+/*-- Imported .less --*/
 @font-face {
   font-family: 'label';
   src: url('../FONTS/GothamRnd-Book.otf') format('opentype');
@@ -28,49 +29,99 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'clock';
+  src: url('../FONTS/DS-DIGI.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/*-- General Styles --*/
 body {
   overflow: hidden;
-  background-color: black;
   width: 1024px;
   height: 768px;
-  background-repeat: none;
   margin: 0px !important;
+  background: #8a5c00;
+  background: -moz-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
+  background: -o-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
+  background: radial-gradient(ellipse at center, #8a5c00 0%, #3d2c1a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8a5c00', endColorstr='#3d2c1a', GradientType=1);
 }
 h1 {
-  font-family: "title";
-  font-size: 92px;
-  margin: 0px;
-  color: #ffffff;
   margin: 25px;
+  font-family: "title";
+  font-size: 84px;
+  color: #bda36c;
+  text-shadow: 4px 4px 0px #222222;
 }
+h2 {
+  position: absolute;
+  margin: 0px;
+  font-family: "title";
+  font-size: 84px;
+  color: #ffffff;
+  text-shadow: 4px 4px 0px #222222;
+}
+.webkit-reflect {
+  -webkit-box-reflect: below -50px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54)));
+  position: absolute;
+}
+/*-- Header Styles --*/
 #headerWrap {
   height: 150px;
   width: 100%;
 }
 .rndTimer {
   position: absolute;
-  width: 180px;
-  height: 105px;
-  left: 530px;
+  width: 185px;
+  height: 110px;
+  left: 490px;
   top: 20px;
   text-align: center;
   font-size: 20px;
   font-family: "sub-title";
-  background-color: #ffffff;
-  opacity: 0.6;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: 4px 4px 0px #222222;
+  color: #ffffff;
+}
+.time {
+  width: 150px;
+  height: 75px;
+  margin-left: 15px;
+  margin-top: 4px;
+  font-size: 72px;
+  background-color: #000000;
+  text-shadow: 0px 0px 10px #00FF00;
+  font-family: "clock";
 }
 .moneyCounter {
   position: absolute;
-  width: 240px;
-  height: 125px;
-  left: 740px;
+  width: 270px;
+  height: 135px;
+  left: 705px;
   top: 20px;
   text-align: center;
   font-size: 20px;
   font-family: "sub-title";
-  background-color: #ffffff;
-  opacity: 0.6;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: 4px 4px 0px #222222;
+  color: #ffffff;
 }
+.money {
+  margin-left: 5px;
+  width: 260px;
+  height: 105px;
+  background: #465726;
+  background: -moz-radial-gradient(center, ellipse cover, #465726 0%, #1d2404 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, #465726 0%, #1d2404 100%);
+  background: -o-radial-gradient(center, ellipse cover, #465726 0%, #1d2404 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #465726 0%, #1d2404 100%);
+  background: radial-gradient(ellipse at center, #465726 0%, #1d2404 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#465726', endColorstr='#1d2404', GradientType=1);
+}
+/*-- Content Styles --*/
 #contentWrap {
   height: 448px;
   width: 100%;
@@ -105,6 +156,7 @@ h1 {
   -ms-flex-align: center;
   align-items: center;
 }
+/*-- Footer Styles --*/
 #footerWrap {
   height: 170px;
   width: 100%;
@@ -112,24 +164,26 @@ h1 {
 .tips {
   position: absolute;
   width: 600px;
-  height: 135px;
+  height: 145px;
   left: 40px;
   top: 600px;
   text-align: center;
   font-size: 20px;
   font-family: "sub-title";
-  background-color: #ffffff;
-  opacity: 0.6;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: 4px 4px 0px #222222;
+  color: #ffffff;
 }
 .value {
   position: absolute;
   width: 275px;
-  height: 135px;
+  height: 145px;
   left: 700px;
   top: 600px;
   text-align: center;
   font-size: 20px;
   font-family: "sub-title";
-  background-color: #ffffff;
-  opacity: 0.6;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: 4px 4px 0px #222222;
+  color: #ffffff;
 }

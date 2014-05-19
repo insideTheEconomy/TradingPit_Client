@@ -1,55 +1,56 @@
+/*-- Imported .less --*/
 @import "colors.less";
- @font-face {
-    font-family: 'label';
-    src: url('../FONTS/GothamRnd-Book.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
- @font-face {
-    font-family: 'bold';
-    src: url('../FONTS/GothamRnd-Bold.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
+@import "fonts.less";
 
-@font-face {
-    font-family: 'sub-title';
-    src: url('../FONTS/gothamrnd-light-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'medium';
-    src: url('../FONTS/GothamRnd-Medium.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
 
-@font-face {
-    font-family: 'title';
-    src: url('../FONTS/linotype_-_universltpro-ultracondensed-webfont.svg#univers_lt_pro59ultraCn') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
+
+
+
+/*-- General Styles --*/
 body{
 	overflow:hidden;
-	background-color: black;
 	width: 1024px;
 	height: 768px;
-	background-repeat: none;
 	margin: 0px !important;
+	
+	background: rgba(138,92,0,1);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(138,92,0,1) 0%, rgba(61,44,26,1) 100%);
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(138,92,0,1) 0%, rgba(61,44,26,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(138,92,0,1) 0%, rgba(61,44,26,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(138,92,0,1) 0%, rgba(61,44,26,1) 100%);
+	background: radial-gradient(ellipse at center, rgba(138,92,0,1) 0%, rgba(61,44,26,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8a5c00', endColorstr='#3d2c1a', GradientType=1 );
 }
 
 h1 {
-	font-family:"title";
-	font-size:92px;
-	margin:0px;
-	color: @white;
 	margin:25px;
+	
+	font-family:"title";
+	font-size:84px;
+	color:@tan;
+	text-shadow: 4px 4px 0px rgba(34, 34, 34, 1);
+}
+
+h2 {
+	position:absolute;
+	margin:0px;
+	
+	font-family:"title";
+	font-size:84px;
+	color: @white;
+	text-shadow: 4px 4px 0px rgba(34, 34, 34, 1);
+}
+
+.webkit-reflect {
+	-webkit-box-reflect: below -50px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54)));
+	position: absolute;
 }
 
 
 
+
+
+/*-- Header Styles --*/
 #headerWrap {
 	height:150px;
 	width:100%;
@@ -57,34 +58,66 @@ h1 {
 
 .rndTimer {
 	position:absolute;
-	width: 180px;
-	height: 105px;
-	left:530px;
+	width: 185px;
+	height: 110px;
+	left:490px;
 	top:20px;
 	
 	text-align:center;
 	font-size:20px;
 	font-family:"sub-title";
 	
-	background-color:@white;
-	opacity:0.6;
+	background-color:rgba(0,0,0,0.5);
+	text-shadow: 4px 4px 0px rgba(34, 34, 34, 1);
+	color:@white;
+}
+
+.time {
+	width: 150px;
+	height: 75px;
+	margin-left:15px;
+	margin-top:4px;
+	font-size:72px;
+	background-color:rgba(0,0,0,1);
+	text-shadow: 0px 0px 10px #00FF00;
+	font-family:"clock";
 }
 
 .moneyCounter {
 	position:absolute;
-	width: 240px;
-	height: 125px;
-	left:740px;
+	width: 270px;
+	height: 135px;
+	left:705px;
 	top:20px;
 	
 	text-align:center;
 	font-size:20px;
 	font-family:"sub-title";
 	
-	background-color:@white;
-	opacity:0.6;
+	background-color:rgba(0,0,0,0.5);
+	text-shadow: 4px 4px 0px rgba(34, 34, 34, 1);
+	color:@white;
 }
 
+.money {
+	margin-left: 5px;
+	width: 260px;
+	height: 105px;
+	
+	background: rgba(70,87,38,1);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(70,87,38,1) 0%, rgba(29,36,4,1) 100%);
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(70,87,38,1) 0%, rgba(29,36,4,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(70,87,38,1) 0%, rgba(29,36,4,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(70,87,38,1) 0%, rgba(29,36,4,1) 100%);
+	background: radial-gradient(ellipse at center, rgba(70,87,38,1) 0%, rgba(29,36,4,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#465726', endColorstr='#1d2404', GradientType=1 );
+}
+
+
+
+
+
+/*-- Content Styles --*/
 #contentWrap {
 	height:448px;
 	width:100%;
@@ -121,6 +154,11 @@ h1 {
     align-items: center;
 }
 
+
+
+
+
+/*-- Footer Styles --*/
 #footerWrap {
 	height:170px;
 	width:100%;
@@ -129,7 +167,7 @@ h1 {
 .tips {
 	position:absolute;
 	width: 600px;
-	height: 135px;
+	height: 145px;
 	left:40px;
 	top:600px;
 	
@@ -137,14 +175,15 @@ h1 {
 	font-size:20px;
 	font-family:"sub-title";
 	
-	background-color:@white;
-	opacity:0.6;
+	background-color:rgba(0,0,0,0.5);
+	text-shadow: 4px 4px 0px rgba(34, 34, 34, 1);
+	color:@white;
 }
 
 .value {
 	position:absolute;
 	width: 275px;
-	height: 135px;
+	height: 145px;
 	left:700px;
 	top:600px;
 	
@@ -152,8 +191,9 @@ h1 {
 	font-size:20px;
 	font-family:"sub-title";
 	
-	background-color:@white;
-	opacity:0.6;
+	background-color:rgba(0,0,0,0.5);
+	text-shadow: 4px 4px 0px rgba(34, 34, 34, 1);
+	color:@white;
 }
 
 

@@ -21,28 +21,56 @@
 	<integer>177</integer>
 	<key>metaData</key>
 	<dict>
+		<key>Resources/CSS/colors.less</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>14</integer>
+				<key>line</key>
+				<integer>7</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>Resources/CSS/style.css</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>Resources/CSS/style.less</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>17</integer>
+				<integer>13</integer>
 				<key>line</key>
-				<integer>182</integer>
+				<integer>71</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>164</integer>
+			<integer>66</integer>
 		</dict>
 		<key>Resources/JS/selectors.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>33</integer>
+				<integer>27</integer>
 				<key>line</key>
-				<integer>25</integer>
+				<integer>21</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -54,9 +82,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>41</integer>
+				<integer>9</integer>
 				<key>line</key>
-				<integer>21</integer>
+				<integer>22</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -67,12 +95,14 @@
 	<key>openDocuments</key>
 	<array>
 		<string>Resources/index.html</string>
+		<string>Resources/CSS/style.css</string>
 		<string>Resources/JS/selectors.js</string>
 		<string>Resources/CSS/style.less</string>
+		<string>Resources/CSS/colors.less</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{187, 63}, {1733, 995}}</string>
+	<string>{{564, 63}, {1356, 995}}</string>
 </dict>
 </plist>
