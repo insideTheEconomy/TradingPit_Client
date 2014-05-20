@@ -46,6 +46,9 @@ h2 {
 	color: @white;
 	text-shadow: 4px 4px 3px rgba(34, 34, 34, 1);
 	
+	margin-top:-15px;
+	
+	
 	&.yours {
 		left:45px;
 	}
@@ -65,7 +68,7 @@ h2 {
 	width:100%;
 }
 
-.rndTimer {
+.timerWrap {
 	position:absolute;
 	width: 185px;
 	height: 110px;
@@ -81,7 +84,7 @@ h2 {
 	color:@white;
 }
 
-.time {
+#time {
 	width: 150px;
 	height: 75px;
 	margin-left:15px;
@@ -196,22 +199,89 @@ h2 {
 	background-color:rgba(0,0,0,0.5);
 	
 	position:absolute;
-	height:365px;
+	height:398px;
 	width:580px;
 	left:395px;
-	top:210px;
+	top:190px;
 }
 
 .your-offer {
 	background-color:rgba(0,0,0,0.5);
 	
 	position:absolute;
-	height:365px;
-	width:330px;
+	height:398px;
+	width:340px;
 	left:40px;
-	top:210px;
+	top:190px;
 }
 
+.sell{
+	
+	border: 2px grey solid;
+	box-shadow: 1px 1px 5px black;
+	padding: 10px;
+	display: inline-block;
+	border-radius: 12px;
+	text-shadow: 4px 4px 3px rgba(34, 34, 34, 1);
+	margin:10px;
+	
+	background: rgba(70,87,38,0.88);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(70,186,38,0.88) 0%, rgba(29,36,4,0.88) 100%);
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(70,186,38,0.88) 0%, rgba(29,36,4,0.88) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(70,186,38,0.88) 0%, rgba(29,36,4,0.88) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(70,186,38,0.88) 0%, rgba(29,36,4,0.88) 100%);
+	background: radial-gradient(ellipse at center, rgba(70,186,38,0.88) 0%, rgba(29,36,4,0.88) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='##95ba6a', endColorstr='#1d2404', GradientType=1 );
+	
+	& h3 {
+		font-family:"title";
+		font-size:2.2em;
+		text-align:right;
+		color:@white;
+		margin:0px;
+		float:right;
+	}
+
+	& h4 {
+		font-family:"title";
+		font-size:3.25em;
+		text-align:left;
+		margin:0px;
+		margin-left:105px;
+		margin-top:45px;
+		color:@white;
+	
+	}
+
+}
+
+.svg-logo {
+	float:left;
+	width:30%;
+	height:68%;
+	margin:5px;
+}
+
+.accept {
+	clear:both;
+	width:100%;
+	height:40px;
+	text-align:center;
+	border-radius: 5px;
+	
+	font-family:"sub-title";
+	font-size:2em;
+	line-height:40px;
+	
+	border:2px solid #A4DBE8;
+	background: -webkit-linear-gradient(top, #070047 15%,#10069f 40%,#1E2989 50%,#10069f 60%,#070047 85%);
+	box-shadow: 0px 0px 15px 0px #A4DBE8;
+	color:#A4DBE8;
+}
+
+.accept:active {
+	background: -webkit-linear-gradient(top, #002487 0%,#0758af 28%,#0758af 28%,#2c69cc 51%,#0758af 79%,#002487 99%);
+}
 
 
 
@@ -224,9 +294,9 @@ h2 {
 
 .tips {
 	position:absolute;
-	width: 600px;
+	width: 645px;
 	height: 145px;
-	left:40px;
+	left:330px;
 	top:600px;
 	
 	text-align:center;
@@ -242,7 +312,7 @@ h2 {
 	position:absolute;
 	width: 275px;
 	height: 145px;
-	left:700px;
+	left:40px;
 	top:600px;
 	
 	text-align:center;

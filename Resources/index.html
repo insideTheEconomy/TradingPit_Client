@@ -12,14 +12,19 @@
 		
 		<link rel="stylesheet" href="CSS/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
 		<link rel="stylesheet" href="CSS/jquery-ui-custom.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		
+		<script src="JS/mustache.js"></script>
+		<script src="https://autobahn.s3.amazonaws.com/autobahnjs/latest/autobahn.min.jgz"></script>
+	 	<script src="JS/sub.js"></script>
 	</head>
  	
 	<body>
+		
 		<div id="headerWrap">
 			<h1>SB MILLS LTD</h1>
-			<div class="rndTimer">
+			<div class="timerWrap">
 				Market Closes In
-				<div class="time">
+				<div id="time">
 					1:24
 				</div>
 			</div>
@@ -51,6 +56,7 @@
 				Your Value
 			</div>
 		</div>
+		
 	</body>
 		<script type="text/javascript" charset="utf-8" src = "JS/jstween-1.1.js"></script>
 		<script src="JS/selectors.js"></script>
