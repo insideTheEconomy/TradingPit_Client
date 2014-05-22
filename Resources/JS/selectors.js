@@ -6,6 +6,7 @@
 var initHTML;
 var initiated;
 var curScreen;
+var offerPrice;
 
 // --------------------------- //
 
@@ -21,6 +22,19 @@ $(function () {
 	
 	//Happens on EVERY restart
 	curScreen = 0;
+	offerPrice = 0;
+});
+
+$( ".up-arrow" ).click(function() {
+  offerPrice++;
+  $("#price").html(offerPrice);
+});
+
+$( ".down-arrow" ).click(function() {
+  if (offerPrice > 1) {
+    offerPrice--;
+    $("#price").html(offerPrice);
+  }
 });
 
 // --------------------------- //

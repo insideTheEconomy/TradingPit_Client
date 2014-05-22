@@ -8,7 +8,7 @@ try {
 var sess;
 // Set up WAMP connection to router
 var connection = new autobahn.Connection({
-	url: 'ws://capricorn.local:8080/ws',
+	url: 'ws://capricorn.or.gs:8080/ws',
 	realm: 'tradingpit'
 });
 

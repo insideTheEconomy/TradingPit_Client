@@ -216,7 +216,6 @@ h2 {
 }
 
 .sell{
-	
 	border: 2px grey solid;
 	box-shadow: 1px 1px 5px black;
 	padding: 10px;
@@ -252,14 +251,102 @@ h2 {
 		color:@white;
 	
 	}
+	
+	& .svg-logo {
+		float:left;
+		width:30%;
+		height:68%;
+		margin:5px;
+	}
 
 }
 
-.svg-logo {
-	float:left;
-	width:30%;
-	height:68%;
-	margin:5px;
+.your-offer-card{
+	border: 2px grey solid;
+	box-shadow: 1px 1px 5px black;
+	padding: 10px;
+	display: inline-block;
+	border-radius: 12px;
+	text-shadow: 4px 4px 3px rgba(34, 34, 34, 1);
+	margin:19px;
+	
+	width:82%;
+	height:85%;
+	
+	background: rgba(138,92,0,1);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(138,92,0,1) 0%, rgba(61,44,26,1) 100%);
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(138,92,0,1) 0%, rgba(61,44,26,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(138,92,0,1) 0%, rgba(61,44,26,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(138,92,0,1) 0%, rgba(61,44,26,1) 100%);
+	background: radial-gradient(ellipse at center, rgba(138,92,0,1) 0%, rgba(61,44,26,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8a5c00', endColorstr='#3d2c1a', GradientType=1 );
+	
+	& h3 {
+		font-family:"title";
+		font-size:2.8em;
+		text-align:right;
+		color:@white;
+		margin:0px;
+		margin-left:20px;
+		float:left;
+	}
+
+	& h4 {
+		font-family:"title";
+		font-size:6.25em;
+		margin:0px;
+		margin-top:45px;
+		color:@white;
+	}
+	
+	& h5 {
+		font-family:"sub-title";
+		font-size:1.5em;
+		text-align:center;
+		margin:0px;
+		margin-top:5px;
+		color:@white;
+		clear:both;
+	}
+	
+	& .svg-logo {
+		float:left;
+		width:30%;
+		height:50%;
+		margin:5px;
+		margin-right:20px;
+	}
+	
+	& .up-arrow {
+		width: 0px;
+		height: 0px;
+		top: 175px;
+		left: 265px;
+		border-style: solid;
+		border-width: 0 22.5px 45px 22.5px;
+		border-color: transparent transparent @blue transparent;
+		position:absolute;
+	}
+	
+	& .down-arrow {
+		width: 0;
+		height: 0;
+		top: 230px;
+		left: 265px;
+		border-style: solid;
+		border-width: 45px 22.5px 0 22.5px;
+		border-color: @blue transparent transparent transparent;
+		position:absolute;
+	}
+	
+	& .up-arrow:active {
+		border-color: transparent transparent @lightblue transparent;
+	}
+	
+	& .down-arrow:active {
+		border-color: @lightblue transparent transparent transparent;
+	}
+
 }
 
 .accept {
