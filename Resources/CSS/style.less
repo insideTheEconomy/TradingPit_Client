@@ -511,11 +511,11 @@ h2 {
 }
 
 .tips {
-	position:absolute;
-	width: 645px;
+	position: absolute;
+	width: 595px;
 	height: 145px;
-	left:330px;
-	top:600px;
+	left: 380px;
+	top: 600px;
 	
 	text-align:center;
 	font-size:20px;
@@ -526,12 +526,13 @@ h2 {
 	color:@white;
 }
 
-.value {
-	position:absolute;
-	width: 275px;
+.valueWrap {
+	position: absolute;
+	width: 325px;
 	height: 145px;
-	left:40px;
-	top:600px;
+	left: 40px;
+	top: 600px;
+	overflow:hidden;
 	
 	text-align:center;
 	font-size:20px;
@@ -540,6 +541,33 @@ h2 {
 	background-color:rgba(0,0,0,0.5);
 	text-shadow: 4px 4px 0px rgba(34, 34, 34, 1);
 	color:@white;
+	
+	& .svg-logo {
+		position: absolute;
+		height: 125%;
+		left: -35px;
+		top: -10px;
+	}
+	
+	& h3 {
+		position:absolute;
+		left: 145px;
+		top: 10px;
+	}
+	
+	& h4 {
+		position: absolute;
+		font-family: "title";
+		font-size: 4em;
+		margin: 0px;
+		margin-top: 33px;
+		left: 225px;
+		color:@tan;
+	}
+	
+	& .value {
+		
+	}
 }
 
 

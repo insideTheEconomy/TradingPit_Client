@@ -27,12 +27,18 @@ connection.onopen = function(session) {
 	}).then(
 
 	function(r) {
+		sess.subscribe(r.cardURI, onCard);
 		console.log("success r");
 		console.log(r);
 		myShape = r.shape;
 		$(".my-logoDiv").load( "shapes.html  #" + myShape );
 	})
 	// Define an event handler
+	
+	function onCard(args, kwargs, details){
+		console.log("CARD",kwargs);
+		$(".value").html(kwargs.price);
+	}
 
 	function onTick(args, kwargs, details) {
 		//console.log("Tick", args, kwargs, details);
