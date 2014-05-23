@@ -22,7 +22,7 @@ $(function () {
 	
 	//Happens on EVERY restart
 	curScreen = 0;
-	offerPrice = 0;
+	offerPrice = 1;
 });
 
 $( ".up-arrow" ).click(function() {

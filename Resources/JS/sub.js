@@ -1,3 +1,5 @@
+var myShape;
+
 // Make code portable to Node.js without any changes
 try {
 	var autobahn = require('autobahn');
@@ -16,7 +18,7 @@ var connection = new autobahn.Connection({
 connection.onopen = function(session) {
 	sess = session;
 	var currentSubscription = null;
-	sess.call("org.pit.signin", [], {
+	sess.call("pit.rpc.signin", [], {
 		name: "QT",
 		position: 0,
 		role: "seller",
@@ -25,19 +27,20 @@ connection.onopen = function(session) {
 	}).then(
 
 	function(r) {
-		console.log("success");
+		console.log("success r");
 		console.log(r);
+		myShape = r.shape;
+		$(".my-logoDiv").load( "shapes.html  #" + myShape );
 	})
 	// Define an event handler
 
-
 	function onTick(args, kwargs, details) {
-		console.log("Tick", args, kwargs, details);
+		//console.log("Tick", args, kwargs, details);
 		$("#time").html(kwargs.minutes+":"+kwargs.seconds);
 	}
 
 	function onOffer(args, kwargs, details) {
-		console.log(kwargs);
+		//console.log(kwargs);
 		
 		$.get("offer_template.html", function(d){
 			Mustache.parse(d);
@@ -47,7 +50,7 @@ connection.onopen = function(session) {
 	}
 
 	// Subscribe to a topic
-	session.subscribe('org.pit.offers', onOffer).then(
+	session.subscribe('pit.pub.offers', onOffer).then(
 
 	function(subscription) {
 		// console.log("subscription successfull", subscription);
@@ -59,7 +62,7 @@ connection.onopen = function(session) {
 	}
 
 	);
-	session.subscribe('org.pit.clock', onTick).then(
+	session.subscribe('pit.pub.clock', onTick).then(
 
 	function(subscription) {
 		// console.log("subscription successfull", subscription);

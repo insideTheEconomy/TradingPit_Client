@@ -1,2 +1,2 @@
 /* - *///-- Variable Declarations  -- //
-var initHTML,initiated,curScreen;$(function(){if(!initiated){console.log("Init");initHTML=$(document.body).html();initiated=!0}curScreen=0});
+var initHTML,initiated,curScreen,offerPrice;$(function(){if(!initiated){console.log("Init");initHTML=$(document.body).html();initiated=!0}curScreen=0;offerPrice=1});$(".up-arrow").click(function(){offerPrice++;$("#price").html(offerPrice)});$(".down-arrow").click(function(){if(offerPrice>1){offerPrice--;$("#price").html(offerPrice)}});

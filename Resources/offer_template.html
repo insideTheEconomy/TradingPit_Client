@@ -1,8 +1,13 @@
 {{#offers}}
 <div id = "card" class = {{type}}>
-	<h3>{{owner}} GRAINS INC.</h3>
-	<img class="svg-logo" src="IMAGES/icon_1478.svg">
+	<h3>{{owner.name}} GRAIN LTD</h3>
+	<img class="svg-logo" src="IMAGES/wheat-seller.svg">
 	<h4>${{price}}</h4>
+	<div class="logoDiv{{owner.position}}"></div>
 	<div class="accept">Accept</div>
+	
+	<script>
+		$(".logoDiv{{owner.position}}").load( "shapes.html  #{{owner.shape}}" );
+	</script>
 </div>
 {{/offers}}

@@ -12,7 +12,15 @@
 	position: absolute;
 }
 
-body{
+* {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+body {
 	overflow:hidden;
 	width: 1024px;
 	height: 768px;
@@ -215,7 +223,7 @@ h2 {
 	top:190px;
 }
 
-.sell{
+.seller{
 	border: 2px grey solid;
 	box-shadow: 1px 1px 5px black;
 	padding: 10px;
@@ -223,6 +231,7 @@ h2 {
 	border-radius: 12px;
 	text-shadow: 4px 4px 3px rgba(34, 34, 34, 1);
 	margin:10px;
+	width:240px;
 	
 	background: rgba(70,87,38,0.88);
 	background: -moz-radial-gradient(center, ellipse cover, rgba(70,186,38,0.88) 0%, rgba(29,36,4,0.88) 100%);
@@ -234,7 +243,7 @@ h2 {
 	
 	& h3 {
 		font-family:"title";
-		font-size:2.2em;
+		font-size:2em;
 		text-align:right;
 		color:@white;
 		margin:0px;
@@ -258,7 +267,69 @@ h2 {
 		height:68%;
 		margin:5px;
 	}
+	
+	& #circle{
+		stroke: @logo-green;
+		stroke-width: 7px;
+		fill: transparent;
+		fill-opacity: 0.85;
+		overflow:visible;
+		float:right;
+		
+		width:50px;
+		height:50px;
+		
+		margin-top:-57px;
+		margin-right:13px;
+	}
+	
+	& #square{
+		stroke: @logo-green;
+		stroke-width: 7px;
+		fill: transparent;
+		fill-opacity: 0.85;
+		overflow:visible;
+		float:right;
+		
+		width:50px;
+		height:50px;
+		
+		margin-top:-57px;
+		margin-right:13px;
 
+	}
+	
+	& #triangle{
+		stroke: @logo-green;
+		stroke-width: 7px;
+		fill: transparent;
+		fill-opacity: 0.85;
+		overflow:visible;
+		float:right;
+		
+		width:50px;
+		height:50px;
+		
+		margin-top:-57px;
+		margin-right:13px;
+
+	}
+	
+	& #pentagon{
+		stroke: @logo-green;
+		stroke-width: 7px;
+		fill: transparent;
+		fill-opacity: 0.85;
+		overflow:visible;
+		float:right;
+		
+		width:50px;
+		height:50px;
+		
+		margin-top:-57px;
+		margin-right:13px;
+
+	}
 }
 
 .your-offer-card{
@@ -324,7 +395,7 @@ h2 {
 		left: 265px;
 		border-style: solid;
 		border-width: 0 22.5px 45px 22.5px;
-		border-color: transparent transparent @blue transparent;
+		border-color: transparent transparent #070047 transparent;
 		position:absolute;
 	}
 	
@@ -335,16 +406,76 @@ h2 {
 		left: 265px;
 		border-style: solid;
 		border-width: 45px 22.5px 0 22.5px;
-		border-color: @blue transparent transparent transparent;
+		border-color: #070047 transparent transparent transparent;
 		position:absolute;
 	}
 	
 	& .up-arrow:active {
-		border-color: transparent transparent @lightblue transparent;
+		border-color: transparent transparent @blue transparent;
 	}
 	
 	& .down-arrow:active {
-		border-color: @lightblue transparent transparent transparent;
+		border-color: @blue transparent transparent transparent;
+	}
+	
+	& #circle{
+		stroke: @orange;
+		stroke-width: 7px;
+		fill: @orange;
+		fill-opacity: 0.85;
+		overflow:visible;
+		float:right;
+		
+		width:55px;
+		height:55px;
+		
+		margin-top:-110px;
+		margin-right:3px;
+	}
+	
+	& #square{
+		stroke: @orange;
+		stroke-width: 7px;
+		fill: @orange;
+		fill-opacity: 0.85;
+		overflow:visible;
+		float:right;
+		
+		width:55px;
+		height:55px;
+		
+		margin-top:-110px;
+		margin-right:3px;
+	}
+	
+	& #triangle{
+		stroke: @orange;
+		stroke-width: 7px;
+		fill: @orange;
+		fill-opacity: 0.85;
+		overflow:visible;
+		float:right;
+		
+		width:55px;
+		height:55px;
+		
+		margin-top:-110px;
+		margin-right:3px;
+	}
+	
+	& #pentagon{
+		stroke: @orange;
+		stroke-width: 7px;
+		fill: @orange;
+		fill-opacity: 0.85;
+		overflow:visible;
+		float:right;
+		
+		width:55px;
+		height:55px;
+		
+		margin-top:-110px;
+		margin-right:3px;
 	}
 
 }
