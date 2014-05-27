@@ -52,19 +52,21 @@ body {
   width: 1024px;
   height: 768px;
   margin: 0px !important;
-  background: #8a5c00;
-  background: -moz-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
-  background: -webkit-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
-  background: -o-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
-  background: radial-gradient(ellipse at center, #8a5c00 0%, #3d2c1a 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8a5c00', endColorstr='#3d2c1a', GradientType=1);
 }
-h1 {
+.seller-client-wrap h1 {
   margin: 25px;
   font-family: "title";
   font-size: 88px;
   color: #bda36c;
+  text-shadow: 2px 2px 0px #222222;
+  -webkit-box-reflect: below -54px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54)));
+  position: absolute;
+}
+.buyer-client-wrap h1 {
+  margin: 25px;
+  font-family: "title";
+  font-size: 88px;
+  color: #a4dbe8;
   text-shadow: 2px 2px 0px #222222;
   -webkit-box-reflect: below -54px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54)));
   position: absolute;
@@ -167,7 +169,18 @@ h2.theirs {
   height: 448px;
   width: 100%;
 }
-.flex-offers {
+.buyer-client-wrap {
+  width: 1024px;
+  height: 768px;
+  background: rgba(70, 87, 38, 0.88);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(70, 186, 38, 0.88) 0%, rgba(29, 36, 4, 0.88) 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(70, 186, 38, 0.88) 0%, rgba(29, 36, 4, 0.88) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(70, 186, 38, 0.88) 0%, rgba(29, 36, 4, 0.88) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(70, 186, 38, 0.88) 0%, rgba(29, 36, 4, 0.88) 100%);
+  background: radial-gradient(ellipse at center, rgba(70, 186, 38, 0.88) 0%, rgba(29, 36, 4, 0.88) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='##95ba6a', endColorstr='#1d2404', GradientType=1);
+}
+.buyer-client-wrap .flex-offers {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -203,7 +216,7 @@ h2.theirs {
   left: 395px;
   top: 190px;
 }
-.your-offer {
+.buyer-client-wrap .your-offer {
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   height: 398px;
@@ -211,7 +224,274 @@ h2.theirs {
   left: 40px;
   top: 190px;
 }
-.seller {
+.buyer-client-wrap .seller {
+  border: 2px grey solid;
+  box-shadow: 1px 1px 5px black;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 12px;
+  text-shadow: 4px 4px 3px #222222;
+  margin: 10px;
+  width: 240px;
+  background: #8a5c00;
+  background: -moz-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
+  background: -o-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
+  background: radial-gradient(ellipse at center, #8a5c00 0%, #3d2c1a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8a5c00', endColorstr='#3d2c1a', GradientType=1);
+}
+.buyer-client-wrap .seller h3 {
+  font-family: "title";
+  font-size: 2em;
+  text-align: right;
+  color: #ffffff;
+  margin: 0px;
+  float: right;
+}
+.buyer-client-wrap .seller h4 {
+  font-family: "title";
+  font-size: 3.25em;
+  text-align: left;
+  margin: 0px;
+  margin-left: 105px;
+  margin-top: 45px;
+  color: #ffffff;
+}
+.buyer-client-wrap .seller .svg-logo {
+  float: left;
+  width: 30%;
+  height: 68%;
+  margin: 5px;
+}
+.buyer-client-wrap .seller #circle {
+  stroke: #f0c135;
+  stroke-width: 7px;
+  fill: #f0c135;
+  fill-opacity: 0.85;
+  overflow: visible;
+  float: right;
+  width: 50px;
+  height: 50px;
+  margin-top: -57px;
+  margin-right: 13px;
+}
+.buyer-client-wrap .seller #square {
+  stroke: #f0c135;
+  stroke-width: 7px;
+  fill: #f0c135;
+  fill-opacity: 0.85;
+  overflow: visible;
+  float: right;
+  width: 50px;
+  height: 50px;
+  margin-top: -57px;
+  margin-right: 13px;
+}
+.buyer-client-wrap .seller #triangle {
+  stroke: #f0c135;
+  stroke-width: 7px;
+  fill: #f0c135;
+  fill-opacity: 0.85;
+  overflow: visible;
+  float: right;
+  width: 50px;
+  height: 50px;
+  margin-top: -57px;
+  margin-right: 13px;
+}
+.buyer-client-wrap .seller #pentagon {
+  stroke: #f0c135;
+  stroke-width: 7px;
+  fill: #f0c135;
+  fill-opacity: 0.85;
+  overflow: visible;
+  float: right;
+  width: 50px;
+  height: 50px;
+  margin-top: -57px;
+  margin-right: 13px;
+}
+.buyer-client-wrap .your-offer-card {
+  border: 2px grey solid;
+  box-shadow: 1px 1px 5px black;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 12px;
+  text-shadow: 4px 4px 3px #222222;
+  margin: 19px;
+  width: 82%;
+  height: 85%;
+  background: rgba(70, 87, 38, 0.88);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(70, 186, 38, 0.88) 0%, rgba(29, 36, 4, 0.88) 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(70, 186, 38, 0.88) 0%, rgba(29, 36, 4, 0.88) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(70, 186, 38, 0.88) 0%, rgba(29, 36, 4, 0.88) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(70, 186, 38, 0.88) 0%, rgba(29, 36, 4, 0.88) 100%);
+  background: radial-gradient(ellipse at center, rgba(70, 186, 38, 0.88) 0%, rgba(29, 36, 4, 0.88) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='##95ba6a', endColorstr='#1d2404', GradientType=1);
+}
+.buyer-client-wrap .your-offer-card h3 {
+  font-family: "title";
+  font-size: 2.8em;
+  text-align: right;
+  color: #ffffff;
+  margin: 0px;
+  margin-left: 20px;
+  float: left;
+}
+.buyer-client-wrap .your-offer-card h4 {
+  font-family: "title";
+  font-size: 6.25em;
+  margin: 0px;
+  margin-top: 45px;
+  color: #ffffff;
+}
+.buyer-client-wrap .your-offer-card h5 {
+  font-family: "sub-title";
+  font-size: 1.5em;
+  text-align: center;
+  margin: 0px;
+  margin-top: 5px;
+  color: #ffffff;
+  clear: both;
+}
+.buyer-client-wrap .your-offer-card .svg-logo {
+  float: left;
+  width: 30%;
+  height: 50%;
+  margin: 5px;
+  margin-right: 20px;
+}
+.buyer-client-wrap .your-offer-card .up-arrow {
+  width: 0px;
+  height: 0px;
+  top: 175px;
+  left: 265px;
+  border-style: solid;
+  border-width: 0 22.5px 45px 22.5px;
+  border-color: transparent transparent #070047 transparent;
+  position: absolute;
+}
+.buyer-client-wrap .your-offer-card .down-arrow {
+  width: 0;
+  height: 0;
+  top: 230px;
+  left: 265px;
+  border-style: solid;
+  border-width: 45px 22.5px 0 22.5px;
+  border-color: #070047 transparent transparent transparent;
+  position: absolute;
+}
+.buyer-client-wrap .your-offer-card .up-arrow:active {
+  border-color: transparent transparent #10069f transparent;
+}
+.buyer-client-wrap .your-offer-card .down-arrow:active {
+  border-color: #10069f transparent transparent transparent;
+}
+.buyer-client-wrap .your-offer-card #circle {
+  stroke: #7ac441;
+  stroke-width: 7px;
+  fill: transparent;
+  fill-opacity: 0.85;
+  overflow: visible;
+  float: right;
+  width: 55px;
+  height: 55px;
+  margin-top: -110px;
+  margin-right: 3px;
+}
+.buyer-client-wrap .your-offer-card #square {
+  stroke: #7ac441;
+  stroke-width: 7px;
+  fill: transparent;
+  fill-opacity: 0.85;
+  overflow: visible;
+  float: right;
+  width: 55px;
+  height: 55px;
+  margin-top: -110px;
+  margin-right: 3px;
+}
+.buyer-client-wrap .your-offer-card #triangle {
+  stroke: #7ac441;
+  stroke-width: 7px;
+  fill: transparent;
+  fill-opacity: 0.85;
+  overflow: visible;
+  float: right;
+  width: 55px;
+  height: 55px;
+  margin-top: -110px;
+  margin-right: 3px;
+}
+.buyer-client-wrap .your-offer-card #pentagon {
+  stroke: #7ac441;
+  stroke-width: 7px;
+  fill: transparent;
+  fill-opacity: 0.85;
+  overflow: visible;
+  float: right;
+  width: 55px;
+  height: 55px;
+  margin-top: -110px;
+  margin-right: 3px;
+}
+.seller-client-wrap {
+  width: 1024px;
+  height: 768px;
+  background: #8a5c00;
+  background: -moz-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
+  background: -o-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
+  background: radial-gradient(ellipse at center, #8a5c00 0%, #3d2c1a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8a5c00', endColorstr='#3d2c1a', GradientType=1);
+}
+.seller-client-wrap .flex-offers {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  height: 398px;
+  width: 580px;
+  left: 395px;
+  top: 190px;
+}
+.seller-client-wrap .your-offer {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  height: 398px;
+  width: 340px;
+  left: 40px;
+  top: 190px;
+}
+.seller-client-wrap .seller {
   border: 2px grey solid;
   box-shadow: 1px 1px 5px black;
   padding: 10px;
@@ -228,7 +508,7 @@ h2.theirs {
   background: radial-gradient(ellipse at center, rgba(70, 186, 38, 0.88) 0%, rgba(29, 36, 4, 0.88) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='##95ba6a', endColorstr='#1d2404', GradientType=1);
 }
-.seller h3 {
+.seller-client-wrap .seller h3 {
   font-family: "title";
   font-size: 2em;
   text-align: right;
@@ -236,7 +516,7 @@ h2.theirs {
   margin: 0px;
   float: right;
 }
-.seller h4 {
+.seller-client-wrap .seller h4 {
   font-family: "title";
   font-size: 3.25em;
   text-align: left;
@@ -245,13 +525,13 @@ h2.theirs {
   margin-top: 45px;
   color: #ffffff;
 }
-.seller .svg-logo {
+.seller-client-wrap .seller .svg-logo {
   float: left;
   width: 30%;
   height: 68%;
   margin: 5px;
 }
-.seller #circle {
+.seller-client-wrap .seller #circle {
   stroke: #7ac441;
   stroke-width: 7px;
   fill: transparent;
@@ -263,7 +543,7 @@ h2.theirs {
   margin-top: -57px;
   margin-right: 13px;
 }
-.seller #square {
+.seller-client-wrap .seller #square {
   stroke: #7ac441;
   stroke-width: 7px;
   fill: transparent;
@@ -275,7 +555,7 @@ h2.theirs {
   margin-top: -57px;
   margin-right: 13px;
 }
-.seller #triangle {
+.seller-client-wrap .seller #triangle {
   stroke: #7ac441;
   stroke-width: 7px;
   fill: transparent;
@@ -287,7 +567,7 @@ h2.theirs {
   margin-top: -57px;
   margin-right: 13px;
 }
-.seller #pentagon {
+.seller-client-wrap .seller #pentagon {
   stroke: #7ac441;
   stroke-width: 7px;
   fill: transparent;
@@ -299,7 +579,7 @@ h2.theirs {
   margin-top: -57px;
   margin-right: 13px;
 }
-.your-offer-card {
+.seller-client-wrap .your-offer-card {
   border: 2px grey solid;
   box-shadow: 1px 1px 5px black;
   padding: 10px;
@@ -317,7 +597,7 @@ h2.theirs {
   background: radial-gradient(ellipse at center, #8a5c00 0%, #3d2c1a 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8a5c00', endColorstr='#3d2c1a', GradientType=1);
 }
-.your-offer-card h3 {
+.seller-client-wrap .your-offer-card h3 {
   font-family: "title";
   font-size: 2.8em;
   text-align: right;
@@ -326,14 +606,14 @@ h2.theirs {
   margin-left: 20px;
   float: left;
 }
-.your-offer-card h4 {
+.seller-client-wrap .your-offer-card h4 {
   font-family: "title";
   font-size: 6.25em;
   margin: 0px;
   margin-top: 45px;
   color: #ffffff;
 }
-.your-offer-card h5 {
+.seller-client-wrap .your-offer-card h5 {
   font-family: "sub-title";
   font-size: 1.5em;
   text-align: center;
@@ -342,14 +622,14 @@ h2.theirs {
   color: #ffffff;
   clear: both;
 }
-.your-offer-card .svg-logo {
+.seller-client-wrap .your-offer-card .svg-logo {
   float: left;
   width: 30%;
   height: 50%;
   margin: 5px;
   margin-right: 20px;
 }
-.your-offer-card .up-arrow {
+.seller-client-wrap .your-offer-card .up-arrow {
   width: 0px;
   height: 0px;
   top: 175px;
@@ -359,7 +639,7 @@ h2.theirs {
   border-color: transparent transparent #070047 transparent;
   position: absolute;
 }
-.your-offer-card .down-arrow {
+.seller-client-wrap .your-offer-card .down-arrow {
   width: 0;
   height: 0;
   top: 230px;
@@ -369,13 +649,13 @@ h2.theirs {
   border-color: #070047 transparent transparent transparent;
   position: absolute;
 }
-.your-offer-card .up-arrow:active {
+.seller-client-wrap .your-offer-card .up-arrow:active {
   border-color: transparent transparent #10069f transparent;
 }
-.your-offer-card .down-arrow:active {
+.seller-client-wrap .your-offer-card .down-arrow:active {
   border-color: #10069f transparent transparent transparent;
 }
-.your-offer-card #circle {
+.seller-client-wrap .your-offer-card #circle {
   stroke: #f0c135;
   stroke-width: 7px;
   fill: #f0c135;
@@ -387,7 +667,7 @@ h2.theirs {
   margin-top: -110px;
   margin-right: 3px;
 }
-.your-offer-card #square {
+.seller-client-wrap .your-offer-card #square {
   stroke: #f0c135;
   stroke-width: 7px;
   fill: #f0c135;
@@ -399,7 +679,7 @@ h2.theirs {
   margin-top: -110px;
   margin-right: 3px;
 }
-.your-offer-card #triangle {
+.seller-client-wrap .your-offer-card #triangle {
   stroke: #f0c135;
   stroke-width: 7px;
   fill: #f0c135;
@@ -411,7 +691,7 @@ h2.theirs {
   margin-top: -110px;
   margin-right: 3px;
 }
-.your-offer-card #pentagon {
+.seller-client-wrap .your-offer-card #pentagon {
   stroke: #f0c135;
   stroke-width: 7px;
   fill: #f0c135;
@@ -458,7 +738,7 @@ h2.theirs {
   text-shadow: 4px 4px 0px #222222;
   color: #ffffff;
 }
-.valueWrap {
+.seller-client-wrap .valueWrap {
   position: absolute;
   width: 325px;
   height: 145px;
@@ -472,18 +752,18 @@ h2.theirs {
   text-shadow: 4px 4px 0px #222222;
   color: #ffffff;
 }
-.valueWrap .svg-logo {
+.seller-client-wrap .valueWrap .svg-logo {
   position: absolute;
   height: 125%;
   left: -35px;
   top: -10px;
 }
-.valueWrap h3 {
+.seller-client-wrap .valueWrap h3 {
   position: absolute;
   left: 145px;
   top: 10px;
 }
-.valueWrap h4 {
+.seller-client-wrap .valueWrap h4 {
   position: absolute;
   font-family: "title";
   font-size: 4em;
@@ -491,4 +771,38 @@ h2.theirs {
   margin-top: 33px;
   left: 225px;
   color: #bda36c;
+}
+.buyer-client-wrap .valueWrap {
+  position: absolute;
+  width: 325px;
+  height: 145px;
+  left: 40px;
+  top: 600px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 20px;
+  font-family: "sub-title";
+  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: 4px 4px 0px #222222;
+  color: #ffffff;
+}
+.buyer-client-wrap .valueWrap .svg-logo {
+  position: absolute;
+  height: 125%;
+  left: -35px;
+  top: -10px;
+}
+.buyer-client-wrap .valueWrap h3 {
+  position: absolute;
+  left: 145px;
+  top: 10px;
+}
+.buyer-client-wrap .valueWrap h4 {
+  position: absolute;
+  font-family: "title";
+  font-size: 4em;
+  margin: 0px;
+  margin-top: 33px;
+  left: 225px;
+  color: #95ba6a;
 }
