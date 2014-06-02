@@ -1,5 +1,5 @@
-{{#offers}}
-<div id = "card" class = {{type}}>
+{{#seller}}
+<div id = "card" class = "seller">
 	<h3>{{owner.name}} GRAIN LTD</h3>
 	<img class="svg-logo" src="IMAGES/wheat-seller.svg">
 	<h4>${{price}}</h4>
@@ -10,4 +10,4 @@
 		$(".logoDiv{{owner.position}}").load( "shapes.html  #{{owner.shape}}" );
 	</script>
 </div>
-{{/offers}}
+{{/seller}}

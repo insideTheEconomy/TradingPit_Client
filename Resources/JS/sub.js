@@ -18,26 +18,26 @@ var connection = new autobahn.Connection({
 connection.onopen = function(session) {
 	sess = session;
 	var currentSubscription = null;
+	
 	sess.call("pit.rpc.signin", [], {
 		name: "QT",
 		position: 0,
-		role: "seller",
+		role: "buyer",
 		id: sess.id,
 		meat: "true"
 	}).then(
 
 	function(r) {
 		sess.subscribe(r.cardURI, onCard);
-		console.log("success r");
-		console.log(r);
+		
 		myShape = r.shape;
 		$(".my-logoDiv").load( "shapes.html  #" + myShape );
-	})
-	// Define an event handler
+	});
 	
+	// Define an event handler
 	function onCard(args, kwargs, details){
-		console.log("CARD",kwargs);
-		$(".value").html(kwargs.price);
+		//console.log("CARD",kwargs);
+		$(".value").html(kwargs.reserve);
 	}
 
 	function onTick(args, kwargs, details) {
@@ -46,11 +46,22 @@ connection.onopen = function(session) {
 	}
 
 	function onOffer(args, kwargs, details) {
-		//console.log(kwargs);
+		
+		if (role == "buyer") {
+			
+			
+			
+		} else if (role == "seller") {
+			
+			
+			
+		}
+		
 		
 		$.get("offer_template.html", function(d){
 			Mustache.parse(d);
 			var render = Mustache.render(d,kwargs);
+			//console.log(kwargs);
 			$('.flex-offers').html(render);
 		});
 	}

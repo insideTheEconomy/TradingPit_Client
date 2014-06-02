@@ -54,7 +54,9 @@ body {
   margin: 0px !important;
 }
 .buyer-client-wrap h1 {
+  z-index: 1;
   margin: 25px;
+  margin-left: 50px;
   font-family: "title";
   font-size: 88px;
   color: #bda36c;
@@ -62,14 +64,122 @@ body {
   -webkit-box-reflect: below -54px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54)));
   position: absolute;
 }
+.buyer-client-wrap h1 .my-logoDiv {
+  position: absolute;
+  z-index: 0;
+  height: 125px;
+  width: 125px;
+  opacity: 1;
+  left: -30px;
+  top: -10px;
+}
+.buyer-client-wrap h1 #circle {
+  stroke: #f0c135;
+  stroke-width: 10px;
+  fill: #f0c135;
+  overflow: visible;
+  float: right;
+  z-index: 0;
+  opacity: 1;
+  stroke-opacity: 1;
+  fill-opacity: 1;
+}
+.buyer-client-wrap h1 #square {
+  stroke: #f0c135;
+  stroke-width: 10px;
+  fill: #f0c135;
+  overflow: visible;
+  float: right;
+  z-index: 0;
+  opacity: 1;
+  stroke-opacity: 1;
+  fill-opacity: 1;
+}
+.buyer-client-wrap h1 #triangle {
+  stroke: #f0c135;
+  stroke-width: 10px;
+  fill: #f0c135;
+  overflow: visible;
+  float: right;
+  z-index: 0;
+  opacity: 1;
+  stroke-opacity: 1;
+  fill-opacity: 1;
+}
+.buyer-client-wrap h1 #pentagon {
+  stroke: #f0c135;
+  stroke-width: 10px;
+  fill: #f0c135;
+  overflow: visible;
+  float: right;
+  z-index: 0;
+  opacity: 1;
+  stroke-opacity: 1;
+  fill-opacity: 1;
+}
 .seller-client-wrap h1 {
+  z-index: 1;
   margin: 25px;
+  margin-left: 50px;
   font-family: "title";
   font-size: 88px;
   color: #a4dbe8;
   text-shadow: 2px 2px 0px #222222;
   -webkit-box-reflect: below -54px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54)));
   position: absolute;
+}
+.seller-client-wrap h1 .my-logoDiv {
+  position: absolute;
+  z-index: 0;
+  height: 125px;
+  width: 125px;
+  opacity: 1;
+  left: -30px;
+  top: -10px;
+}
+.seller-client-wrap h1 #circle {
+  stroke: #7ac441;
+  stroke-width: 10px;
+  fill: transparent;
+  overflow: visible;
+  float: right;
+  z-index: 0;
+  opacity: 1;
+  stroke-opacity: 1;
+  fill-opacity: 1;
+}
+.seller-client-wrap h1 #square {
+  stroke: #7ac441;
+  stroke-width: 10px;
+  fill: transparent;
+  overflow: visible;
+  float: right;
+  z-index: 0;
+  opacity: 1;
+  stroke-opacity: 1;
+  fill-opacity: 1;
+}
+.seller-client-wrap h1 #triangle {
+  stroke: #7ac441;
+  stroke-width: 10px;
+  fill: transparent;
+  overflow: visible;
+  float: right;
+  z-index: 0;
+  opacity: 1;
+  stroke-opacity: 1;
+  fill-opacity: 1;
+}
+.seller-client-wrap h1 #pentagon {
+  stroke: #7ac441;
+  stroke-width: 10px;
+  fill: transparent;
+  overflow: visible;
+  float: right;
+  z-index: 0;
+  opacity: 1;
+  stroke-opacity: 1;
+  fill-opacity: 1;
 }
 h2 {
   position: absolute;
@@ -110,7 +220,7 @@ h2.theirs {
   margin-left: 15px;
   margin-top: 4px;
   font-size: 72px;
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.5);
   text-shadow: 0px 0px 10px #f0c135;
   font-family: "clock";
 }
@@ -145,13 +255,8 @@ h2.theirs {
   font-size: 60px;
   font-family: "title";
   color: #95ba6a;
-  background: #465726;
-  background: -moz-radial-gradient(center, ellipse cover, #465726 0%, #1d2404 100%);
-  background: -webkit-radial-gradient(center, ellipse cover, #465726 0%, #1d2404 100%);
-  background: -o-radial-gradient(center, ellipse cover, #465726 0%, #1d2404 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #465726 0%, #1d2404 100%);
-  background: radial-gradient(ellipse at center, #465726 0%, #1d2404 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#465726', endColorstr='#1d2404', GradientType=1);
+  background: radial-gradient(ellipse at center, #36561a 0%, #1d2404 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2a4214', endColorstr='#1d2404', GradientType=1);
 }
 .moneyCounter {
   width: 95px;
@@ -182,13 +287,7 @@ h2.theirs {
 .seller-client-wrap {
   width: 1024px;
   height: 768px;
-  background: rgba(70, 87, 38, 0.88);
-  background: -moz-radial-gradient(center, ellipse cover, rgba(70, 186, 38, 0.88) 0%, rgba(29, 36, 4, 0.88) 100%);
-  background: -webkit-radial-gradient(center, ellipse cover, rgba(70, 186, 38, 0.88) 0%, rgba(29, 36, 4, 0.88) 100%);
-  background: -o-radial-gradient(center, ellipse cover, rgba(70, 186, 38, 0.88) 0%, rgba(29, 36, 4, 0.88) 100%);
-  background: -ms-radial-gradient(center, ellipse cover, rgba(70, 186, 38, 0.88) 0%, rgba(29, 36, 4, 0.88) 100%);
-  background: radial-gradient(ellipse at center, rgba(70, 186, 38, 0.88) 0%, rgba(29, 36, 4, 0.88) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='##95ba6a', endColorstr='#1d2404', GradientType=1);
+  background-image: url('../IMAGES/SellerBG.jpg');
 }
 .seller-client-wrap .flex-offers {
   display: -webkit-box;
@@ -449,13 +548,7 @@ h2.theirs {
 .buyer-client-wrap {
   width: 1024px;
   height: 768px;
-  background: #8a5c00;
-  background: -moz-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
-  background: -webkit-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
-  background: -o-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #8a5c00 0%, #3d2c1a 100%);
-  background: radial-gradient(ellipse at center, #8a5c00 0%, #3d2c1a 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8a5c00', endColorstr='#3d2c1a', GradientType=1);
+  background-image: url('../IMAGES/BuyerBG.jpg');
 }
 .buyer-client-wrap .flex-offers {
   display: -webkit-box;

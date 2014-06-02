@@ -3,7 +3,7 @@
 
 //-- Variable Declarations  -- //
 
-var role = "seller";
+var role = "buyer";
 var initHTML;
 var initiated;
 var curScreen;
@@ -36,16 +36,19 @@ $(function () {
 	offerPrice = 1;
 });
 
-$( ".up-arrow" ).click(function() {
-  offerPrice++;
-  $("#price").html(offerPrice);
+
+
+//Adjust my offer/buyer price
+$( ".up-arrow" ).on( "click", function() {
+  	offerPrice++;
+	$("#price").html(offerPrice);
 });
 
-$( ".down-arrow" ).click(function() {
-  if (offerPrice > 1) {
-    offerPrice--;
-    $("#price").html(offerPrice);
-  }
+$( ".down-arrow" ).on( "click", function() {
+  	if (offerPrice > 1) {
+		offerPrice--;
+		$("#price").html(offerPrice);
+	}
 });
 
 // --------------------------- //
