@@ -1,15 +1,5 @@
  
-/* - */
 
-//-- Variable Declarations  -- //
-
-var role = "buyer";
-var initHTML;
-var initiated;
-var curScreen;
-var offerPrice;
-
-// --------------------------- //
 
 $(function () {
 	//Happens only FIRST time program is run
@@ -52,3 +42,19 @@ $( ".down-arrow" ).on( "click", function() {
 });
 
 // --------------------------- //
+
+//Accept Offer
+/*function trade(buyer, offer){
+	sess.call("pit.rpc.accept", [],
+		{
+			bidder: buyer, //{player object}
+			offer: offer//{offer object} 
+		}).then(
+		function(r) {
+			
+		}
+	);
+};
+
+var makeTrade = new trade(person who clicked, offer clicked);
+*/
