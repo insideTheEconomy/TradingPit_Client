@@ -42,7 +42,7 @@ connection.onopen = function(session) {
 	function onTick(args, kwargs, details) {
 		//console.log("Tick", args, kwargs, details);
 		$("#time").html(kwargs.minutes+":"+kwargs.seconds);
-		console.log("tick");
+		//console.log("tick");
 	}
 
 	function onOffer(args, kwargs, details) {	

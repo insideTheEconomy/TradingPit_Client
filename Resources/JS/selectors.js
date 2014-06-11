@@ -11,10 +11,13 @@ $(function () {
 		if (role == "buyer") {
 			$(document.body).load("buyer.html", function() {
 				console.log("LOADED BUYER.HTML");
+				bindArrows();
+				
 			});
 		} else if (role == "seller") {
 			$(document.body).load("seller.html", function() {
 				console.log("LOADED SELLER.HTML");
+				bindArrows();
 			});
 		}
 	} else {
@@ -26,20 +29,24 @@ $(function () {
 	offerPrice = 1;
 });
 
-
-
-//Adjust my offer/buyer price
-$( ".up-arrow" ).on( "click", function() {
-  	offerPrice++;
-	$("#price").html(offerPrice);
-});
-
-$( ".down-arrow" ).on( "click", function() {
-  	if (offerPrice > 1) {
-		offerPrice--;
+var bindArrows = function() {
+	//Adjust my offer/buyer price
+	$( ".up-arrow" ).on( "click", function() {
+	  	offerPrice++;
 		$("#price").html(offerPrice);
-	}
-});
+	});
+
+	$( ".down-arrow" ).on( "click", function() {
+	  	if (offerPrice > 1) {
+			offerPrice--;
+			$("#price").html(offerPrice);
+		}
+	});
+	
+	
+}
+
+
 
 // --------------------------- //
 

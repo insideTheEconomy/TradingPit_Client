@@ -1,9 +1,12 @@
 function WAMP(clientType) {
 	var myShape;
 	
-	this.clientType = clientType;
-	this.prototype = clientType.wampMethods;
+	
 	self = this;
+	self.clientType = clientType;
+	self.callbacks = clientType.wampMethods;
+	self.currentOffers = [];
+	self.myPlayer;
 	
 	try {
 		var autobahn = require('autobahn');
@@ -14,33 +17,35 @@ function WAMP(clientType) {
 	// Set up WAMP connection to router
 	var sess;
 	var connection = new autobahn.Connection({
-		url: 'ws://capricorn.or.gs:8080/ws',
+		url: 'ws://pylos.local:8080/ws',
 		realm: 'tradingpit'
 	});
 	
 	// Set up 'onopen' handler
 	connection.onopen = function(session) {
-		sess = session;
+		self.sess = session;
 		var currentSubscription = null;
 
-		sess.call("pit.rpc.signin", [], {
+		self.sess.call("pit.rpc.signin", [], {
 			name: "QT",
 			position: 0,
 			role: "buyer",
-			id: sess.id,
+			id: self.sess.id,
 			meat: "true"
 		}).then(
 
 		function(r) {
-			sess.subscribe(r.cardURI, self.prototype.onCard);
+			self.sess.subscribe(r.cardURI, self.callbacks.onCard);
 			myShape = r.shape;
 			$(".my-logoDiv").load( "shapes.html  #" + myShape );
+			console.log("This player: ");
+			console.log(r);
 		});
 
 		
 
 		// Subscribe to a topic
-		session.subscribe('pit.pub.offers', self.prototype.onOffer).then(
+		session.subscribe('pit.pub.offers', self.callbacks.onOffer).then(
 
 		function(subscription) {
 			// console.log("subscription successfull", subscription);
@@ -52,7 +57,7 @@ function WAMP(clientType) {
 		}
 
 		);
-		session.subscribe('pit.pub.clock', self.prototype.onTick).then(
+		session.subscribe('pit.pub.clock', self.callbacks.onTick).then(
 
 		function(subscription) {
 			// console.log("subscription successfull", subscription);
@@ -77,21 +82,16 @@ var aiwamp = function() {
 		},
 		// Define an event handler
 		onCard: function(args, kwargs, details){
-			//console.log("CARD",kwargs);
-			$(".value").html(kwargs.reserve);
+			
 		},
 		onTick: function(args, kwargs, details) {
-			//console.log("Tick", args, kwargs, details);
-			$("#time").html(kwargs.minutes+":"+kwargs.seconds);
-			console.log("tick");
+			
 		},
 		onOffer: function(args, kwargs, details) {
-			$.get("offer_template.html", function(d){
-				Mustache.parse(d);
-				var render = Mustache.render(d,kwargs);
-				//console.log(kwargs);
-				$('.flex-offers').html(render);
-			});
+			
+		},
+		onAccept: function(args, kwargs, details) {
+			
 		}
 	}
 	
@@ -105,21 +105,40 @@ var playerwamp = function() {
 		},
 		// Define an event handler
 		onCard: function(args, kwargs, details){
-			//console.log("CARD",kwargs);
+			console.log("CARD", kwargs);
+			
 			$(".value").html(kwargs.reserve);
+			self.myPlayer = kwargs;
 		},
 
 		onTick: function(args, kwargs, details) {
 			//console.log("Tick", args, kwargs, details);
 			$("#time").html(kwargs.minutes+":"+kwargs.seconds);
-			console.log("tick");
+		//	console.log("tick");
 		},
 		onOffer: function(args, kwargs, details) {
+			self.currentOffers = kwargs[opponent];
 			$.get("offer_template.html", function(d){
 				Mustache.parse(d);
 				var render = Mustache.render(d,kwargs);
 				//console.log(kwargs);
 				$('.flex-offers').html(render);
+			});
+			
+		},
+		accept: function(id) {
+			console.log("Accept Offer Request");
+			var offer = self.currentOffers[id%4];
+			console.log("Offer: ", offer, self.sess);
+			self.sess.call("pit.rpc.accept", [],
+			{
+				bidder: self.myPlayer, //{player object}
+				offer: offer//{offer object} 
+			}).then(function(r) {
+				console.log("onAccept return r: ", r);
+			},
+			function(e) {
+				console.log("Error: ", e);
 			});
 		}
 	}

@@ -3,6 +3,7 @@
 //-- Variable Declarations  -- //
 
 var role = "buyer";
+var opponent = "seller";
 var ai = false;
 var w;
 
