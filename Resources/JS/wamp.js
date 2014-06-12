@@ -7,6 +7,7 @@ function WAMP(clientType) {
 	self.callbacks = clientType.wampMethods;
 	self.currentOffers = [];
 	self.myPlayer;
+	self.offer;
 	
 	try {
 		var autobahn = require('autobahn');
@@ -17,7 +18,7 @@ function WAMP(clientType) {
 	// Set up WAMP connection to router
 	var sess;
 	var connection = new autobahn.Connection({
-		url: 'ws://pylos.local:8080/ws',
+		url: 'ws://capricorn.local:8080/ws',
 		realm: 'tradingpit'
 	});
 	
@@ -40,6 +41,10 @@ function WAMP(clientType) {
 			$(".my-logoDiv").load( "shapes.html  #" + myShape );
 			console.log("This player: ");
 			console.log(r);
+			
+			self.sess.call("pit.rpc.offerTemplate").then(function(r){
+				self.offer = r;
+			});
 		});
 
 		
@@ -106,11 +111,10 @@ var playerwamp = function() {
 		// Define an event handler
 		onCard: function(args, kwargs, details){
 			console.log("CARD", kwargs);
-			
+			$(".moneyCounter").html("$"+kwargs.surplus);
 			$(".value").html(kwargs.reserve);
 			self.myPlayer = kwargs;
 		},
-
 		onTick: function(args, kwargs, details) {
 			//console.log("Tick", args, kwargs, details);
 			$("#time").html(kwargs.minutes+":"+kwargs.seconds);
@@ -125,6 +129,12 @@ var playerwamp = function() {
 				$('.flex-offers').html(render);
 			});
 			
+		},
+		submitOffer: function(price) {
+			self.offer.owner = self.myPlayer;
+			self.offer.price = price;
+			console.log("self.offer= ", self.offer);
+			self.sess.call("pit.rpc.offer", [], self.offer);			
 		},
 		accept: function(id) {
 			console.log("Accept Offer Request");

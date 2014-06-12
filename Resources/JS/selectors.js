@@ -43,6 +43,11 @@ var bindArrows = function() {
 		}
 	});
 	
+	$( ".accept" ).on( "click", function() {
+		console.log("Submit Offer @ ", offerPrice);
+	  	w.wampMethods.submitOffer(offerPrice);
+	});
+	
 	
 }
 
