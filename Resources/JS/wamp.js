@@ -46,7 +46,9 @@ function WAMP(clientType) {
 				self.offer = r;
 			});
 		});
-
+		
+		//self.wampMethods.rpcCall("Test RPC Call Function");
+		//w.wampMethods.rpcCall("TEST RPC CALL FUNCTION");
 		
 
 		// Subscribe to a topic
@@ -113,6 +115,7 @@ var playerwamp = function() {
 			console.log("CARD", kwargs);
 			$(".moneyCounter").html("$"+kwargs.surplus);
 			$(".value").html(kwargs.reserve);
+			reserve = kwargs.reserve;
 			self.myPlayer = kwargs;
 		},
 		onTick: function(args, kwargs, details) {
@@ -150,6 +153,9 @@ var playerwamp = function() {
 			function(e) {
 				console.log("Error: ", e);
 			});
+		},
+		rpcCall: function(call) {
+			console.log(call);
 		}
 	}
 	

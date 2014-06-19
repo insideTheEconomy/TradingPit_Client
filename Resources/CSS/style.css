@@ -367,6 +367,15 @@ h2.theirs {
   margin-top: 45px;
   color: #ffffff;
 }
+.seller-client-wrap .seller h4.good-deal {
+  color: #008000;
+}
+.seller-client-wrap .seller h4.bad-deal {
+  color: #ff0000;
+}
+.seller-client-wrap .seller h4.neutral-deal {
+  color: #ffff00;
+}
 .seller-client-wrap .seller .svg-logo {
   float: left;
   width: 30%;
@@ -627,6 +636,15 @@ h2.theirs {
   margin-left: 105px;
   margin-top: 45px;
   color: #ffffff;
+}
+.buyer-client-wrap .seller h4.good-deal {
+  color: #008000;
+}
+.buyer-client-wrap .seller h4.bad-deal {
+  color: #ff0000;
+}
+.buyer-client-wrap .seller h4.neutral-deal {
+  color: #ffff00;
 }
 .buyer-client-wrap .seller .svg-logo {
   float: left;

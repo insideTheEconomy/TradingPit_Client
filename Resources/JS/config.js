@@ -11,6 +11,6 @@ var initHTML;
 var initiated;
 var curScreen;
 var offerPrice;
-
+var reserve;
 
 // --------------------------- //

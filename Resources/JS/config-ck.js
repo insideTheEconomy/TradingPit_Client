@@ -1,2 +1,2 @@
 /* - *///-- Variable Declarations  -- //
-var role="buyer",ai=!1,w,initHTML,initiated,curScreen,offerPrice;
+var role="buyer",opponent="seller",ai=!1,w,initHTML,initiated,curScreen,offerPrice,reserve;
