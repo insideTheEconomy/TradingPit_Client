@@ -26,29 +26,8 @@ function WAMP(clientType) {
 	connection.onopen = function(session) {
 		self.sess = session;
 		var currentSubscription = null;
-
-		self.sess.call("pit.rpc.signin", [], {
-			name: "QT",
-			position: 0,
-			role: "buyer",
-			id: self.sess.id,
-			meat: "true"
-		}).then(
-
-		function(r) {
-			self.sess.subscribe(r.cardURI, self.callbacks.onCard);
-			myShape = r.shape;
-			$(".my-logoDiv").load( "shapes.html  #" + myShape );
-			console.log("This player: ");
-			console.log(r);
-			
-			self.sess.call("pit.rpc.offerTemplate").then(function(r){
-				self.offer = r;
-			});
-		});
 		
-		//self.wampMethods.rpcCall("Test RPC Call Function");
-		//w.wampMethods.rpcCall("TEST RPC CALL FUNCTION");
+		w.wampMethods.rpcCall("signin");
 		
 
 		// Subscribe to a topic
@@ -136,26 +115,51 @@ var playerwamp = function() {
 		submitOffer: function(price) {
 			self.offer.owner = self.myPlayer;
 			self.offer.price = price;
-			console.log("self.offer= ", self.offer);
-			self.sess.call("pit.rpc.offer", [], self.offer);			
+			console.log("self.offer= ", self.offer);	
+			w.wampMethods.rpcCall("offer");	
 		},
 		accept: function(id) {
 			console.log("Accept Offer Request");
 			var offer = self.currentOffers[id%4];
 			console.log("Offer: ", offer, self.sess);
-			self.sess.call("pit.rpc.accept", [],
-			{
-				bidder: self.myPlayer, //{player object}
-				offer: offer//{offer object} 
-			}).then(function(r) {
-				console.log("onAccept return r: ", r);
-			},
-			function(e) {
-				console.log("Error: ", e);
-			});
+			w.wampMethods.rpcCall("accept");	
 		},
 		rpcCall: function(call) {
 			console.log(call);
+			if (call == "signin") {
+				self.sess.call("pit.rpc.signin", [], {
+					name: "QT",
+					position: 0,
+					role: "buyer",
+					id: self.sess.id,
+					meat: "true"
+				}).then(
+
+				function(r) {
+					self.sess.subscribe(r.cardURI, self.callbacks.onCard);
+					myShape = r.shape;
+					$(".my-logoDiv").load( "shapes.html  #" + myShape );
+					console.log("This player: ");
+					console.log(r);
+
+					self.sess.call("pit.rpc.offerTemplate").then(function(r){
+						self.offer = r;
+					});
+				});
+			} else if (call == "offer") {
+				self.sess.call("pit.rpc.offer", [], self.offer);
+			} else if (call == "accept") {
+				self.sess.call("pit.rpc.accept", [],
+				{
+					bidder: self.myPlayer, //{player object}
+					offer: offer//{offer object} 
+				}).then(function(r) {
+					console.log("onAccept return r: ", r);
+				},
+				function(e) {
+					console.log("Error: ", e);
+				});
+			}
 		}
 	}
 	

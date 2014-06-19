@@ -13,7 +13,7 @@
 		//Set Color of Price
 		if ({{price}} < reserve) {
 			$("h4.{{owner.position}}").addClass("good-deal");
-		} if ({{price}} > reserve) {
+		} else if ({{price}} > reserve) {
 			$("h4.{{owner.position}}").addClass("bad-deal");
 		} else {
 			$("h4.{{owner.position}}").addClass("neutral-deal");
