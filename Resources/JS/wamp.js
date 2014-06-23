@@ -110,7 +110,6 @@ var playerwamp = function() {
 				//console.log(kwargs);
 				$('.flex-offers').html(render);
 			});
-			
 		},
 		submitOffer: function(price) {
 			self.offer.owner = self.myPlayer;
@@ -134,7 +133,6 @@ var playerwamp = function() {
 					id: self.sess.id,
 					meat: "true"
 				}).then(
-
 				function(r) {
 					self.sess.subscribe(r.cardURI, self.callbacks.onCard);
 					myShape = r.shape;
@@ -151,8 +149,8 @@ var playerwamp = function() {
 			} else if (call == "accept") {
 				self.sess.call("pit.rpc.accept", [],
 				{
-					bidder: self.myPlayer, //{player object}
-					offer: offer//{offer object} 
+					bidder: self.myPlayer, 	//{player object}
+					offer: offer 			//{offer object} 
 				}).then(function(r) {
 					console.log("onAccept return r: ", r);
 				},
