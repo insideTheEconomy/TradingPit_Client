@@ -127,11 +127,14 @@ var playerwamp = function() {
 			console.log(call);
 			if (call == "signin") {
 				self.sess.call("pit.rpc.signin", [], {
-					name: "QT",
-					position: 0,
-					role: "buyer",
 					id: self.sess.id,
-					meat: "true"
+					player: {
+						role: "buyer",
+						position: 0,
+						id: self.sess.id,
+						meat: "true",
+						name: "QT"
+					}
 				}).then(
 				function(r) {
 					self.sess.subscribe(r.cardURI, self.callbacks.onCard);
@@ -145,11 +148,14 @@ var playerwamp = function() {
 					});
 				});
 			} else if (call == "offer") {
-				self.sess.call("pit.rpc.offer", [], self.offer);
+				self.sess.call("pit.rpc.offer", [], {
+					id: self.sess.id,
+					offer: self.offer
+				});
 			} else if (call == "accept") {
 				self.sess.call("pit.rpc.accept", [],
 				{
-					bidder: self.myPlayer, 	//{player object}
+					id: self.sess.id,
 					offer: offer 			//{offer object} 
 				}).then(function(r) {
 					console.log("onAccept return r: ", r);
