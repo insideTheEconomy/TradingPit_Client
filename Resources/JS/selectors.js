@@ -34,39 +34,24 @@ var bindArrows = function() {
 	$( ".up-arrow" ).on( "click", function() {
 	  	offerPrice++;
 		$("#price").html(offerPrice);
+		$(".greyed").removeClass("greyed");
 	});
 
 	$( ".down-arrow" ).on( "click", function() {
 	  	if (offerPrice > 1) {
 			offerPrice--;
 			$("#price").html(offerPrice);
+			$(".greyed").removeClass("greyed");
 		}
 	});
 	
 	$( ".accept" ).on( "click", function() {
 		console.log("Submit Offer @ ", offerPrice);
+		$(this).addClass("greyed");
 	  	w.wampMethods.submitOffer(offerPrice);
+		offerPrice = 1;
+		$("#price").html(offerPrice);
 	});
 	
 	
 }
-
-
-
-// --------------------------- //
-
-//Accept Offer
-/*function trade(buyer, offer){
-	sess.call("pit.rpc.accept", [],
-		{
-			bidder: buyer, //{player object}
-			offer: offer//{offer object} 
-		}).then(
-		function(r) {
-			
-		}
-	);
-};
-
-var makeTrade = new trade(person who clicked, offer clicked);
-*/

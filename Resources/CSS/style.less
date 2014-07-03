@@ -707,7 +707,7 @@ h2 {
 
 	& .your-offer {
 		background-color:rgba(0,0,0,0.5);
-
+ 
 		position:absolute;
 		height:398px;
 		width:340px;
@@ -1001,7 +1001,18 @@ h2 {
 	background: -webkit-linear-gradient(top, #070047 15%,#10069f 40%,#1E2989 50%,#10069f 60%,#070047 85%);
 	box-shadow: 0px 0px 15px 0px #A4DBE8;
 	color:#A4DBE8;
+	transition: all 0.5s ease;
+	
+	&.greyed {
+		border:2px solid black;
+		background: -webkit-linear-gradient(top, #D9D9D9 15%,#B8B8B8 40%,#969696 50%,#B8B8B8 60%,#D9D9D9 85%);
+		box-shadow: 0px 0px 15px 0px transparent;
+		color:#4D4D4D;
+		text-shadow: 0px 0px 0px transparent;
+		transition: all 0.5s ease;
+	}
 }
+
 
 .accept:active {
 	background: -webkit-linear-gradient(top, #002487 0%,#0758af 28%,#0758af 28%,#2c69cc 51%,#0758af 79%,#002487 99%);

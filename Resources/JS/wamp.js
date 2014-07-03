@@ -8,17 +8,20 @@ function WAMP(clientType) {
 	self.currentOffers = [];
 	self.myPlayer;
 	self.offer;
+	self.acceptedOffer;
 	
-	try {
+	/*try {
 		var autobahn = require('autobahn');
-	} catch (e) {
+	} catch (e) { 
 		// when running in browser, AutobahnJS will be included without a module system.
-	}
+	}*/
+	
+	
 	
 	// Set up WAMP connection to router
 	var sess;
 	var connection = new autobahn.Connection({
-		url: 'ws://capricorn.local:8080/ws',
+		url: url,
 		realm: 'tradingpit'
 	});
 	
@@ -26,6 +29,7 @@ function WAMP(clientType) {
 	connection.onopen = function(session) {
 		self.sess = session;
 		var currentSubscription = null;
+		self.sess.subscribe("pit.pub."+self.sess.id, self.callbacks.onCard);
 		
 		w.wampMethods.rpcCall("signin");
 		
@@ -94,6 +98,8 @@ var playerwamp = function() {
 			console.log("CARD", kwargs);
 			$(".moneyCounter").html("$"+kwargs.surplus);
 			$(".value").html(kwargs.reserve);
+			
+			$(".greyed").removeClass("greyed");
 			reserve = kwargs.reserve;
 			self.myPlayer = kwargs;
 		},
@@ -104,7 +110,7 @@ var playerwamp = function() {
 		},
 		onOffer: function(args, kwargs, details) {
 			self.currentOffers = kwargs[opponent];
-			$.get("offer_template.html", function(d){
+			$.get(role+"_template.html", function(d){
 				Mustache.parse(d);
 				var render = Mustache.render(d,kwargs);
 				//console.log(kwargs);
@@ -118,9 +124,7 @@ var playerwamp = function() {
 			w.wampMethods.rpcCall("offer");	
 		},
 		accept: function(id) {
-			console.log("Accept Offer Request");
-			var offer = self.currentOffers[id%4];
-			console.log("Offer: ", offer, self.sess);
+			self.acceptedOffer = self.currentOffers[id%4];
 			w.wampMethods.rpcCall("accept");	
 		},
 		rpcCall: function(call) {
@@ -129,34 +133,33 @@ var playerwamp = function() {
 				self.sess.call("pit.rpc.signin", [], {
 					id: self.sess.id,
 					player: {
-						role: "buyer",
-						position: 0,
+						role: role,
+						position: position,
 						id: self.sess.id,
 						meat: "true",
 						name: "QT"
 					}
 				}).then(
 				function(r) {
-					self.sess.subscribe(r.cardURI, self.callbacks.onCard);
 					myShape = r.shape;
 					$(".my-logoDiv").load( "shapes.html  #" + myShape );
-					console.log("This player: ");
-					console.log(r);
-
+					
 					self.sess.call("pit.rpc.offerTemplate").then(function(r){
 						self.offer = r;
 					});
 				});
 			} else if (call == "offer") {
+				
 				self.sess.call("pit.rpc.offer", [], {
 					id: self.sess.id,
 					offer: self.offer
 				});
 			} else if (call == "accept") {
+				console.log("RPC CALL self.acceptedOffer= ", self.acceptedOffer);
 				self.sess.call("pit.rpc.accept", [],
 				{
 					id: self.sess.id,
-					offer: offer 			//{offer object} 
+					offer: self.acceptedOffer 			//{offer object} 
 				}).then(function(r) {
 					console.log("onAccept return r: ", r);
 				},

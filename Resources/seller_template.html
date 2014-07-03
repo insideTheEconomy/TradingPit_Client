@@ -1,4 +1,5 @@
-{{#seller}}
+{{#buyer}}
+{{#price}}
 <div id = "card" class = "seller">
 	<h3>{{owner.name}} GRAIN LTD</h3>
 	<img class="svg-logo" src="IMAGES/wheat-seller.svg">
@@ -7,25 +8,30 @@
 	<div class="accept {{owner.position}}" position="{{owner.position}}">Accept</div>
 	
 	<script>
+		var cardPrice = {{price}};
+		var ownerPosition = {{owner.position}};
+		var ownerShape = {{owner.shape}};
+		
+		
 		//Set owners shape on offer card
-		$(".logoDiv{{owner.position}}").load( "shapes.html  #{{owner.shape}}" );
+		$(".logoDiv"+ownerPosition).load( "shapes.html  #"+ownerShape);
 		
 		//Set Color of Price
 		if ({{price}} < reserve) {
-			$("h4.{{owner.position}}").addClass("good-deal");
-		} else if ({{price}} > reserve) {
 			$("h4.{{owner.position}}").addClass("bad-deal");
+		} else if ({{price}} > reserve) {
+			$("h4."+ownerPosition).addClass("good-deal");
 		} else {
 			$("h4.{{owner.position}}").addClass("neutral-deal");
 		}
 		
 		//What to do if player accepts offer
 		$( ".accept.{{owner.position}}" ).on( "click", function() {
-		  	console.log("Clicked Accept Button");
-			console.log(this);
+			console.log("Clicked Accept: ",this);
 			var id = $(this).attr("position");
 			w.wamp.callbacks.accept(id);
 		});
 	</script>
 </div>
-{{/seller}}
+{{/price}}
+{{/buyer}}
