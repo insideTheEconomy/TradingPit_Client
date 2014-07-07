@@ -96,7 +96,14 @@ var playerwamp = function() {
 		// Define an event handler
 		onCard: function(args, kwargs, details){
 			console.log("CARD", kwargs);
+			
 			$(".moneyCounter").html("$"+kwargs.surplus);
+			$(".dollar").addClass("anim");
+			setTimeout(function() 
+			{
+				$(".dollar").removeClass("anim"); 
+			}, 220);
+			
 			$(".value").html(kwargs.reserve);
 			
 			$(".greyed").removeClass("greyed");
@@ -106,14 +113,12 @@ var playerwamp = function() {
 		onTick: function(args, kwargs, details) {
 			//console.log("Tick", args, kwargs, details);
 			$("#time").html(kwargs.minutes+":"+kwargs.seconds);
-		//	console.log("tick");
 		},
 		onOffer: function(args, kwargs, details) {
 			self.currentOffers = kwargs[opponent];
 			$.get(role+"_template.html", function(d){
 				Mustache.parse(d);
 				var render = Mustache.render(d,kwargs);
-				//console.log(kwargs);
 				$('.flex-offers').html(render);
 			});
 		},
