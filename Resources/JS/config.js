@@ -8,6 +8,7 @@ var position;
 var ai;
 var w;
 var url;
+var phase = 0;
 
 var initHTML;
 var initiated;
@@ -32,8 +33,8 @@ try{
 }
 catch(e){
 	console.log("Using DEFAULT cfg: ", e);
-	role = "buyer";
-	opponent = "seller";
+	role = "seller";
+	opponent = "buyer";
 	position = 0;
 	ai = false;
 }
