@@ -8,13 +8,14 @@ var position;
 var ai;
 var w;
 var url;
-var phase = 0;
+var curScreen;
 
 var initHTML;
 var initiated;
 var curScreen;
 var offerPrice;
 var reserve;
+var name;
 
 // --------------------------- //
 
@@ -30,6 +31,8 @@ try{
 	position = settings.position;
 	ai = settings.ai;
 	url = settings.url;
+	curScreen = settings.curScreen;
+	name = "---;"
 }
 catch(e){
 	console.log("Using DEFAULT cfg: ", e);
@@ -37,6 +40,7 @@ catch(e){
 	opponent = "buyer";
 	position = 0;
 	ai = false;
+	phase = 0;
 }
 
 // --------------------------- //

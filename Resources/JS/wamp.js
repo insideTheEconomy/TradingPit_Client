@@ -142,7 +142,7 @@ var playerwamp = function() {
 						position: position,
 						id: self.sess.id,
 						meat: "true",
-						name: "QT"
+						name: name
 					}
 				}).then(
 				function(r) {
