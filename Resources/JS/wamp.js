@@ -31,36 +31,38 @@ function WAMP(clientType) {
 		var currentSubscription = null;
 		self.sess.subscribe("pit.pub."+self.sess.id, self.callbacks.onCard);
 		
-		w.wampMethods.rpcCall("signin");
+		// sign in later
+		//w.wampMethods.rpcCall("signin");
 		
 
-		// Subscribe to a topic
+		// Subscribe to offers
 		session.subscribe('pit.pub.offers', self.callbacks.onOffer).then(
-
-		function(subscription) {
-			// console.log("subscription successfull", subscription);
-			currentSubscription = subscription;
-		},
-
-		function(error) {
-			//console.log("subscription failed", error);
-		}
-
-		);
+			function(subscription) {
+				// console.log("subscription successfull", subscription);
+				currentSubscription = subscription;
+			}, function(error) {
+				//console.log("subscription failed", error);
+			});
+		
+		
+		// Subscribe to clock
 		session.subscribe('pit.pub.clock', self.callbacks.onTick).then(
-
-		function(subscription) {
-			// console.log("subscription successfull", subscription);
-			currentSubscription = subscription;
-		},
-
-		function(error) {
-			//console.log("subscription failed", error);
-		}
-
-		);
+			function(subscription) {
+				// console.log("subscription successfull", subscription);
+				currentSubscription = subscription;
+			}, function(error) {
+				//console.log("subscription failed", error);
+			});
+		
+		// Subscribe to phases
+		session.subscribe('pit.pub.phase', self.callbacks.onPhase).then(
+			function(subscription) {
+				// console.log("subscription successfull", subscription);
+				currentSubscription = subscription;
+			}, function(error) {
+				//console.log("subscription failed", error);
+			});
 	};
-
 	// Open connection
 	connection.open();
 }
@@ -78,6 +80,9 @@ var aiwamp = function() {
 			
 		},
 		onOffer: function(args, kwargs, details) {
+			
+		},
+		onPhase: function() {
 			
 		},
 		onAccept: function(args, kwargs, details) {
@@ -112,7 +117,12 @@ var playerwamp = function() {
 		},
 		onTick: function(args, kwargs, details) {
 			//console.log("Tick", args, kwargs, details);
-			$("#time").html(kwargs.minutes+":"+kwargs.seconds);
+			if (curScreen == 0) {
+				$(".idletime").html(kwargs.minutes+":"+kwargs.seconds);
+			} else if (curScreen == 2) {
+				$("#time").html(kwargs.minutes+":"+kwargs.seconds);
+			}
+			
 		},
 		onOffer: function(args, kwargs, details) {
 			self.currentOffers = kwargs[opponent];
@@ -125,6 +135,7 @@ var playerwamp = function() {
 		submitOffer: function(price) {
 			self.offer.owner = self.myPlayer;
 			self.offer.price = price;
+			self.offer.name = name;
 			console.log("self.offer= ", self.offer);	
 			w.wampMethods.rpcCall("offer");	
 		},
@@ -132,9 +143,12 @@ var playerwamp = function() {
 			self.acceptedOffer = self.currentOffers[id%4];
 			w.wampMethods.rpcCall("accept");	
 		},
+		onPhase: function(args, kwargs, details) {
+			console.log("Action: ", kwargs.action, "  Name: ", kwargs.name);
+		},
 		rpcCall: function(call) {
-			console.log(call);
 			if (call == "signin") {
+				console.log(call);
 				self.sess.call("pit.rpc.signin", [], {
 					id: self.sess.id,
 					player: {
