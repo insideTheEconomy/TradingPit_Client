@@ -33,38 +33,37 @@ var changeScreen = function() {
 	if (curScreen == 0) { // Pre-Sign In Idle
 		if (role == "buyer") {
 			$(document.body).load("buyer-idle.html", function() {
-				console.log("Loaded Buyer // Attract Loop");
 				bindArrows();
+				if (name == "null") {
+					$(".accept").removeClass("greyed");
+				} else {
+					$(".accept").addClass("greyed");
+				}
 			});
 		} else if (role == "seller") {
 			$(document.body).load("seller-idle.html", function() {
-				console.log("Loaded Seller // Attract Loop");
 				bindArrows();
 			});
 		}
 	} else if (curScreen == 1) { // Sign In
 		if (role == "buyer") {
 			$(document.body).load("buyer-signin.html", function() {
-				console.log("Loaded Buyer // Sign In");
 				bindArrows();
 			});
 		} else if (role == "seller") {
 			$(document.body).load("seller-signin.html", function() {
-				console.log("Loaded Seller // Sign In");
 				bindArrows();
 			});
 		}
 	} else if (curScreen == 2) { // Gameplay
 		if (role == "buyer") {
 			$(document.body).load("buyer.html", function() {
-				console.log("Loaded Buyer // Gameplay");
 				$(".namehere").prepend(name);
 				bindArrows();
 				w.wampMethods.rpcCall("signin");
 			});
 		} else if (role == "seller") {
 			$(document.body).load("seller.html", function() {
-				console.log("Loaded Seller // Gameplay");
 				$(".namehere").prepend(name);
 				bindArrows();
 				w.wampMethods.rpcCall("signin");
@@ -78,7 +77,6 @@ var bindArrows = function() {
 		$( ".accept" ).on( "click", function() {
 			curScreen = 1;
 			changeScreen();
-			console.log("bindArrows curScreen = 0");
 		});
 	} else if (curScreen == 1) {
 		console.log("Bind Keyboard");
@@ -154,8 +152,8 @@ var typeLetter = function(k) {
 			} else if (lettersTyped == 1) {
 				name = $("h1.signin").text().slice(0,-2);
 			}
-			console.log("Submitted Name: ", name);
-			curScreen = 2;
+			console.log("Name=", name);
+			curScreen = 0;
 			changeScreen();
 		}
 	}

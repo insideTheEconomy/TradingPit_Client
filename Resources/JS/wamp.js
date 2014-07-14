@@ -144,7 +144,61 @@ var playerwamp = function() {
 			w.wampMethods.rpcCall("accept");	
 		},
 		onPhase: function(args, kwargs, details) {
-			console.log("Action: ", kwargs.action, "  Name: ", kwargs.name);
+			if (kwargs.action == "enter") {
+				switch(kwargs.name){
+					
+					case "setup":
+						console.log("E setup");
+						phase = 0;
+						break;
+						
+					case "Round":
+						console.log("E Round");
+						phase = 1;
+						if (name != "null") {
+							curScreen = 2;
+							changeScreen();
+							
+						} else {
+							//w.wampMethods.rpcCall("signin");
+						}
+						break;
+						
+					case "Wrap-up":
+						console.log("E Wrap-up");
+						phase = 2;
+						curScreen = 0;
+						changeScreen();
+						break;
+						
+					case "Recap":
+						console.log("E Recap");
+						phase = 3;
+						break;
+						
+				}
+			} else {
+				switch(kwargs.name){
+					
+					case "setup":
+						console.log("X setup");
+						break;
+						
+					case "Round":
+						console.log("X Round");
+						break;
+						
+					case "Wrap-up":
+						console.log("X Wrap-up");
+						break;
+						
+					case "Recap":
+						console.log("X Recap");
+						break;
+						
+				}
+			}
+			
 		},
 		rpcCall: function(call) {
 			if (call == "signin") {
@@ -194,10 +248,8 @@ var playerwamp = function() {
 
 if (ai) {
 	w = new aiwamp();
-	//w.wamp.prototype.test();
 } else {
 	w = new playerwamp();
-	//w.wamp.prototype.test();
 }
 
 

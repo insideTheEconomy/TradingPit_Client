@@ -32,7 +32,7 @@ try{
 	ai = settings.ai;
 	url = settings.url;
 	curScreen = settings.curScreen;
-	name = "---;"
+	name = "null";
 }
 catch(e){
 	console.log("Using DEFAULT cfg: ", e);
