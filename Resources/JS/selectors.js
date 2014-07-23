@@ -7,19 +7,6 @@ $(function () {
 		initHTML = $(document.body).html();
 		initiated = true;
 		
-		/*if (role == "buyer") {
-			$(document.body).load("buyer.html", function() {
-				console.log("LOADED BUYER.HTML");
-				bindArrows();
-				
-			});
-		} else if (role == "seller") {
-			$(document.body).load("seller.html", function() {
-				console.log("LOADED SELLER.HTML");
-				bindArrows();
-			});
-		}*/
-		
 		changeScreen();
 		lettersTyped = 0
 	} else {
@@ -56,17 +43,25 @@ var changeScreen = function() {
 			});
 		}
 	} else if (curScreen == 2) { // Gameplay
+			if (role == "buyer") {
+				$(document.body).load("buyer-wait.html", function() {
+					bindArrows();
+				});
+			} else if (role == "seller") {
+				$(document.body).load("seller-wait.html", function() {
+					bindArrows(); 
+				});
+			}
+	} else if (curScreen == 3) { // Gameplay
 		if (role == "buyer") {
 			$(document.body).load("buyer.html", function() {
 				$(".namehere").prepend(name);
 				bindArrows();
-				w.wampMethods.rpcCall("signin");
 			});
 		} else if (role == "seller") {
 			$(document.body).load("seller.html", function() {
 				$(".namehere").prepend(name);
 				bindArrows();
-				w.wampMethods.rpcCall("signin");
 			});
 		}
 	}
@@ -84,7 +79,7 @@ var bindArrows = function() {
 			var keyPressed = $(this).text();
 			typeLetter(keyPressed);
 		});
-	} else if (curScreen == 2) {
+	} else if (curScreen == 3) {
 		//Adjust my offer/buyer price
 		$( ".up-arrow" ).on( "click", function() {
 			offerPrice++;
@@ -153,7 +148,7 @@ var typeLetter = function(k) {
 				name = $("h1.signin").text().slice(0,-2);
 			}
 			console.log("Name=", name);
-			curScreen = 0;
+			curScreen = 2;
 			changeScreen();
 		}
 	}

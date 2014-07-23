@@ -17,7 +17,6 @@ function WAMP(clientType) {
 	}*/
 	
 	
-	
 	// Set up WAMP connection to router
 	var sess;
 	var connection = new autobahn.Connection({
@@ -117,12 +116,11 @@ var playerwamp = function() {
 		},
 		onTick: function(args, kwargs, details) {
 			//console.log("Tick", args, kwargs, details);
-			if (curScreen == 0) {
+			if (curScreen == 0 || curScreen == 2) {
 				$(".idletime").html(kwargs.minutes+":"+kwargs.seconds);
-			} else if (curScreen == 2) {
+			} else if (curScreen == 3) {
 				$("#time").html(kwargs.minutes+":"+kwargs.seconds);
 			}
-			
 		},
 		onOffer: function(args, kwargs, details) {
 			self.currentOffers = kwargs[opponent];
@@ -144,35 +142,35 @@ var playerwamp = function() {
 			w.wampMethods.rpcCall("accept");	
 		},
 		onPhase: function(args, kwargs, details) {
+			console.log("onPhase: ", kwargs);
 			if (kwargs.action == "enter") {
 				switch(kwargs.name){
 					
-					case "setup":
-						console.log("E setup");
+					case "Setup":
 						phase = 0;
 						break;
 						
 					case "Round":
-						console.log("E Round");
 						phase = 1;
 						if (name != "null") {
-							curScreen = 2;
+							curScreen = 3;
 							changeScreen();
-							
+							console.log("RPC Signin CALL");
+							w.wampMethods.rpcCall("signin");
 						} else {
-							//w.wampMethods.rpcCall("signin");
+							//
 						}
 						break;
 						
 					case "Wrap-up":
-						console.log("E Wrap-up");
-						phase = 2;
-						curScreen = 0;
-						changeScreen();
+						if (name != "null") {
+							phase = 2;
+							curScreen = 2;
+							changeScreen();
+						}
 						break;
 						
 					case "Recap":
-						console.log("E Recap");
 						phase = 3;
 						break;
 						
@@ -180,20 +178,16 @@ var playerwamp = function() {
 			} else {
 				switch(kwargs.name){
 					
-					case "setup":
-						console.log("X setup");
+					case "Setup":
 						break;
 						
 					case "Round":
-						console.log("X Round");
 						break;
 						
 					case "Wrap-up":
-						console.log("X Wrap-up");
 						break;
 						
 					case "Recap":
-						console.log("X Recap");
 						break;
 						
 				}
@@ -202,7 +196,7 @@ var playerwamp = function() {
 		},
 		rpcCall: function(call) {
 			if (call == "signin") {
-				console.log(call);
+				console.log("RPC Signin RECIEVED")
 				self.sess.call("pit.rpc.signin", [], {
 					id: self.sess.id,
 					player: {
@@ -212,8 +206,8 @@ var playerwamp = function() {
 						meat: "true",
 						name: name
 					}
-				}).then(
-				function(r) {
+				}).then(function(r){
+					console.log("Signed In Successfully: ", r);
 					myShape = r.shape;
 					$(".my-logoDiv").load( "shapes.html  #" + myShape );
 					
@@ -222,7 +216,6 @@ var playerwamp = function() {
 					});
 				});
 			} else if (call == "offer") {
-				
 				self.sess.call("pit.rpc.offer", [], {
 					id: self.sess.id,
 					offer: self.offer
@@ -242,7 +235,6 @@ var playerwamp = function() {
 			}
 		}
 	}
-	
 	this.wamp = new WAMP(this);
 }
 

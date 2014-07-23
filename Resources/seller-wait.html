@@ -1,0 +1,103 @@
+<div class="seller-client-wrap">	
+	<div id="headerWrap">
+		<h1 style="-webkit-box-reflect: below -54px -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(12%,transparent),to(transparent));" class="wait namehere">
+			GRAINS INC.
+		</h1>
+		
+		<h1 style="width: 500px; -webkit-box-reflect: below -54px -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(12%,transparent),to(transparent)); margin-top:215px;top:285px; margin-left: 140px;" class="idle">
+			YOUR JOB
+		</h1>
+	</div>
+	
+	<div class="timerWrap idle" style="width:415px; left: 65px; top: 60px;">
+		Your company name is
+	</div>
+	
+	<div class="tipWrap idle" style="font-size:31px; line-height:45px; top:160px; left:200px;">
+		You're selling bushels of wheat<br/>
+		on behalf of a farmers' association.
+	</div>
+	
+	<div class="tipWrap idle" style="font-size:31px; line-height:45px; top:315px; left:310px;">
+		The farmers want to lock in a<br/>
+		good price before the harvest.
+	</div>
+	
+	<div class="tipWrap idle" style="font-size:31px; top:470px; left:430px;" >
+		Sell as much wheat as you can at the best price possible.
+	</div>
+	
+	<div class="timerWrap idle" style="top:640px;">
+		Joining<br/>game in
+	</div>
+
+	<div class="idletime idle" style="top:614px;">
+		0:00
+	</div>
+</div>
+
+<script>
+	if (name == "null") {
+		
+	} else {
+		$(".namehere").prepend(name);
+	}
+	
+	var cycle = 0;
+	var cycleTips = function() {
+		$(".tipWrap").each(function(i, v) {
+			var l = parseInt($(this).css("left").slice(0,-2));
+			console.log(i);
+			$(this).tween({
+			   left:{
+			      start: l,
+			      stop: l-1100,
+			      time: 2+i,
+			      duration: 1,
+			      units: 'px',
+			      effect: 'easeInOut',
+				  onStart: function( element, state ) {
+					if (i == 2) {
+						$("h1.idle").tween({
+						   "margin-left":{
+						      start: parseInt($("h1.idle").css("margin-left")),
+						      stop: parseInt($("h1.idle").css("margin-left"))-1100,
+						      time: 0,
+						      duration: 1,
+						      units: 'px',
+						      effect: 'easeInOut',
+							  onStop: function( element, state) {
+								
+								if (cycle == 0) {
+									$(".tipWrap").each(function(i, v) {
+										switch (i) {
+											case 0:
+												$(this).css("left", 1300);
+												break;
+											case 1:
+												$(this).css("left", 1410);
+												break;
+											case 2:
+												$(this).css("left", 1530);
+												$("h1.idle").css("margin-left", 1240);
+												break;
+										}
+									});
+									cycle = 1;
+									cycleTips();
+								} else if (cycle == 1) {
+									cycle = 0;
+									cycleTips();
+								}
+							  }
+						   }
+						}).play();
+					}
+				  }
+			   }
+			}).play();
+		});
+	}
+	
+	cycleTips();
+</script>

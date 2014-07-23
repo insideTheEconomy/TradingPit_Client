@@ -67,6 +67,11 @@ body {
 .buyer-client-wrap h1.idle {
   margin-left: 270px;
 }
+.buyer-client-wrap h1.wait {
+  margin-left: 540px;
+  margin-top: 45px;
+  width: 500px;
+}
 .buyer-client-wrap h1.signin {
   margin: 0px;
   left: 625px;
@@ -144,6 +149,11 @@ body {
 }
 .seller-client-wrap h1.idle {
   margin-left: 270px;
+}
+.seller-client-wrap h1.wait {
+  margin-left: 540px;
+  margin-top: 45px;
+  width: 500px;
 }
 .seller-client-wrap h1.signin {
   margin: 0px;
@@ -278,7 +288,7 @@ h2.theirs {
   margin-left: 15px;
   margin-top: 4px;
   font-size: 72px;
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.5);
   text-shadow: 0px 0px 10px #00FF00;
   font-family: "clock";
 }
@@ -321,7 +331,7 @@ h2.theirs {
   margin-left: 15px;
   margin-top: 4px;
   font-size: 72px;
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.5);
   text-shadow: 0px 0px 10px #00FF00;
   font-family: "clock";
 }
@@ -487,7 +497,7 @@ h2.theirs {
 }
 .seller-client-wrap .seller .svg-logo {
   float: left;
-  width: 30%;
+  width: 40%;
   height: 68%;
   margin: 5px;
 }
@@ -584,7 +594,7 @@ h2.theirs {
 }
 .seller-client-wrap .your-offer-card .svg-logo {
   float: left;
-  width: 30%;
+  width: 40%;
   height: 50%;
   margin: 5px;
   margin-right: 20px;
@@ -757,7 +767,7 @@ h2.theirs {
 }
 .buyer-client-wrap .seller .svg-logo {
   float: left;
-  width: 30%;
+  width: 40%;
   height: 68%;
   margin: 5px;
 }
@@ -854,7 +864,7 @@ h2.theirs {
 }
 .buyer-client-wrap .your-offer-card .svg-logo {
   float: left;
-  width: 30%;
+  width: 40%;
   height: 50%;
   margin: 5px;
   margin-right: 20px;
@@ -1083,9 +1093,11 @@ h2.theirs {
   top: -10px;
 }
 .buyer-client-wrap .valueWrap h3 {
+  text-align: right;
   position: absolute;
-  left: 145px;
-  top: 10px;
+  left: 30px;
+  top: -5px;
+  font-size: 30px;
 }
 .buyer-client-wrap .valueWrap h4 {
   position: absolute;
@@ -1112,14 +1124,16 @@ h2.theirs {
 }
 .seller-client-wrap .valueWrap .svg-logo {
   position: absolute;
-  height: 100%;
-  left: 165px;
-  top: 0px;
+  height: 70%;
+  left: 22px;
+  top: 53px;
 }
 .seller-client-wrap .valueWrap h3 {
+  text-align: right;
   position: absolute;
   left: 20px;
-  top: 10px;
+  top: -5px;
+  font-size: 30px;
 }
 .seller-client-wrap .valueWrap h4 {
   position: absolute;
@@ -1127,6 +1141,6 @@ h2.theirs {
   font-size: 4em;
   margin: 0px;
   margin-top: 33px;
-  left: 90px;
+  left: 225px;
   color: #95ba6a;
 }
