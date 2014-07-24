@@ -56,11 +56,13 @@ var changeScreen = function() {
 		if (role == "buyer") {
 			$(document.body).load("buyer.html", function() {
 				$(".namehere").prepend(name);
+				$(".value").html(reserve);
 				bindArrows();
 			});
 		} else if (role == "seller") {
 			$(document.body).load("seller.html", function() {
 				$(".namehere").prepend(name);
+				$(".value").html(reserve);
 				bindArrows();
 			});
 		}
@@ -150,6 +152,12 @@ var typeLetter = function(k) {
 			console.log("Name=", name);
 			curScreen = 2;
 			changeScreen();
+			
+			if (phase == 0) {
+				console.log("RPC Signin CALL");
+				w.wampMethods.rpcCall("signin");
+			}
+			
 		}
 	}
 }

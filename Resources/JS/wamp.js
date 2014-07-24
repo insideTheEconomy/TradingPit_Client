@@ -28,11 +28,6 @@ function WAMP(clientType) {
 	connection.onopen = function(session) {
 		self.sess = session;
 		var currentSubscription = null;
-		self.sess.subscribe("pit.pub."+self.sess.id, self.callbacks.onCard);
-		
-		// sign in later
-		//w.wampMethods.rpcCall("signin");
-		
 
 		// Subscribe to offers
 		session.subscribe('pit.pub.offers', self.callbacks.onOffer).then(
@@ -53,6 +48,7 @@ function WAMP(clientType) {
 				//console.log("subscription failed", error);
 			});
 		
+		
 		// Subscribe to phases
 		session.subscribe('pit.pub.phase', self.callbacks.onPhase).then(
 			function(subscription) {
@@ -61,6 +57,9 @@ function WAMP(clientType) {
 			}, function(error) {
 				//console.log("subscription failed", error);
 			});
+			
+			
+		self.sess.subscribe("pit.pub."+self.sess.id, self.callbacks.onCard);
 	};
 	// Open connection
 	connection.open();
@@ -100,6 +99,8 @@ var playerwamp = function() {
 		// Define an event handler
 		onCard: function(args, kwargs, details){
 			console.log("CARD", kwargs);
+			reserve = kwargs.reserve;
+			self.myPlayer = kwargs;
 			
 			$(".moneyCounter").html("$"+kwargs.surplus);
 			$(".dollar").addClass("anim");
@@ -107,12 +108,8 @@ var playerwamp = function() {
 			{
 				$(".dollar").removeClass("anim"); 
 			}, 220);
-			
-			$(".value").html(kwargs.reserve);
-			
-			$(".greyed").removeClass("greyed");
-			reserve = kwargs.reserve;
-			self.myPlayer = kwargs;
+
+			$(".greyed").removeClass("greyed");	
 		},
 		onTick: function(args, kwargs, details) {
 			//console.log("Tick", args, kwargs, details);
@@ -148,6 +145,11 @@ var playerwamp = function() {
 					
 					case "Setup":
 						phase = 0;
+						if (name != "null") {
+							console.log("RPC Signin CALL");
+							w.wampMethods.rpcCall("signin");
+						}
+						
 						break;
 						
 					case "Round":
@@ -155,15 +157,14 @@ var playerwamp = function() {
 						if (name != "null") {
 							curScreen = 3;
 							changeScreen();
-							console.log("RPC Signin CALL");
-							w.wampMethods.rpcCall("signin");
+							
 						} else {
 							//
 						}
 						break;
 						
 					case "Wrap-up":
-						if (name != "null") {
+						if (name != "null" && curScreen != 2) {
 							phase = 2;
 							curScreen = 2;
 							changeScreen();

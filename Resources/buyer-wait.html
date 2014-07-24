@@ -4,6 +4,36 @@
 		<h1 style="-webkit-box-reflect: below -54px -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(12%,transparent),to(transparent)); margin-top:215px; margin-left:100px;" class="idle">YOUR JOB </h1>
 	</div>
 	
+	<div class="timerWrap idle" style="width:415px; left: 65px; top: 60px;">
+		Your company name is
+	</div>
+	
+	<div class="tipWrap anim1 idle" style="font-size:31px; line-height:45px; top:160px; left:200px;">
+		You're buying bushels of wheat<br/>
+		on behalf of a farmers' association.
+	</div>
+	
+	<div class="tipWrap anim1 idle" style="font-size:31px; line-height:45px; top:315px; left:310px;">
+		The farmers want to lock in a<br/>
+		good price before the harvest.
+	</div>
+	
+	<div class="tipWrap anim1 idle" style="font-size:31px; top:470px; left:430px;" >
+		Buy as much wheat as you can at the best price possible.
+	</div>
+	
+	<div class="tipWrap anim2 idle" style="top:160px; left:1300px; padding-left:30px; font-size:31px; line-height:46px; height:140px;" >
+		You will get a <span style="font-family:medium !important;">reservation cost</span> -<br/>
+		the highest price at which you<br/>
+		should buy a bushel of wheat.
+	</div>
+	
+	<div class="tipWrap anim2 idle" style="top:390px; left:1400px; padding-left:30px; font-size:31px; line-height:46px; height:140px;" >
+		If you sell too low the<br/>
+		farmers will lose money,<br/>
+		and you may lose your job.
+	</div>
+	
 	<div class="timerWrap idle">
 		The next round<br/>starts in
 	</div>
@@ -12,9 +42,108 @@
 		0:00
 	</div>
 	
-	<div class="tipWrap idle">
-		Buy as much wheat as you can at the lowest price possible.
-	</div>
-	
-	<div class="accept idle">Sign In Now</div>
 </div>
+
+<script>
+	if (name == "null") {
+		
+	} else {
+		$(".namehere").prepend(name);
+	}
+	
+	var cycle = 0;
+	var cycle2 = 0;
+	var delay = 5;
+	var cycleTips = function() {
+		$(".tipWrap.anim1").each(function(i, v) {
+			
+			if (cycle == 0) {
+				delay = 5;
+			} else {
+				delay = 6;
+			}
+			var l = parseInt($(this).css("left").slice(0,-2));
+			$(this).tween({
+			   left:{
+			      start: l,
+			      stop: l-1100,
+			      time: delay+i,
+			      duration: 1,
+			      units: 'px',
+			      effect: 'easeInOut',
+				  onStart: function( element, state ) {
+					if (i == 2) {
+						$("h1.idle").tween({
+						   "margin-left":{
+						      start: parseInt($("h1.idle").css("margin-left")),
+						      stop: parseInt($("h1.idle").css("margin-left"))-1100,
+						      time: 0,
+						      duration: 1,
+						      units: 'px',
+						      effect: 'easeInOut',
+							  onStop: function( element, state) {
+								
+								if (cycle == 0) {
+									$(".tipWrap").each(function(i, v) {
+										switch (i) {
+											case 0:
+												$(this).css("left", 1300);
+												break;
+											case 1:
+												$(this).css("left", 1410);
+												break;
+											case 2:
+												$(this).css("left", 1530);
+												$("h1.idle").css("margin-left", 1240);
+												break;
+										}
+									});
+									cycle = 1;
+									cycleTips();
+								} else if (cycle == 1) {
+									cycle = 0;
+									cycleTips();
+								}
+							  }
+						   }
+						}).play();
+					}
+				  }
+			   }
+			}).play();
+		});
+	}
+	
+	var cycleTips2 = function() {
+		$(".tipWrap.anim2").each(function(i, v) {
+			var l = parseInt($(this).css("left").slice(0,-2));
+			$(this).tween({
+			   left:{
+			      start: l,
+			      stop: l-1100,
+			      time: delay+1+i,
+			      duration: 1,
+			      units: 'px',
+			      effect: 'easeInOut',
+				  onStart: function( element, state ) {
+					cycle2++;
+				  },
+				  onStop: function(element, state) {
+					if (cycle2 == 2) {
+						cycleTips2();
+					} else if (cycle2 == 3) {
+						$(".tipWrap.anim2").first().css("left", "1300px");
+					} else if (cycle2 == 4) {
+						$(".tipWrap.anim2").last().css("left", "1400px");
+						cycle2 = 0;
+						cycleTips2();
+					}
+				  }
+			   }
+			}).play();
+		});
+	}
+	
+	cycleTips();
+	cycleTips2();
+</script>
