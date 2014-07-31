@@ -15,6 +15,37 @@ $(function () {
 	offerPrice = 1;
 });
 
+var stampAnim = function() {
+	$('#stamp').tween({
+	   fontSize:{
+	      start: 125,
+	      stop: 52,
+	      time: 0,
+	      duration: 0.25,
+	      units: 'px',
+	      effect:'easeIn'
+	   },
+	   opacity:{
+	      start: 0,
+	      stop: 100,
+	      time: 0,
+	      duration: 0.25,
+	      effect:'easeIn'
+	   },
+	   onStop: function( elem ) {
+	     $('#stamp').tween({
+		   opacity:{
+		      start: 100,
+		      stop: 000,
+		      time: 1,
+		      duration: 0.5,
+		      effect:'easeOut'
+		   }
+		}).play();
+	   }
+	}).play();
+}
+
 var changeScreen = function() {
 	$(document.body).empty();
 	if (curScreen == 0) { // Pre-Sign In Idle
@@ -86,23 +117,21 @@ var bindArrows = function() {
 		$( ".up-arrow" ).on( "click", function() {
 			offerPrice++;
 			$("#price").html(offerPrice);
-			$(".greyed").removeClass("greyed");
+			$(".greyed").removeClass("greyed").html("Update Offer");
 		});
 
 		$( ".down-arrow" ).on( "click", function() {
 			if (offerPrice > 1) {
 				offerPrice--;
 				$("#price").html(offerPrice);
-				$(".greyed").removeClass("greyed");
+				$(".greyed").removeClass("greyed").html("Update Offer");
 			}
 		});
 		
 		$( ".accept" ).on( "click", function() {
 			console.log("Submit Offer @ ", offerPrice);
-			$(this).addClass("greyed");
+			$(this).addClass("greyed").html("Submitted");
 			w.wampMethods.submitOffer(offerPrice);
-			offerPrice = 1;
-			$("#price").html(offerPrice);
 		});
 	}
 }

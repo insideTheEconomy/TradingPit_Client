@@ -60,6 +60,12 @@ function WAMP(clientType) {
 			
 			
 		self.sess.subscribe("pit.pub."+self.sess.id, self.callbacks.onCard);
+		
+		console.log("pit.rpc.offerTemplate");
+		self.sess.call("pit.rpc.offerTemplate").then(function(r){
+			self.offer = r;
+			console.log(self.offer);
+		});
 	};
 	// Open connection
 	connection.open();
@@ -101,7 +107,7 @@ var playerwamp = function() {
 			console.log("CARD", kwargs);
 			reserve = kwargs.reserve;
 			self.myPlayer = kwargs;
-			
+			$(".value").html(reserve);
 			$(".moneyCounter").html("$"+kwargs.surplus);
 			$(".dollar").addClass("anim");
 			setTimeout(function() 
@@ -210,16 +216,17 @@ var playerwamp = function() {
 				}).then(function(r){
 					console.log("Signed In Successfully: ", r);
 					myShape = r.shape;
-					$(".my-logoDiv").load( "shapes.html  #" + myShape );
-					
-					self.sess.call("pit.rpc.offerTemplate").then(function(r){
-						self.offer = r;
-					});
+					$(".my-logoDiv").load( "shapes.html  #" + myShape );					
 				});
 			} else if (call == "offer") {
 				self.sess.call("pit.rpc.offer", [], {
 					id: self.sess.id,
 					offer: self.offer
+				}).then(function (r) {
+					console.log("Offer success: ", r);
+				},
+				function(e) {
+					console.log("Error: ", e);
 				});
 			} else if (call == "accept") {
 				console.log("RPC CALL self.acceptedOffer= ", self.acceptedOffer);

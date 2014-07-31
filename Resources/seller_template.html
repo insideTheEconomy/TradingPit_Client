@@ -9,17 +9,14 @@
 	
 	
 	<script>
-		var cardPrice = {{price}};
-		var ownerPosition = {{owner.position}};
-		var ownerShape = {{owner.shape}};
 		
 		//Set owners shape on offer card
 		$(".logoDiv{{owner.position}}").load( "shapes.html  #{{owner.shape}}" );
 		
 		//Set Color of Price
-		if (cardPrice < reserve) {
+		if ({{price}} > reserve) {
 			$("h4.{{owner.position}}").addClass("good-deal");
-		} else if ({{price}} > reserve) {
+		} else if ({{price}} < reserve) {
 			$("h4.{{owner.position}}").addClass("bad-deal");
 		} else {
 			$("h4.{{owner.position}}").addClass("neutral-deal");

@@ -20,11 +20,11 @@
 	
 	<div class="tipWrap anim1 idle" style="font-size:31px; line-height:45px; top:315px; left:310px;">
 		The farmers want to lock in a<br/>
-		good price before the harvest.
+		good price now to ensure a profit.
 	</div>
 	
 	<div class="tipWrap anim1 idle" style="font-size:31px; top:470px; left:430px;" >
-		Sell as much wheat as you can at the best price possible.
+		Try to sell for as high a price as possible but not less than your reservation price.
 	</div>
 	
 	<div class="tipWrap anim2 idle" style="top:160px; left:1300px; padding-left:30px; font-size:31px; line-height:46px; height:140px;" >
@@ -36,7 +36,7 @@
 	<div class="tipWrap anim2 idle" style="top:390px; left:1400px; padding-left:30px; font-size:31px; line-height:46px; height:140px;" >
 		If you sell too low the<br/>
 		farmers will lose money,<br/>
-		and you may lose your job.
+		and you may, too.
 	</div>
 	
 	<div class="timerWrap idle" style="top:640px;">
@@ -57,14 +57,14 @@
 	
 	var cycle = 0;
 	var cycle2 = 0;
-	var delay = 5;
+	var delay = 10;
 	var cycleTips = function() {
 		$(".tipWrap.anim1").each(function(i, v) {
 			
 			if (cycle == 0) {
-				delay = 5;
+				delay = 10;
 			} else {
-				delay = 6;
+				delay = 11;
 			}
 			var l = parseInt($(this).css("left").slice(0,-2));
 			$(this).tween({

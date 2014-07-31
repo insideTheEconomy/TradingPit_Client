@@ -1,7 +1,12 @@
 <div class="buyer-client-wrap">	
 	<div id="headerWrap">
-		<h1 class="idle">YOU ARE A BUYER</h1>
-		<h1 style="-webkit-box-reflect: below -54px -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(12%,transparent),to(transparent)); margin-top:215px; margin-left:100px;" class="idle">YOUR JOB </h1>
+		<h1 style="-webkit-box-reflect: below -54px -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(12%,transparent),to(transparent));" class="wait namehere">
+			GRAINS INC.
+		</h1>
+		
+		<h1 style="width: 500px; -webkit-box-reflect: below -54px -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(12%,transparent),to(transparent)); margin-top:215px;top:285px; margin-left: 140px;" class="idle">
+			YOUR JOB
+		</h1>
 	</div>
 	
 	<div class="timerWrap idle" style="width:415px; left: 65px; top: 60px;">
@@ -34,11 +39,11 @@
 		and you may lose your job.
 	</div>
 	
-	<div class="timerWrap idle">
-		The next round<br/>starts in
+	<div class="timerWrap idle" style="top:640px;">
+		Joining<br/>game in
 	</div>
-	
-	<div class="idletime idle">
+
+	<div class="idletime idle" style="top:614px;">
 		0:00
 	</div>
 	
@@ -53,14 +58,14 @@
 	
 	var cycle = 0;
 	var cycle2 = 0;
-	var delay = 5;
+	var delay = 10;
 	var cycleTips = function() {
 		$(".tipWrap.anim1").each(function(i, v) {
 			
 			if (cycle == 0) {
-				delay = 5;
+				delay = 10;
 			} else {
-				delay = 6;
+				delay = 11;
 			}
 			var l = parseInt($(this).css("left").slice(0,-2));
 			$(this).tween({
