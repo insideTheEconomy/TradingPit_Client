@@ -1,11 +1,11 @@
 {
   "main": "index.html",
-  "name": "Decisions",
+  "name": "TradingPit_Client",
   "description": "FedApp",
   "version": "0.1.0",
   "keywords": [ "monadnock", "node-webkit" ],
   "window": {
-    "title": "Decisions Calculator",
+    "title": "Trading Pit Client",
     "toolbar": true,
     "frame": true,
 	"fullscreen":false,

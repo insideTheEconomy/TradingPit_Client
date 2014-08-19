@@ -61,10 +61,8 @@ function WAMP(clientType) {
 			
 		self.sess.subscribe("pit.pub."+self.sess.id, self.callbacks.onCard);
 		
-		console.log("pit.rpc.offerTemplate");
 		self.sess.call("pit.rpc.offerTemplate").then(function(r){
 			self.offer = r;
-			console.log(self.offer);
 		});
 	};
 	// Open connection
@@ -109,6 +107,11 @@ var playerwamp = function() {
 			self.myPlayer = kwargs;
 			$(".value").html(reserve);
 			$(".moneyCounter").html("$"+kwargs.surplus);
+			
+			if (kwargs.message == "BID_ACCEPTED") {
+				stampAnim();
+			}
+			
 			$(".dollar").addClass("anim");
 			setTimeout(function() 
 			{
@@ -118,11 +121,11 @@ var playerwamp = function() {
 			$(".greyed").removeClass("greyed");	
 		},
 		onTick: function(args, kwargs, details) {
-			//console.log("Tick", args, kwargs, details);
+			console.log("onTick: ", kwargs);
 			if (curScreen == 0 || curScreen == 2) {
-				$(".idletime").html(kwargs.minutes+":"+kwargs.seconds);
+				$(".idletime").html(kwargs.until_round.minutes+":"+kwargs.until_round.seconds);
 			} else if (curScreen == 3) {
-				$("#time").html(kwargs.minutes+":"+kwargs.seconds);
+				$("#time").html(kwargs.end_of_phase.minutes+":"+kwargs.end_of_phase.seconds);
 			}
 		},
 		onOffer: function(args, kwargs, details) {
@@ -137,12 +140,14 @@ var playerwamp = function() {
 			self.offer.owner = self.myPlayer;
 			self.offer.price = price;
 			self.offer.name = name;
-			console.log("self.offer= ", self.offer);	
+			console.log("submitted offer: ", self.offer);	
+			
 			w.wampMethods.rpcCall("offer");	
 		},
 		accept: function(id) {
 			self.acceptedOffer = self.currentOffers[id%4];
 			w.wampMethods.rpcCall("accept");	
+			
 		},
 		onPhase: function(args, kwargs, details) {
 			console.log("onPhase: ", kwargs);
@@ -150,16 +155,15 @@ var playerwamp = function() {
 				switch(kwargs.name){
 					
 					case "Setup":
-						phase = 0;
+						curPhase = 0;
 						if (name != "null") {
-							console.log("RPC Signin CALL");
 							w.wampMethods.rpcCall("signin");
 						}
 						
 						break;
 						
 					case "Round":
-						phase = 1;
+						curPhase = 1;
 						if (name != "null") {
 							curScreen = 3;
 							changeScreen();
@@ -171,14 +175,14 @@ var playerwamp = function() {
 						
 					case "Wrap-up":
 						if (name != "null" && curScreen != 2) {
-							phase = 2;
+							curPhase = 2;
 							curScreen = 2;
 							changeScreen();
 						}
 						break;
 						
 					case "Recap":
-						phase = 3;
+						curPhase = 3;
 						break;
 						
 				}
@@ -203,7 +207,6 @@ var playerwamp = function() {
 		},
 		rpcCall: function(call) {
 			if (call == "signin") {
-				console.log("RPC Signin RECIEVED")
 				self.sess.call("pit.rpc.signin", [], {
 					id: self.sess.id,
 					player: {
@@ -223,19 +226,16 @@ var playerwamp = function() {
 					id: self.sess.id,
 					offer: self.offer
 				}).then(function (r) {
-					console.log("Offer success: ", r);
 				},
 				function(e) {
 					console.log("Error: ", e);
 				});
 			} else if (call == "accept") {
-				console.log("RPC CALL self.acceptedOffer= ", self.acceptedOffer);
 				self.sess.call("pit.rpc.accept", [],
 				{
 					id: self.sess.id,
 					offer: self.acceptedOffer 			//{offer object} 
 				}).then(function(r) {
-					console.log("onAccept return r: ", r);
 				},
 				function(e) {
 					console.log("Error: ", e);

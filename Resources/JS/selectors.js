@@ -3,7 +3,6 @@ var lettersTyped;
 $(function () {
 	//Happens only FIRST time program is run
 	if (!initiated) {
-		console.log("Init");
 		initHTML = $(document.body).html();
 		initiated = true;
 		
@@ -107,7 +106,6 @@ var bindArrows = function() {
 			changeScreen();
 		});
 	} else if (curScreen == 1) {
-		console.log("Bind Keyboard");
 		$( ".key" ).on( "click", function() {
 			var keyPressed = $(this).text();
 			typeLetter(keyPressed);
@@ -169,7 +167,6 @@ var typeLetter = function(k) {
 		}
 	} else if (k == "Submit") {
 		if (lettersTyped == 0) {
-			console.log("Don't leave it blank!");
 		} else {
 			if (lettersTyped == 3) {
 				name = $("h1.signin").text();
@@ -178,12 +175,10 @@ var typeLetter = function(k) {
 			} else if (lettersTyped == 1) {
 				name = $("h1.signin").text().slice(0,-2);
 			}
-			console.log("Name=", name);
 			curScreen = 2;
 			changeScreen();
 			
-			if (phase == 0) {
-				console.log("RPC Signin CALL");
+			if (curPhase == 0) {
 				w.wampMethods.rpcCall("signin");
 			}
 			
