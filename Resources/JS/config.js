@@ -37,6 +37,7 @@ try{
 	curPhase = 0;
 }
 catch(e){
+	settings = require("./config.json");
 	console.log("Using DEFAULT cfg: ", e);
 	role = "seller";
 	opponent = "buyer";
