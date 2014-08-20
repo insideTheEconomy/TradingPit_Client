@@ -1,0 +1,9 @@
+{
+
+"role" : "seller",
+"opponent" : "buyer",
+"position" : 2,
+"ai" : false,
+"url" : "ws://tpserver.local:8080/ws",
+"curScreen" : 0
+}
