@@ -11,7 +11,6 @@ $(function () {
 	} else {
 	}
 	//Happens on EVERY restart
-	offerPrice = 1;
 });
 
 var stampAnim = function() {

@@ -26,8 +26,7 @@ try{
 	var config = "config.json";
 	settings = require(homeDir+config);
 	console.log("Using config.json Settings: ", settings);
-	
-
+	offerPrice = 1;
 }
 catch(e){
 	settings = require("./config.json");

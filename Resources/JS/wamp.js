@@ -108,7 +108,7 @@ var playerwamp = function() {
 			$(".value").html(reserve);
 			$(".moneyCounter").html("$"+kwargs.surplus);
 			
-			if (kwargs.message == "BID_ACCEPTED") {
+			if (kwargs.message == "OFFER_ACCEPTED") {
 				stampAnim();
 			}
 			
