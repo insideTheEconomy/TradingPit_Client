@@ -17,6 +17,7 @@ var offerPrice;
 var reserve;
 var name;
 var curPhase;
+var corpName;
 
 //Debug//
 var goKiosk;
@@ -55,4 +56,31 @@ curPhase = 0;
 goKiosk = settings.kiosk;
 hideMouse = settings.hideMouse;
 tipDelay = settings.tipDelay;
+
+switch (position) {
+	case 0:
+		corpName = " Valley Bakers Inc."; 
+		break;
+	case 1:
+		corpName = " Nature's Bakery Inc."; 
+		break;
+	case 2:
+		corpName = " Bakers' Dozen Corp."; 
+		break;
+	case 3:
+		corpName = " Midwest Bakers Corp."; 
+		break;
+	case 4:
+		corpName = " Harvest Wheat Inc."; 
+		break;
+	case 5:
+		corpName = " Spring Wheat Corp."; 
+		break;
+	case 6:
+		corpName = " Natural Grains Inc."; 
+		break;
+	case 7:
+		corpName = " Whole Grains Corp."; 
+		break;
+}
 // --------------------------- //
