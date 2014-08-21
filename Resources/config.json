@@ -1,11 +1,12 @@
 {
 
-"role" : "seller",
-"opponent" : "buyer",
+"role" : "buyer",
+"opponent" : "seller",
 "position" : 2,
 "ai" : false,
 "url" : "ws://tpserver.local:8080/ws",
 "curScreen" : 0,
 "kiosk" : false,
-"hideMouse" : false
+"hideMouse" : false,
+"tipDelay" : 10
 }

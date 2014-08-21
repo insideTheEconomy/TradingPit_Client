@@ -122,7 +122,7 @@ var playerwamp = function() {
 		},
 		onTick: function(args, kwargs, details) {
 			console.log("onTick: ", kwargs);
-			if (curScreen == 0 || curScreen == 2) {
+			if (curScreen == 0 || curScreen == 2 || curScreen == 4) {
 				$(".idletime").html(kwargs.until_round.minutes+":"+kwargs.until_round.seconds);
 			} else if (curScreen == 3) {
 				$("#time").html(kwargs.end_of_phase.minutes+":"+kwargs.end_of_phase.seconds);
@@ -174,15 +174,26 @@ var playerwamp = function() {
 						break;
 						
 					case "Wrap-up":
+						
 						if (name != "null" && curScreen != 2) {
 							curPhase = 2;
-							curScreen = 2;
+							curScreen = 4;
 							changeScreen();
 						}
 						break;
 						
-					case "Recap":
+					case "Player Recap":
 						curPhase = 3;
+						if (name != "null" && curScreen != 2) {
+							//curPhase = 3;
+							//curScreen = 3;
+							//changeScreen();
+						}
+						break;
+						
+					case "Round Recap":
+						curPhase = 4;
+						
 						break;
 						
 				}
@@ -198,7 +209,11 @@ var playerwamp = function() {
 					case "Wrap-up":
 						break;
 						
-					case "Recap":
+					case "Player Recap":
+						break;
+						
+					case "Round Recap":
+						
 						break;
 						
 				}

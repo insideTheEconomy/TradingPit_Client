@@ -100,6 +100,18 @@ var changeScreen = function() {
 				bindArrows();
 			});
 		}
+	} else if (curScreen == 4) { // Gameplay
+		if (role == "buyer") {
+			$(document.body).load("buyer-shared.html", function() {
+				$(".namehere").prepend(name);
+				bindArrows();
+			});
+		} else if (role == "seller") {
+			$(document.body).load("seller-shared.html", function() {
+				$(".namehere").prepend(name);
+				bindArrows();
+			});
+		}
 	}
 }
 
