@@ -45,7 +45,7 @@
 	
 	<div id="footerWrap">
 		<div class="tipWrap">
-			Don't sell for less than your cost.
+			<div id="tip">If you sell too low, the farmers will lose money and you will lose your bonus.</div>
 		</div>
 		<div class="valueWrap">
 			<h3>Reservation<br/>Price</h3>
@@ -54,3 +54,53 @@
 		</div>
 	</div>
 </div>
+
+<script>
+var curTip = 0;
+
+var tipArray = new Array( 
+	"If you sell too low, the farmers will lose money and you will lose your bonus.",
+	"The more transactions you complete, the faster the market will arrive at an equilibrium price.",
+	"Try not to sell for less than your reservation price.",
+	"You want to sell wheat for as high a price as possible.",
+	"The more wheat you sell and the higher the price, the more profit you'll make.",
+	"If you don't make a sale this round, you won't make any profit and the farmers will have to take their chances on the price at harvest time."
+);
+
+var changeTip = function() {
+	$('#tip').tween({
+	   opacity:{
+	      start: 100,
+	      stop: 000,
+	      time: 10,
+	      duration: 0.5,
+	      effect:'easeOut'
+	   },
+	   onStop: function (elem) {
+			$('#tip').empty();
+			
+			curTip++;
+			if (curTip == 6) {
+				curTip = 0;
+			}
+			
+			$('#tip').html(tipArray[curTip]);
+			
+			$('#tip').tween({
+			   opacity:{
+			      start: 0,
+			      stop: 100,
+			      time: 0,
+			      duration: 0.5,
+			      effect:'easeOut'
+			   },
+			   onStop: function (elem) {
+				 changeTip();
+			   }
+			}).play();
+	   }
+	}).play();
+}
+
+changeTip();
+</script>

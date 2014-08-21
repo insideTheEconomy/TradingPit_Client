@@ -1004,16 +1004,21 @@ h2.theirs {
 .tipWrap {
   position: absolute;
   width: 595px;
-  height: 120px;
+  height: 145px;
   left: 380px;
   top: 600px;
-  padding-top: 25px;
   text-align: center;
   font-size: 24px;
   font-family: "sub-title";
   background-color: rgba(0, 0, 0, 0.5);
   text-shadow: 4px 4px 0px #222222;
   color: #ffffff;
+}
+.tipWrap #tip {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  padding: 15px;
 }
 .tipWrap.idle {
   position: absolute;

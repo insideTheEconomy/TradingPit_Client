@@ -1,5 +1,9 @@
 var lettersTyped;
 
+var chaChingSnd = document.createElement('audio');
+chaChingSnd.setAttribute('src', 'SND/payoff.ogg');
+chaChingSnd.load();
+
 $(function () {
 	//Happens only FIRST time program is run
 	if (!initiated) {
@@ -14,6 +18,7 @@ $(function () {
 });
 
 var stampAnim = function() {
+	chaChingSnd.play();
 	$('#stamp').tween({
 	   fontSize:{
 	      start: 125,

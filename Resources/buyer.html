@@ -45,7 +45,7 @@
 	
 	<div id="footerWrap">
 		<div class="tipWrap">
-			Don't buy wheat for more than your value.
+			<div id="tip">If you buy too high, the bakers will lose money and you will lose your bonus.</div>
 		</div>
 		<div class="valueWrap">
 			<img src="IMAGES/BreadOutline2.png" style="width: 35%; position: absolute; top: 70px; left: 20px;">
@@ -54,3 +54,53 @@
 		</div>
 	</div>
 </div>
+
+<script>
+var curTip = 0;
+
+var tipArray = new Array( 
+	"If you buy too high, the bakers will lose money and you will lose your bonus.",
+	"The more transactions you complete, the faster the market will arrive at an equilibrium price.",
+	"Try not to buy for more than your reservation price.",
+	"Try to buy wheat for as low a price as possible.",
+	"If you don’t buy enough wheat, the bakers will have to take their chances on the price at harvest time..",
+	"The more wheat you buy and the lower the price, the more profit you'll make."
+);
+
+var changeTip = function() {
+	$('#tip').tween({
+	   opacity:{
+	      start: 100,
+	      stop: 000,
+	      time: 10,
+	      duration: 0.5,
+	      effect:'easeOut'
+	   },
+	   onStop: function (elem) {
+			$('#tip').empty();
+			
+			curTip++;
+			if (curTip == 6) {
+				curTip = 0;
+			}
+			
+			$('#tip').html(tipArray[curTip]);
+			
+			$('#tip').tween({
+			   opacity:{
+			      start: 0,
+			      stop: 100,
+			      time: 0,
+			      duration: 0.5,
+			      effect:'easeOut'
+			   },
+			   onStop: function (elem) {
+				 changeTip();
+			   }
+			}).play();
+	   }
+	}).play();
+}
+
+changeTip();
+</script>
