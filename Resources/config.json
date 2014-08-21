@@ -5,5 +5,7 @@
 "position" : 2,
 "ai" : false,
 "url" : "ws://tpserver.local:8080/ws",
-"curScreen" : 0
+"curScreen" : 0,
+"kiosk" : false,
+"hideMouse" : false
 }

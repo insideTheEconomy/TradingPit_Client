@@ -18,6 +18,10 @@ var reserve;
 var name;
 var curPhase;
 
+//Debug//
+var goKiosk;
+var hideMouse;
+
 // --------------------------- //
 
 try{
@@ -47,5 +51,7 @@ url = settings.url;
 curScreen = settings.curScreen;
 name = "null";
 curPhase = 0;
+goKiosk = settings.kiosk;
+hideMouse = settings.hideMouse;
 
 // --------------------------- //
