@@ -64,13 +64,19 @@ body {
 	& h1 {
 		z-index:1;
 		margin:25px;
-		margin-left:50px;
-
+		margin-left:40px;
+		margin-top:40px;
 		font-family:"title";
 		font-size:88px;
 		color:@tan;
 		text-shadow: 2px 2px 0px rgba(34, 34, 34, 1);
+		
 		.reflect;
+		
+		&.namehere {
+			font-size:60px;
+			-webkit-box-reflect: below -40px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54))) !important;
+		}
 		
 		&.idle {
 			margin-left:270px;
@@ -166,12 +172,20 @@ body {
 	& h1 {
 		z-index:1;
 		margin:25px;
-		margin-left:50px;
+		margin-left:40px;
+		margin-top:40px;
 
 		font-family:"title";
 		font-size:88px;
 		color:@lightblue;
 		text-shadow: 2px 2px 0px rgba(34, 34, 34, 1);
+		
+		.reflect;
+		
+		&.namehere {
+			font-size:60px;
+			-webkit-box-reflect: below -40px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54))) !important;
+		}
 		
 		&.idle {
 			margin-left:270px;
@@ -194,8 +208,6 @@ body {
 			text-align: center;
 			margin-left: -25px;
 		}
-		
-		.reflect;
 		
 		& .my-logoDiv {
 			position:absolute;
@@ -1221,6 +1233,7 @@ h2 {
 		top: 50%;
 		-webkit-transform: translateY(-50%);
 		padding:15px;
+		text-align:left;
 	}
 	
 	&.idle {

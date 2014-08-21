@@ -118,7 +118,7 @@ var playerwamp = function() {
 				$(".dollar").removeClass("anim"); 
 			}, 220);
 
-			$(".greyed").removeClass("greyed");	
+			$(".greyed").removeClass("greyed").html("Submit");	
 		},
 		onTick: function(args, kwargs, details) {
 			console.log("onTick: ", kwargs);

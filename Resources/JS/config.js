@@ -21,6 +21,7 @@ var curPhase;
 //Debug//
 var goKiosk;
 var hideMouse;
+var tipDelay;
 
 // --------------------------- //
 
@@ -53,5 +54,5 @@ name = "null";
 curPhase = 0;
 goKiosk = settings.kiosk;
 hideMouse = settings.hideMouse;
-
+tipDelay = settings.tipDelay;
 // --------------------------- //

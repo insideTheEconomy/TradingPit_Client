@@ -45,7 +45,7 @@
 	
 	<div id="footerWrap">
 		<div class="tipWrap">
-			<div id="tip">If you sell too low, the farmers will lose money and you will lose your bonus.</div>
+			<div id="tip">Try not to sell for less than your reservation price.</div>
 		</div>
 		<div class="valueWrap">
 			<h3>Reservation<br/>Price</h3>
@@ -59,6 +59,7 @@
 var curTip = 0;
 
 var tipArray = new Array( 
+	"Try not to sell for less than your reservation price.",
 	"If you sell too low, the farmers will lose money and you will lose your bonus.",
 	"The more transactions you complete, the faster the market will arrive at an equilibrium price.",
 	"Try not to sell for less than your reservation price.",
@@ -72,7 +73,7 @@ var changeTip = function() {
 	   opacity:{
 	      start: 100,
 	      stop: 000,
-	      time: 10,
+	      time: tipDelay,
 	      duration: 0.5,
 	      effect:'easeOut'
 	   },
@@ -80,7 +81,7 @@ var changeTip = function() {
 			$('#tip').empty();
 			
 			curTip++;
-			if (curTip == 6) {
+			if (curTip == 7) {
 				curTip = 0;
 			}
 			

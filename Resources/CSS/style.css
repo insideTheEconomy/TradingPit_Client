@@ -75,13 +75,18 @@ body {
 .buyer-client-wrap h1 {
   z-index: 1;
   margin: 25px;
-  margin-left: 50px;
+  margin-left: 40px;
+  margin-top: 40px;
   font-family: "title";
   font-size: 88px;
   color: #bda36c;
   text-shadow: 2px 2px 0px #222222;
   -webkit-box-reflect: below -54px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54)));
   position: absolute;
+}
+.buyer-client-wrap h1.namehere {
+  font-size: 60px;
+  -webkit-box-reflect: below -40px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54))) !important;
 }
 .buyer-client-wrap h1.idle {
   margin-left: 270px;
@@ -158,13 +163,18 @@ body {
 .seller-client-wrap h1 {
   z-index: 1;
   margin: 25px;
-  margin-left: 50px;
+  margin-left: 40px;
+  margin-top: 40px;
   font-family: "title";
   font-size: 88px;
   color: #a4dbe8;
   text-shadow: 2px 2px 0px #222222;
   -webkit-box-reflect: below -54px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54)));
   position: absolute;
+}
+.seller-client-wrap h1.namehere {
+  font-size: 60px;
+  -webkit-box-reflect: below -40px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54))) !important;
 }
 .seller-client-wrap h1.idle {
   margin-left: 270px;
@@ -1019,6 +1029,7 @@ h2.theirs {
   top: 50%;
   -webkit-transform: translateY(-50%);
   padding: 15px;
+  text-align: left;
 }
 .tipWrap.idle {
   position: absolute;
