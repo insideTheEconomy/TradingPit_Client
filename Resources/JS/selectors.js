@@ -129,9 +129,11 @@ var bindArrows = function() {
 	} else if (curScreen == 3) {
 		//Adjust my offer/buyer price
 		$( ".up-arrow" ).on( "click", function() {
-			offerPrice++;
-			$("#price").html(offerPrice);
-			$(".greyed").removeClass("greyed").html("Update Offer");
+			if (offerPrice < 10) {
+				offerPrice++;
+				$("#price").html(offerPrice);
+				$(".greyed").removeClass("greyed").html("Update Offer");
+			}
 		});
 
 		$( ".down-arrow" ).on( "click", function() {
