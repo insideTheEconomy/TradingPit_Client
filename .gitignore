@@ -1,2 +1,5 @@
-Resources/node_modules/*
 Resources/webkitbuilds/*
+
+Resources/node_modules/*
+node_modules/**
+**/node_modules
