@@ -18,6 +18,7 @@ function WAMP(clientType) {
 	
 	
 	// Set up WAMP connection to router
+	var autobahn = require('autobahn');
 	var sess;
 	var connection = new autobahn.Connection({
 		url: url,
