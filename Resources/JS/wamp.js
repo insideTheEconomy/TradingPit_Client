@@ -16,7 +16,7 @@ function WAMP(clientType) {
 		// when running in browser, AutobahnJS will be included without a module system.
 	}*/
 	
-	
+	autobahn = require('autobahn');
 	// Set up WAMP connection to router
 	var sess;
 	var connection = new autobahn.Connection({
@@ -24,8 +24,11 @@ function WAMP(clientType) {
 		realm: 'tradingpit'
 	});
 	
+	this.connection = connection;
+	
 	// Set up 'onopen' handler
 	connection.onopen = function(session) {
+		console.log("Connection Open");
 		self.sess = session;
 		var currentSubscription = null;
 
