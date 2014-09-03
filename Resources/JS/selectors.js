@@ -92,12 +92,14 @@ var changeScreen = function() {
 				$(".namehere").prepend(name);
 				$(".value").html(reserve);
 				bindArrows();
+				checkOfferColor();
 			});
 		} else if (role == "seller") {
 			$(document.body).load("seller.html", function() {
 				$(".namehere").prepend(name);
 				$(".value").html(reserve);
 				bindArrows();
+				checkOfferColor();
 			});
 		}
 	} else if (curScreen == 4) { // Gameplay
@@ -133,6 +135,7 @@ var bindArrows = function() {
 				offerPrice++;
 				$("#price").html(offerPrice);
 				$(".greyed").removeClass("greyed").html("Update Offer");
+				checkOfferColor();
 			}
 		});
 
@@ -141,6 +144,7 @@ var bindArrows = function() {
 				offerPrice--;
 				$("#price").html(offerPrice);
 				$(".greyed").removeClass("greyed").html("Update Offer");
+				checkOfferColor();
 			}
 		});
 		
@@ -150,6 +154,33 @@ var bindArrows = function() {
 			w.wampMethods.submitOffer(offerPrice);
 		});
 	}
+}
+
+var checkOfferColor = function() {
+	if (role == "buyer") {
+		if (offerPrice < reserve) {
+			$(".your-offer-card h4").addClass("good-deal");
+			$(".your-offer-card h4").removeClass("bad-deal neutral-deal");
+		} else if (offerPrice > reserve) {
+			$(".your-offer-card h4").addClass("bad-deal");
+			$(".your-offer-card h4").removeClass("good-deal neutral-deal");
+		} else {
+			$(".your-offer-card h4").addClass("neutral-deal");
+			$(".your-offer-card h4").removeClass("good-deal bad-deal");
+		}
+	} else if (role == "seller") {
+		if (offerPrice > reserve) {
+			$(".your-offer-card h4").addClass("good-deal");
+			$(".your-offer-card h4").removeClass("bad-deal neutral-deal");
+		} else if (offerPrice < reserve) {
+			$(".your-offer-card h4").addClass("bad-deal");
+			$(".your-offer-card h4").removeClass("good-deal neutral-deal");
+		} else {
+			$(".your-offer-card h4").addClass("neutral-deal");
+			$(".your-offer-card h4").removeClass("good-deal bad-deal");
+		}
+	}
+	
 }
 
 var typeLetter = function(k) {
