@@ -73,7 +73,7 @@ function WAMP(clientType) {
 	connection.open();
 }
 
-var aiwamp = function() {
+/*var aiwamp = function() {
 	this.wampMethods = {
 		test: function(){
 			alert("I'm an AI!");
@@ -97,7 +97,7 @@ var aiwamp = function() {
 	}
 	
 	this.wamp = new WAMP(this);
-}
+} */
 
 var playerwamp = function() {
 	this.wampMethods = {
