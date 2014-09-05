@@ -125,7 +125,7 @@ var playerwamp = function() {
 			$(".greyed").removeClass("greyed").html("Submit");	
 		},
 		onTick: function(args, kwargs, details) {
-			console.log("onTick: ", kwargs);
+			//console.log("onTick: ", kwargs);
 			if (curScreen == 0 || curScreen == 2 || curScreen == 4) {
 				$(".idletime").html(kwargs.until_round.minutes+":"+kwargs.until_round.seconds);
 			} else if (curScreen == 3) {
