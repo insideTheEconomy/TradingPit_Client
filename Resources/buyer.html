@@ -1,6 +1,10 @@
 <div class="buyer-client-wrap">	
 	<div id="headerWrap">
-		<h1>SB MILLS LTD</h1><h1 style="z-index:-2;"><div class="my-logoDiv"></div></h1>
+		<h1 class="namehere"> MILLS LTD</h1><h1 style="z-index:-2;"><div class="my-logoDiv"></div></h1>
+		<script>
+		$(".namehere").html(corpName);
+		$("#price").html(offerPrice);
+		</script>
 		<div class="timerWrap">
 			Market Closes In
 			<div id="time">
@@ -11,26 +15,30 @@
 			You've Made
 			<div class="dollar">
 				<div class="dollarSigns"><img src="IMAGES/dollarsSigns.png"></div>
-				<div class="moneyCounter">$25</div>
+				<div class="moneyCounter">$0</div>
 			</div>
 		</div>
 		
 	</div>
 	
 	<div id="contentWrap">
-		<h2 class="yours">Your Offer</h2>
+		
+		<div id="stamp">
+			Accepted
+		</div>
+		
+		<h2 class="yours"><span style="font-size: 20px;">Your</span> Offer to Buy</h2>
 		<h2 class="theirs">Sellers' Offers</h2>
 		<div class="your-offer">
 			<div class="your-offer-card">
-				<h3>SB MILLS LTD</h3>
-				<h5>Adjust your<br/>buying price</h5>
+				<h3 class="namehere"> MILLS LTD</h3>
+				<h5>Adjust Your<br/>Buying Price</h5>
 				<img class="svg-logo" src="IMAGES/wheat-buyer.svg">
 				<div class="my-logoDiv"></div>
 				<div class="up-arrow"></div>
 				<div class="down-arrow"></div>
 				<h4>$<span id="price">1</span></h4>
 				<div class="accept">Submit</div>
-				
 			</div>
 		</div>
 		<div class="flex-offers">
@@ -40,12 +48,63 @@
 	
 	<div id="footerWrap">
 		<div class="tipWrap">
-			Don't buy wheat for more than your value.
+			<div id="tip"></div>
 		</div>
 		<div class="valueWrap">
-			<img class="svg-logo" src="IMAGES/wheat-bread.svg">
-			<h3>Your<br/>Value</h3>
+			<img src="IMAGES/BreadOutline2.png" style="width: 35%; position: absolute; top: 70px; left: 20px;">
+			<h3>Reservation<br/>Price</h3>
 			<h4>$<span class="value"></span></h4>
 		</div>
 	</div>
 </div>
+
+<script>
+/*var curTip = 0;
+
+var tipArray = new Array( 
+	"Try not to buy for more than your reservation price.",
+	"If you buy too high, the bakers will lose money and you will lose your bonus.",
+	"The more transactions you complete, the faster the market will arrive at an equilibrium price.",
+	"Try not to buy for more than your reservation price.",
+	"Try to buy wheat for as low a price as possible.",
+	"If you don’t buy enough wheat, the bakers will have to take their chances on the price at harvest time..",
+	"The more wheat you buy and the lower the price, the more profit you'll make."
+);
+
+var changeTip = function() {
+	$('#tip').tween({
+	   opacity:{
+	      start: 100,
+	      stop: 000,
+	      time: tipDelay,
+	      duration: 0.5,
+	      effect:'easeOut'
+	   },
+	   onStop: function (elem) {
+			$('#tip').empty();
+			
+			curTip++;
+			if (curTip == 7) {
+				curTip = 0;
+			}
+			
+			$('#tip').html(tipArray[curTip]);
+			
+			$('#tip').tween({
+			   opacity:{
+			      start: 0,
+			      stop: 100,
+			      time: 0,
+			      duration: 0.5,
+			      effect:'easeOut'
+			   },
+			   onStop: function (elem) {
+				 changeTip();
+			   }
+			}).play();
+	   }
+	}).play();
+}
+
+changeTip();*/
+</script>

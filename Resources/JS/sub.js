@@ -10,7 +10,7 @@ try {
 var sess;
 // Set up WAMP connection to router
 var connection = new autobahn.Connection({
-	url: 'ws://capricorn.or.gs:8080/ws',
+	url: url,
 	realm: 'tradingpit'
 });
 
@@ -29,7 +29,6 @@ connection.onopen = function(session) {
 
 	function(r) {
 		sess.subscribe(r.cardURI, onCard);
-		
 		myShape = r.shape;
 		$(".my-logoDiv").load( "shapes.html  #" + myShape );
 	});
@@ -43,21 +42,10 @@ connection.onopen = function(session) {
 	function onTick(args, kwargs, details) {
 		//console.log("Tick", args, kwargs, details);
 		$("#time").html(kwargs.minutes+":"+kwargs.seconds);
+		//console.log("tick");
 	}
 
-	function onOffer(args, kwargs, details) {
-		
-		if (role == "buyer") {
-			
-			
-			
-		} else if (role == "seller") {
-			
-			
-			
-		}
-		
-		
+	function onOffer(args, kwargs, details) {	
 		$.get("offer_template.html", function(d){
 			Mustache.parse(d);
 			var render = Mustache.render(d,kwargs);
