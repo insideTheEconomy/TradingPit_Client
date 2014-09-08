@@ -1,0 +1,2 @@
+/* - *///-- Variable Declarations  -- //
+var role,opponent,position,ai,w,url,curScreen,initHTML,initiated,curScreen,offerPrice,reserve,name;try{var user=process.env.USER,homeDir="/Users/"+user+"/exhibit/",config="config.json";settings=require(homeDir+config);console.log("Using config.json Settings: ",settings);role=settings.role;opponent=settings.opponent;position=settings.position;ai=settings.ai;url=settings.url;curScreen=settings.curScreen;name="null"}catch(e){console.log("Using DEFAULT cfg: ",e);role="seller";opponent="buyer";position=0;ai=!1;phase=0};

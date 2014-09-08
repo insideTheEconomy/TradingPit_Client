@@ -1,0 +1,158 @@
+<div class="buyer-client-wrap">	
+	<div id="headerWrap">
+		<h1 style="-webkit-box-reflect: below -54px -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(12%,transparent),to(transparent));" class="wait namehere">
+			
+		</h1>
+		
+		<script>
+		$(".wait.namehere").html(corpName);
+		</script>
+		
+		<h1 style="width: 500px; -webkit-box-reflect: below -54px -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(12%,transparent),to(transparent)); margin-top:215px;top:285px; margin-left: 140px;" class="idle">
+			YOUR JOB
+		</h1>
+	</div>
+	
+	<div class="timerWrap idle" style="width:415px; left: 65px; top: 60px;">
+		Your company name is
+	</div>
+	
+	<div class="tipWrap anim1 idle" style="font-size:31px; line-height:45px; top:160px; left:200px;">
+		You're buying bushels of wheat<br/>
+		on behalf of a bakers' cooperative.
+	</div>
+	
+	<div class="tipWrap anim1 idle" style="font-size:31px; line-height:45px; top:315px; left:310px;">
+		The bakers will use the wheat<br/>
+		to fulfill bread orders.
+	</div>
+	
+	<div class="tipWrap anim1 idle" style="font-size:31px; top:470px; left:430px; line-height: 34px !important;" >
+		Try to buy for as low a price as possible but not more than your reservation price.
+	</div>
+	
+	<div class="tipWrap anim2 idle" style="top:160px; left:1300px; padding-left:30px; font-size:31px; line-height:46px; height:140px;" >
+		You will get a <span style="font-family:medium !important;">reservation cost</span> -<br/>
+		the highest price at which you<br/>
+		should buy a bushel of wheat.
+	</div>
+	
+	<div class="tipWrap anim2 idle" style="top:390px; left:1400px; padding-left:30px; font-size:31px; line-height:46px; height:140px;" >
+		If you buy too high,<br/>
+		the bakers will lose money,<br/>
+		and you may, too.
+	</div>
+	
+	<div class="timerWrap idle" style="top:640px;">
+		Joining<br/>game in
+	</div>
+
+	<div class="idletime idle" style="top:614px;">
+		0:00
+	</div>
+	
+</div>
+
+<script>
+	if (name == "null") {
+		
+	} else {
+		$(".namehere").prepend(name);
+	}
+	
+	var cycle = 0;
+	var cycle2 = 0;
+	var delay = 10;
+	var cycleTips = function() {
+		$(".tipWrap.anim1").each(function(i, v) {
+			
+			if (cycle == 0) {
+				delay = 10;
+			} else {
+				delay = 11;
+			}
+			var l = parseInt($(this).css("left").slice(0,-2));
+			$(this).tween({
+			   left:{
+			      start: l,
+			      stop: l-1100,
+			      time: delay+i,
+			      duration: 1,
+			      units: 'px',
+			      effect: 'easeInOut',
+				  onStart: function( element, state ) {
+					if (i == 2) {
+						$("h1.idle").tween({
+						   "margin-left":{
+						      start: parseInt($("h1.idle").css("margin-left")),
+						      stop: parseInt($("h1.idle").css("margin-left"))-1100,
+						      time: 0,
+						      duration: 1,
+						      units: 'px',
+						      effect: 'easeInOut',
+							  onStop: function( element, state) {
+								
+								if (cycle == 0) {
+									$(".tipWrap").each(function(i, v) {
+										switch (i) {
+											case 0:
+												$(this).css("left", 1300);
+												break;
+											case 1:
+												$(this).css("left", 1410);
+												break;
+											case 2:
+												$(this).css("left", 1530);
+												$("h1.idle").css("margin-left", 1240);
+												break;
+										}
+									});
+									cycle = 1;
+									cycleTips();
+								} else if (cycle == 1) {
+									cycle = 0;
+									cycleTips();
+								}
+							  }
+						   }
+						}).play();
+					}
+				  }
+			   }
+			}).play();
+		});
+	}
+	
+	var cycleTips2 = function() {
+		$(".tipWrap.anim2").each(function(i, v) {
+			var l = parseInt($(this).css("left").slice(0,-2));
+			$(this).tween({
+			   left:{
+			      start: l,
+			      stop: l-1100,
+			      time: delay+1+i,
+			      duration: 1,
+			      units: 'px',
+			      effect: 'easeInOut',
+				  onStart: function( element, state ) {
+					cycle2++;
+				  },
+				  onStop: function(element, state) {
+					if (cycle2 == 2) {
+						cycleTips2();
+					} else if (cycle2 == 3) {
+						$(".tipWrap.anim2").first().css("left", "1300px");
+					} else if (cycle2 == 4) {
+						$(".tipWrap.anim2").last().css("left", "1400px");
+						cycle2 = 0;
+						cycleTips2();
+					}
+				  }
+			   }
+			}).play();
+		});
+	}
+	
+	cycleTips();
+	cycleTips2();
+</script>

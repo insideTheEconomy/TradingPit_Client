@@ -1,13 +1,13 @@
 {
   "main": "index.html",
-  "name": "Decisions",
+  "name": "TradingPit_Client",
   "description": "FedApp",
   "version": "0.1.0",
   "keywords": [ "monadnock", "node-webkit" ],
   "window": {
-    "title": "Decisions Calculator",
-    "toolbar": true,
-    "frame": true,
+    "title": "Trading Pit Client",
+    "toolbar": false,
+    "frame": false,
 	"fullscreen":false,
     "width": 1024,
     "height": 768,
@@ -15,6 +15,9 @@
 	"kiosk":false
   },"dependencies": {
      
+  },"devDependencies": {
+    "grunt-node-webkit-builder": "^0.1.21",
+    "grunt": "^0.4.5"
   },
   "webkit": {
     "plugin": true,
