@@ -46,7 +46,7 @@ function WAMP(clientType) {
 		// Subscribe to clock
 		session.subscribe('pit.pub.clock', self.callbacks.onTick).then(
 			function(subscription) {
-				// console.log("subscription successfull", subscription);
+				 //console.log("subscription successfull", subscription);
 				currentSubscription = subscription;
 			}, function(error) {
 				//console.log("subscription failed", error);
@@ -72,32 +72,6 @@ function WAMP(clientType) {
 	// Open connection
 	connection.open();
 }
-
-/*var aiwamp = function() {
-	this.wampMethods = {
-		test: function(){
-			alert("I'm an AI!");
-		},
-		// Define an event handler
-		onCard: function(args, kwargs, details){
-			
-		},
-		onTick: function(args, kwargs, details) {
-			
-		},
-		onOffer: function(args, kwargs, details) {
-			
-		},
-		onPhase: function() {
-			
-		},
-		onAccept: function(args, kwargs, details) {
-			
-		}
-	}
-	
-	this.wamp = new WAMP(this);
-} */
 
 var playerwamp = function() {
 	this.wampMethods = {
@@ -158,11 +132,17 @@ var playerwamp = function() {
 			if (kwargs.action == "enter") {
 				switch(kwargs.name){
 					
+					case "Signin":
+						if (name != "null") {
+							w.wampMethods.rpcCall("signinPC");
+						} else if (name == "null") {
+							w.wampMethods.rpcCall("signinAI");
+						}
+						break;
+					
 					case "Setup":
 						curPhase = 0;
-						if (name != "null") {
-							w.wampMethods.rpcCall("signin");
-						}
+						
 						
 						break;
 						
@@ -225,14 +205,14 @@ var playerwamp = function() {
 			
 		},
 		rpcCall: function(call) {
-			if (call == "signin") {
+			if (call == "signinPC") {
 				self.sess.call("pit.rpc.signin", [], {
 					id: self.sess.id,
 					player: {
 						role: role,
 						position: position,
 						id: self.sess.id,
-						meat: "true",
+						meat: false,
 						name: name
 					}
 				}).then(function(r){
@@ -265,11 +245,12 @@ var playerwamp = function() {
 	this.wamp = new WAMP(this);
 }
 
-if (ai) {
+/*if (ai) {
 	w = new aiwamp();
 } else {
 	w = new playerwamp();
-}
+}*/
 
-
+w = new aiwamp("profit");
+//w = new playerwamp();
 
