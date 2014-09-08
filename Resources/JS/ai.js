@@ -7,6 +7,8 @@ var aiwamp = function(_behavior) {
 		var behavior = "profit";
 	}
 	
+	
+	
 	AIs ={profit:{},transaction:{}};
 
 	AIs.profit.params = {
@@ -24,19 +26,16 @@ var aiwamp = function(_behavior) {
 		onCard: function(args, kwargs, details){
 			console.log("CARD",kwargs);
 			self.params.card = kwargs;
-			self.params.direction = ( params.card.role == "seller" ) ? +1 : -1 ;
-			self.params.compare = ( params.card.role == "seller" ) ? function(price,reseve){return price > reserve } : function(price,reseve){return price < reserve };
+			self.params.offer.price = self.params.card.reserve + (~~(Math.random()*self.params.window+1)*self.params.direction);
 			
-			self.params.offer.price = params.card.reserve + (~~(Math.random()*params.window+1)*params.direction);
-			
-			self.sess.call("pit.rpc.offer", [], {	id: self.sess.id,	offer: params.offer		})
+			self.sess.call("pit.rpc.offer", [], {	id: self.sess.id,	offer: self.params.offer		}).then(function(){console.log("MADE OFFER")})
 		},
 
 		onTick: function(args, kwargs, details) {
 			//console.log("On Tick");
 			function roll(){
-				console.log("AI ROLLING",params)
-				return (~~(Math.random()*params.chance) <= params.threshold)
+				console.log("AI ROLLING",self.params)
+				return (~~(Math.random()*self.params.chance) <= self.params.threshold)
 			}
 			
 			if (curScreen == 0 || curScreen == 2 || curScreen == 4) {
@@ -47,13 +46,14 @@ var aiwamp = function(_behavior) {
 
 			function accept(){
 				console.log("Attempting to find acceptable offer");
-				var acceptedOffer = (params.card.role == seller)  ? 
+				var acceptedOffer = (self.params.card.role == seller)  ? 
 					//seller so sort buyer offers descending
 					self.params.offers.buyer.sort(function(a,b){ return a.price+b.price })[0] :
 					//else sort seller orders ascending
 					self.params.offers.seller.sort(function(a,b){ return a.price+b.price })[0] ;
 
-				if(params.compare(offer.price, params.card.reserve)){
+				if(self.params.compare(offer.price, self.params.card.reserve)){
+					console.log("Attempting to accept offer", acceptedOffer);
 					self.sess.call("pit.rpc.accept", [],
 					{
 						id: self.sess.id,
@@ -80,7 +80,7 @@ var aiwamp = function(_behavior) {
 		onPhase: function(args, kwargs, details) {
 			console.log("OnPhase: ", kwargs);
 
-			/*var f = {enter:{},exit:{}}
+			var f = {enter:{},exit:{}}
 			f.enter.Signin = function(){
 				console.log("Sign In Attempt");
 				self.sess.call("pit.rpc.signin", [], {
@@ -93,8 +93,14 @@ var aiwamp = function(_behavior) {
 						name: "AI"+String(position)
 					}
 				}).then(function(r) {
-					console.log("Get Offer Template");
+					
+					console.log("SIGNED IN",r);
+					self.params.foo = "bar";
+					self.params.direction = ( role == "seller" ) ? +1 : -1 ;
+					self.params.compare = ( role == "seller" ) ? function(price,reseve){return price > reserve } : function(price,reseve){return price < reserve };
+					
 					self.sess.call("pit.rpc.offerTemplate").then(function(r){
+						console.log("Got Offer Template", r);
 						self.params.offer = r;
 					});
 				});
@@ -103,10 +109,11 @@ var aiwamp = function(_behavior) {
 					self.params.offer = r;
 				});
 			}
-
-			(f[kwargs.action][kwargs.name])()*/
 			
-			if (kwargs.action == "enter") {
+			if(f[kwargs.action][kwargs.name]) console.log("calling phase function", f[kwargs.action][kwargs.name]);
+			(f[kwargs.action][kwargs.name])()
+			
+		/*	if (kwargs.action == "enter") {
 				switch(kwargs.name){
 					
 					case "Signin":
@@ -159,15 +166,15 @@ var aiwamp = function(_behavior) {
 						break;
 						
 				}
-			}
+			}*/
 
 		},
 		
 		onAccept: function(args, kwargs, details) {
 
-		},
+		}
 		
-		rpcCall: function(call) {
+		/*rpcCall: function(call) {
 			if (call == "signinAI") {
 				self.sess.call("pit.rpc.signin", [], {
 					id: self.sess.id,
@@ -203,7 +210,7 @@ var aiwamp = function(_behavior) {
 					console.log("Error: ", e);
 				});
 			}
-		}
+		}*/
 	}
 	
 	
