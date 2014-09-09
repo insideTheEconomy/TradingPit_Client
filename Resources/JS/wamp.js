@@ -134,6 +134,7 @@ var playerwamp = function() {
 					
 					case "Signin":
 						if (name != "null") {
+							console.log("signinPC from WAMP.js");
 							w.wampMethods.rpcCall("signinPC");
 						} else if (name == "null") {
 							w.wampMethods.rpcCall("signinAI");

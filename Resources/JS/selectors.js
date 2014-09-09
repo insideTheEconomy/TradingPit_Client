@@ -285,13 +285,10 @@ var typeLetter = function(k) {
 			curScreen = 2;
 			changeScreen();
 			
-			if (curPhase == 0) {
+			bIdling = false;
 				if (ai) {
 					w = new playerwamp();
 				}
-				
-				w.wampMethods.rpcCall("signin");
-			}
 			
 		}
 	}
