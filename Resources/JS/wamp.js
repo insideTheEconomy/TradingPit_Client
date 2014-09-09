@@ -142,8 +142,6 @@ var playerwamp = function() {
 					
 					case "Setup":
 						curPhase = 0;
-						
-						
 						break;
 						
 					case "Round":
@@ -151,7 +149,6 @@ var playerwamp = function() {
 						if (name != "null") {
 							curScreen = 3;
 							changeScreen();
-							
 						} else {
 							//
 						}
@@ -245,12 +242,5 @@ var playerwamp = function() {
 	this.wamp = new WAMP(this);
 }
 
-/*if (ai) {
-	w = new aiwamp();
-} else {
-	w = new playerwamp();
-}*/
 
-w = new aiwamp("profit");
-//w = new playerwamp();
 

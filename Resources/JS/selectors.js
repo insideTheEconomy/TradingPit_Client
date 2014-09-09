@@ -1,4 +1,6 @@
 var lettersTyped;
+var idleInterval;
+var bIdling;
 
 var chaChingSnd = document.createElement('audio');
 chaChingSnd.setAttribute('src', 'SND/payoff.ogg');
@@ -12,10 +14,66 @@ $(function () {
 		
 		changeScreen();
 		lettersTyped = 0
+		
 	} else {
+		
 	}
+	
 	//Happens on EVERY restart
+	idleInterval = setTimeout(timeOut, 30000);
+	bIdling = true;
+	
+	if (ai) {
+		w = new aiwamp("profit");
+	} else {
+		w = new playerwamp();
+	}
 });
+
+var timeOut = function() {
+	if (bIdling && curScreen != 0) {
+		
+		var htmlDialog = '<div style="text-align:center; font-size:36px;" id="dialog" title=" "><br/>Are you still there?<br/><br/></div>';
+		
+		$(document.body).append(htmlDialog);
+		
+		try {
+			var isOpen = $( "#dialog" ).dialog( "isOpen" );
+		} catch (e) {
+			var isOpen = false;
+		}
+
+		console.log("isOpen: ", isOpen);
+		if (!isOpen) {
+			clearTimeout(idleInterval);
+			idleInterval = setTimeout(timeOut, 15000);
+	
+			$( "#dialog" ).dialog({
+			      resizable: false,
+				  draggable: false,
+				  hide: "fade",
+				  show: "drop",
+			      modal: true,
+				  open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); },
+			      buttons: {
+			        "Yes!": function() {
+			          $( this ).dialog( "close" );
+					  clearTimeout(idleInterval);
+					  idleInterval = setTimeout(timeOut, 30000);
+			        }
+			      }
+			    });
+		} else {
+			hardReset();
+		}
+	}
+}
+
+var hardReset = function() {
+	clearTimeout(idleInterval);
+	bIdling = true;
+	$(document.body).empty().append(initHTML);
+}
 
 var stampAnim = function() {
 	chaChingSnd.play();
@@ -31,7 +89,7 @@ var stampAnim = function() {
 	   opacity:{
 	      start: 0,
 	      stop: 100,
-	      time: 0,
+	      time: 0, 
 	      duration: 0.25,
 	      effect:'easeIn'
 	   },
@@ -228,6 +286,10 @@ var typeLetter = function(k) {
 			changeScreen();
 			
 			if (curPhase == 0) {
+				if (ai) {
+					w = new playerwamp();
+				}
+				
 				w.wampMethods.rpcCall("signin");
 			}
 			

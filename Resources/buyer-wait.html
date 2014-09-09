@@ -51,6 +51,11 @@
 		0:00
 	</div>
 	
+	<div style="text-align:center; font-size:36px;" id="dialog" title=" ">
+	  <br/>
+	  Are you still there?
+	  <br/><br/>
+	</div>
 </div>
 
 <script>
@@ -62,14 +67,14 @@
 	
 	var cycle = 0;
 	var cycle2 = 0;
-	var delay = 10;
+	var delay = 12;
 	var cycleTips = function() {
 		$(".tipWrap.anim1").each(function(i, v) {
 			
 			if (cycle == 0) {
-				delay = 10;
+				delay = 12;
 			} else {
-				delay = 11;
+				delay = 13;
 			}
 			var l = parseInt($(this).css("left").slice(0,-2));
 			$(this).tween({
