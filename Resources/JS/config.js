@@ -19,6 +19,8 @@ var name;
 var curPhase;
 var corpName;
 
+var checkedIn;
+
 //Debug//
 var goKiosk;
 var hideMouse;
@@ -44,7 +46,7 @@ catch(e){
 	curPhase = 0;*/
 }
 
-
+checkedIn = false;
 role = settings.role;
 opponent = settings.opponent;
 position = settings.position;

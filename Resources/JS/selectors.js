@@ -23,8 +23,10 @@ $(function () {
 	
 	
 	if (ai) {
+		w = null;
 		w = new aiwamp("profit");
 	} else {
+		w = null;
 		w = new playerwamp();
 	}
 });
@@ -74,6 +76,7 @@ var hardReset = function() {
 	curScreen = 0;
 	changeScreen();
 	name = "null";
+	w = null;
 	w = new aiwamp("profit");
 }
 
@@ -231,6 +234,11 @@ var bindArrows = function() {
 			clearTimeout(idleInterval);
 			idleInterval = setTimeout(timeOut, 15000);
 		});
+	} else if (curScreen == 5) {
+		$( ".accept" ).on( "click", function() {
+			checkedIn = true;
+			$(this).addClass("greyed").html("Checked In");
+		});
 	}
 }
 
@@ -305,10 +313,12 @@ var typeLetter = function(k) {
 			curScreen = 2;
 			changeScreen();
 			
+			lettersTyped = 0;
+			
 			bIdling = false;
-				if (ai) {
+/*				if (ai) {
 					w = new playerwamp();
-				}
+				}*/
 			
 		}
 	}

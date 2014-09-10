@@ -1,5 +1,6 @@
 function WAMP(clientType) {
 	var myShape;
+	var self;
 	
 	
 	self = this;
@@ -105,7 +106,7 @@ var playerwamp = function() {
 			} else if (curScreen == 3) {
 				$("#time").html(kwargs.end_of_phase.minutes+":"+kwargs.end_of_phase.seconds);
 			} else if (curScreen == 5) {
-				$("#tut-time").html(kwargs.end_of_phase.minutes+":"+kwargs.end_of_phase.seconds);
+				$("#tut-time").html(kwargs.until_round.minutes+":"+kwargs.until_round.seconds);
 			}
 		},
 		onOffer: function(args, kwargs, details) {
@@ -135,16 +136,22 @@ var playerwamp = function() {
 				switch(kwargs.name){
 					
 					case "Signin":
-						if (name != "null") {
+						/*if (name != "null") {
 							console.log("signinPC from WAMP.js");
 							w.wampMethods.rpcCall("signinPC");
 						} else if (name == "null") {
 							w.wampMethods.rpcCall("signinAI");
-						}
+						}*/
 						break;
 					
 					case "Setup":
 						curPhase = 0;
+						
+						if (name != "null") {
+							curScreen = 5;
+							changeScreen();
+						}
+						
 						break;
 						
 					case "Round":
@@ -186,12 +193,27 @@ var playerwamp = function() {
 			} else {
 				switch(kwargs.name){
 					
+					case "Signin":
+					
+						break;
+					
 					case "Setup":
+						if (name != "null" && checkedIn) {
+							console.log("signinPC from WAMP.js");
+							w.wampMethods.rpcCall("signinPC");
+						} else if (!checkedIn) {
+							name = "null";
+							w = null;
+							w = new aiwamp("profit");
+							curScreen = 0;
+							changeScreen();
+						}
 						break;
 						
 					case "Round":
 						bIdling = false;
 						clearInterval(idleInterval);
+						checkedIn = false;
 						break;
 						
 					case "Wrap-up":
