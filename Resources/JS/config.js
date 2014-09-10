@@ -48,8 +48,7 @@ catch(e){
 role = settings.role;
 opponent = settings.opponent;
 position = settings.position;
-//ai = settings.ai;
-ai = true;
+ai = settings.ai;
 url = settings.url;
 curScreen = settings.curScreen;
 name = "null";

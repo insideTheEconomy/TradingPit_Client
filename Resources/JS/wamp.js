@@ -104,6 +104,8 @@ var playerwamp = function() {
 				$(".idletime").html(kwargs.until_round.minutes+":"+kwargs.until_round.seconds);
 			} else if (curScreen == 3) {
 				$("#time").html(kwargs.end_of_phase.minutes+":"+kwargs.end_of_phase.seconds);
+			} else if (curScreen == 5) {
+				$("#tut-time").html(kwargs.end_of_phase.minutes+":"+kwargs.end_of_phase.seconds);
 			}
 		},
 		onOffer: function(args, kwargs, details) {
@@ -150,6 +152,8 @@ var playerwamp = function() {
 						if (name != "null") {
 							curScreen = 3;
 							changeScreen();
+							idleInterval = setTimeout(timeOut, 15000);
+							bIdling = true;
 						} else {
 							//
 						}
@@ -186,6 +190,8 @@ var playerwamp = function() {
 						break;
 						
 					case "Round":
+						bIdling = false;
+						clearInterval(idleInterval);
 						break;
 						
 					case "Wrap-up":

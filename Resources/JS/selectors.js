@@ -20,8 +20,7 @@ $(function () {
 	}
 	
 	//Happens on EVERY restart
-	idleInterval = setTimeout(timeOut, 30000);
-	bIdling = true;
+	
 	
 	if (ai) {
 		w = new aiwamp("profit");
@@ -31,7 +30,7 @@ $(function () {
 });
 
 var timeOut = function() {
-	if (bIdling && curScreen != 0) {
+	if (bIdling) {
 		
 		var htmlDialog = '<div style="text-align:center; font-size:36px;" id="dialog" title=" "><br/>Are you still there?<br/><br/></div>';
 		
@@ -46,7 +45,7 @@ var timeOut = function() {
 		console.log("isOpen: ", isOpen);
 		if (!isOpen) {
 			clearTimeout(idleInterval);
-			idleInterval = setTimeout(timeOut, 15000);
+			idleInterval = setTimeout(timeOut, 10000);
 	
 			$( "#dialog" ).dialog({
 			      resizable: false,
@@ -59,7 +58,7 @@ var timeOut = function() {
 			        "Yes!": function() {
 			          $( this ).dialog( "close" );
 					  clearTimeout(idleInterval);
-					  idleInterval = setTimeout(timeOut, 30000);
+					  idleInterval = setTimeout(timeOut, 15000);
 			        }
 			      }
 			    });
@@ -71,8 +70,11 @@ var timeOut = function() {
 
 var hardReset = function() {
 	clearTimeout(idleInterval);
-	bIdling = true;
-	$(document.body).empty().append(initHTML);
+	bIdling = false;
+	curScreen = 0;
+	changeScreen();
+	name = "null";
+	w = new aiwamp("profit");
 }
 
 var stampAnim = function() {
@@ -172,6 +174,18 @@ var changeScreen = function() {
 				bindArrows();
 			});
 		}
+	} else if (curScreen == 5) { // Gameplay
+		if (role == "buyer") {
+			$(document.body).load("buyer-tutorial.html", function() {
+				//$(".namehere").prepend(name);
+				bindArrows();
+			});
+		} else if (role == "seller") {
+			$(document.body).load("seller-tutorial.html", function() {
+				//$(".namehere").prepend(name);
+				bindArrows();
+			});
+		}
 	}
 }
 
@@ -194,6 +208,8 @@ var bindArrows = function() {
 				$("#price").html(offerPrice);
 				$(".greyed").removeClass("greyed").html("Update Offer");
 				checkOfferColor();
+				clearTimeout(idleInterval);
+				idleInterval = setTimeout(timeOut, 15000);
 			}
 		});
 
@@ -203,6 +219,8 @@ var bindArrows = function() {
 				$("#price").html(offerPrice);
 				$(".greyed").removeClass("greyed").html("Update Offer");
 				checkOfferColor();
+				clearTimeout(idleInterval);
+				idleInterval = setTimeout(timeOut, 15000);
 			}
 		});
 		
@@ -210,6 +228,8 @@ var bindArrows = function() {
 			console.log("Submit Offer @ ", offerPrice);
 			$(this).addClass("greyed").html("Submitted");
 			w.wampMethods.submitOffer(offerPrice);
+			clearTimeout(idleInterval);
+			idleInterval = setTimeout(timeOut, 15000);
 		});
 	}
 }
