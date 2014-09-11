@@ -8,7 +8,8 @@ function WAMP(clientType) {
 	connection = null;
 	
 	
-	var self = this;
+	self = this;
+	console.log(this, self);
 	self.clientType = clientType;
 	self.callbacks = clientType.wampMethods;
 	self.currentOffers = [];
@@ -30,7 +31,7 @@ function WAMP(clientType) {
 		realm: 'tradingpit'
 	});
 	
-	this.connection = connection;
+	self.connection = connection;
 	
 	// Set up 'onopen' handler
 	connection.onopen = function(session) {
@@ -125,14 +126,13 @@ var playerwamp = function() {
 			self.offer.owner = self.myPlayer;
 			self.offer.price = price;
 			self.offer.name = name;
-			console.log("submitted offer: ", self.offer);	
+			console.log("submitted offer: ", self.offer);
 			
-			w.wampMethods.rpcCall("offer");	
+			w.wampMethods.rpcCall("offer");
 		},
 		accept: function(id) {
 			self.acceptedOffer = self.currentOffers[id%4];
-			w.wampMethods.rpcCall("accept");	
-			
+			w.wampMethods.rpcCall("accept");
 		},
 		onPhase: function(args, kwargs, details) {
 			console.log("onPhase: ", kwargs);
@@ -146,6 +146,7 @@ var playerwamp = function() {
 						} else if (name == "null") {
 							w.wampMethods.rpcCall("signinAI");
 						}*/
+						switchWAMP();
 						break;
 					
 					case "Setup":
@@ -202,7 +203,7 @@ var playerwamp = function() {
 						break;
 					
 					case "Setup":
-						switchWAMP();
+						
 						break;
 						
 					case "Round":
@@ -227,6 +228,8 @@ var playerwamp = function() {
 		},
 		rpcCall: function(call) {
 			if (call == "signinPC") {
+				console.log("Player Signin Attempt");
+				console.log("self.sess = ", self.sess, self);
 				self.sess.call("pit.rpc.signin", [], {
 					id: self.sess.id,
 					player: {
@@ -240,7 +243,11 @@ var playerwamp = function() {
 					console.log("Signed In Successfully: ", r);
 					myShape = r.shape;
 					$(".my-logoDiv").load( "shapes.html  #" + myShape );					
+				},
+				function(e) {
+					console.log("signin error: ", e);
 				});
+				
 			} else if (call == "offer") {
 				self.sess.call("pit.rpc.offer", [], {
 					id: self.sess.id,
