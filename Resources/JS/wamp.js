@@ -1,9 +1,14 @@
 function WAMP(clientType) {
 	var myShape;
-	var self;
+	
+	if (connection) {
+		connection.close();
+	}
+	
+	connection = null;
 	
 	
-	self = this;
+	var self = this;
 	self.clientType = clientType;
 	self.callbacks = clientType.wampMethods;
 	self.currentOffers = [];
@@ -17,11 +22,10 @@ function WAMP(clientType) {
 		// when running in browser, AutobahnJS will be included without a module system.
 	}*/
 	
-	autobahn = require('autobahn');
 	// Set up WAMP connection to router
-	var autobahn = require('autobahn');
+	
 	var sess;
-	var connection = new autobahn.Connection({
+	connection = new autobahn.Connection({
 		url: url,
 		realm: 'tradingpit'
 	});
@@ -198,16 +202,7 @@ var playerwamp = function() {
 						break;
 					
 					case "Setup":
-						if (name != "null" && checkedIn) {
-							console.log("signinPC from WAMP.js");
-							w.wampMethods.rpcCall("signinPC");
-						} else if (!checkedIn) {
-							name = "null";
-							w = null;
-							w = new aiwamp("profit");
-							curScreen = 0;
-							changeScreen();
-						}
+						switchWAMP();
 						break;
 						
 					case "Round":

@@ -242,6 +242,19 @@ var bindArrows = function() {
 	}
 }
 
+var switchWAMP = function() {
+	if (name != "null" && checkedIn) {
+		//If Human and Checked In
+		w.wampMethods.rpcCall("signinPC");
+	} else if (!checkedIn) {
+		name = "null";
+		w = null;
+		w = new aiwamp("profit");
+		curScreen = 0;
+		changeScreen();
+	}
+}
+
 var checkOfferColor = function() {
 	if (role == "buyer") {
 		if (offerPrice < reserve) {
@@ -310,15 +323,14 @@ var typeLetter = function(k) {
 			} else if (lettersTyped == 1) {
 				name = $("h1.signin").text().slice(0,-2);
 			}
+			
 			curScreen = 2;
 			changeScreen();
-			
 			lettersTyped = 0;
-			
 			bIdling = false;
-/*				if (ai) {
-					w = new playerwamp();
-				}*/
+			
+			w = new playerwamp();
+			ai = false;
 			
 		}
 	}

@@ -110,6 +110,13 @@ var aiwamp = function(_behavior) {
 				});
 			}
 			
+			f.enter.Setup = function() {
+				if (name != "null") {
+					curScreen = 5;
+					changeScreen();
+				}
+			}
+			
 			if(f[kwargs.action][kwargs.name]) console.log("calling phase function", f[kwargs.action][kwargs.name]);
 			(f[kwargs.action][kwargs.name])()
 			

@@ -18,6 +18,7 @@ var reserve;
 var name;
 var curPhase;
 var corpName;
+var connection;
 
 var checkedIn;
 
@@ -25,6 +26,8 @@ var checkedIn;
 var goKiosk;
 var hideMouse;
 var tipDelay;
+
+var autobahn = require('autobahn');
 
 // --------------------------- //
 
