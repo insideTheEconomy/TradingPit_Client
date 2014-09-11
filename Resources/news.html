@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="Monadnock Media">
+	<script type="text/javascript" charset="utf-8" src = "JS/jquery-1.9.1.js"></script>
+  <link rel="stylesheet" href="CSS/style.css">
+	<script src="JS/mustache.js"></script>
+ </head>
+
+<body>
+ <div id = "newswrapper">
+  <video id = "bumper" src="VID/bumper.ogv" autoplay width="1920px"  height="1080px"></video>
+	</div>
+	
+
+	<script>
+		function runNews(){
+			$.get("news_template.html", function(d){
+				Mustache.parse(d);
+				var render = Mustache.render(d,headline);
+				$('#newswrapper').html(render);
+			});
+		}
+		var runBumper = true;
+		var headline = {
+			"headline":"Wheat Prices Expected to Tumble",
+			"image" : "export.jpg",
+			"description":"Many exporting countries report record harvests",
+			"deck":{
+			"buyer" : [
+				10,10,9,8,7,6,6,6,4
+			],
+			"seller" : [
+				2,2,3,4,5,6,6,7,8
+			]
+			}
+		};
+		$(function(){
+			if(runBumper){
+				$('video').on('ended', runNews);
+			}else{
+				runNews();
+			}
+		})
+	
+		
+	</script>
+</body>
+</html>

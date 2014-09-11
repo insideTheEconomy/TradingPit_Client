@@ -1454,7 +1454,162 @@ h2 {
 	}
 }
 
+////NEWS////
 
+#news_bg{
+	
+	position: fixed;
+	top:0px;
+	width:1920px;
+	height:1080px;
+	background-color:blue;
+	z-index:-20;
+}
+#flashContent{
+	position: fixed;
+	top: 730px;
+	z-index:10;
+}
+*{
+	margin:0;
+	padding: 0;
+}
+.news_block{
+	width: 100%;
+	height: 836px;
+}
+
+.flag{
+
+}
+
+.barWrap{
+	width: 100%;
+	margin-left:0px;
+	&.top{
+		-webkit-transition: margin-left 0.5s ease-in;
+	}
+	&.mid{
+		-webkit-transition: margin-left 0.7s ease-in;
+	}
+	&.bottom{
+		-webkit-transition: margin-left 1s ease-in;
+	}
+	
+}
+
+.barWrap.inactive{
+	margin-left: -100%;
+	&.bottom{
+		margin-left: 100%;
+	}
+}
+.news_bar{
+
+	border-top: 2px solid fade(white,50);
+	background-color:blue;
+	z-index:20;
+
+	display: inline-block;
+/*	float:left; */
+}
+.news_bar.top{
+	width:1075px;
+	background-color:@newsGrey;
+	height:54px;
+}
+
+.news_bar.top.flag{
+/*	margin-top:53px;*/
+
+	background-color:rgba(0,0,0,0);
+	content: " ";
+	width: 0; 
+		height: 0; 
+		border-top: 54px solid transparent;
+		border-bottom: 0px solid transparent;
+		border-left: 54px solid @newsGrey;
+}
+
+.news_bar.mid{
+	
+	background-color: @blue;
+	width: 1730px;
+	height: 108px;
+	& h1{
+		color: white;
+		font-size: 5em;
+		float:left;
+		width:auto;
+		margin-left: 350px;
+		line-height: 108px;
+		font-family: title;
+	}
+}
+
+.news_bar.mid.flag{
+
+	background-color:rgba(0,0,0,0);
+	content: " ";
+	width: 0; 
+		height: 0; 
+		border-top: 108px solid transparent;
+		border-bottom: 0px solid transparent;
+		border-left: 108px solid @blue;
+}
+.news_bar.bottom{
+	height: 37px;
+	width: 1920px;
+	background-color:@newsGrey;
+}
+
+#newswrapper{
+	width:1920px;
+	height:1080px;
+}
+
+.news_block{
+	opacity: 1;
+	-webkit-transition: opacity 1.5s ease-in;
+	padding:0;
+	margin:0;
+	&.inactive{
+		opacity:0;
+	}
+
+}
+
+.news_column{
+
+	box-sizing: border-box;
+	padding: 40px;
+	height: 100%;
+	display: inline-block;
+	&.right{
+		padding-left:0;
+		margin-right:40px;
+		margin-top: 40px;
+		background-color: @black;
+		float:right;
+		width: 38%;
+		& h3{
+		
+			font-family: label;
+			color: white;
+			font-size: 3em;
+			margin: 20px;
+		
+		}
+	}
+	&.left{
+		float:left;
+		width:58%;
+	}
+}
+
+.newsborder{
+	box-shadow: inset 5px -20px 30px @black;
+}
 
 
 

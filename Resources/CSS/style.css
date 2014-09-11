@@ -1205,3 +1205,135 @@ h2.theirs {
   left: 225px;
   color: #95ba6a;
 }
+#news_bg {
+  position: fixed;
+  top: 0px;
+  width: 1920px;
+  height: 1080px;
+  background-color: blue;
+  z-index: -20;
+}
+#flashContent {
+  position: fixed;
+  top: 730px;
+  z-index: 10;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.news_block {
+  width: 100%;
+  height: 836px;
+}
+.barWrap {
+  width: 100%;
+  margin-left: 0px;
+}
+.barWrap.top {
+  -webkit-transition: margin-left 0.5s ease-in;
+}
+.barWrap.mid {
+  -webkit-transition: margin-left 0.7s ease-in;
+}
+.barWrap.bottom {
+  -webkit-transition: margin-left 1s ease-in;
+}
+.barWrap.inactive {
+  margin-left: -100%;
+}
+.barWrap.inactive.bottom {
+  margin-left: 100%;
+}
+.news_bar {
+  border-top: 2px solid rgba(255, 255, 255, 0.5);
+  background-color: blue;
+  z-index: 20;
+  display: inline-block;
+  /*	float:left; */
+
+}
+.news_bar.top {
+  width: 1075px;
+  background-color: #cacaca;
+  height: 54px;
+}
+.news_bar.top.flag {
+  /*	margin-top:53px;*/
+
+  background-color: rgba(0, 0, 0, 0);
+  content: " ";
+  width: 0;
+  height: 0;
+  border-top: 54px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 54px solid #cacaca;
+}
+.news_bar.mid {
+  background-color: #10069f;
+  width: 1730px;
+  height: 108px;
+}
+.news_bar.mid h1 {
+  color: white;
+  font-size: 5em;
+  float: left;
+  width: auto;
+  margin-left: 350px;
+  line-height: 108px;
+  font-family: title;
+}
+.news_bar.mid.flag {
+  background-color: rgba(0, 0, 0, 0);
+  content: " ";
+  width: 0;
+  height: 0;
+  border-top: 108px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 108px solid #10069f;
+}
+.news_bar.bottom {
+  height: 37px;
+  width: 1920px;
+  background-color: #cacaca;
+}
+#newswrapper {
+  width: 1920px;
+  height: 1080px;
+}
+.news_block {
+  opacity: 1;
+  -webkit-transition: opacity 1.5s ease-in;
+  padding: 0;
+  margin: 0;
+}
+.news_block.inactive {
+  opacity: 0;
+}
+.news_column {
+  box-sizing: border-box;
+  padding: 40px;
+  height: 100%;
+  display: inline-block;
+}
+.news_column.right {
+  padding-left: 0;
+  margin-right: 40px;
+  margin-top: 40px;
+  background-color: rgba(0, 0, 0, 0.8);
+  float: right;
+  width: 38%;
+}
+.news_column.right h3 {
+  font-family: label;
+  color: white;
+  font-size: 3em;
+  margin: 20px;
+}
+.news_column.left {
+  float: left;
+  width: 58%;
+}
+.newsborder {
+  box-shadow: inset 5px -20px 30px rgba(0, 0, 0, 0.8);
+}
