@@ -18,6 +18,7 @@ var reserve;
 var name;
 var curPhase;
 var corpName;
+var connection;
 
 var checkedIn;
 
@@ -25,6 +26,8 @@ var checkedIn;
 var goKiosk;
 var hideMouse;
 var tipDelay;
+
+var autobahn = require('autobahn');
 
 // --------------------------- //
 
@@ -50,7 +53,8 @@ checkedIn = false;
 role = settings.role;
 opponent = settings.opponent;
 position = settings.position;
-ai = settings.ai;
+//ai = settings.ai;
+ai = true;
 url = settings.url;
 curScreen = settings.curScreen;
 name = "null";
