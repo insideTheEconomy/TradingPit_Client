@@ -1533,17 +1533,16 @@ h2 {
 
 .news_bar.mid{
 	
-	background-color: @blue;
+	background-color: fade(@blue,50%);
 	width: 1730px;
 	height: 108px;
 	& h1{
-		color: white;
-		font-size: 5em;
+		.news_text;
+			line-height: 108px;
+		margin-top:.15em;
 		float:left;
-		width:auto;
 		margin-left: 350px;
 		line-height: 108px;
-		font-family: title;
 	}
 }
 
@@ -1555,8 +1554,9 @@ h2 {
 		height: 0; 
 		border-top: 108px solid transparent;
 		border-bottom: 0px solid transparent;
-		border-left: 108px solid @blue;
+		border-left: 108px solid fade(@blue,50%);
 }
+
 .news_bar.bottom{
 	height: 37px;
 	width: 1920px;
@@ -1579,6 +1579,14 @@ h2 {
 
 }
 
+.news_text{
+	text-transform: uppercase;
+	color: white;
+	font-size: 7em;
+	width:auto;
+	font-family: title;
+}
+
 .news_column{
 
 	box-sizing: border-box;
@@ -1589,24 +1597,70 @@ h2 {
 		padding-left:0;
 		margin-right:40px;
 		margin-top: 40px;
-		background-color: @black;
 		float:right;
 		width: 38%;
-		& h3{
 		
-			font-family: label;
-			color: white;
-			font-size: 3em;
-			margin: 20px;
-		
-		}
 	}
 	&.left{
 		float:left;
 		width:58%;
+		& img{
+			box-shadow: 8px 12px 22px black;
+		}
 	}
 }
 
+#news_region, #news_description{
+	width: 100%;
+	display: block;
+}
+
+#news_box{
+	margin:0;
+	padding:0;
+	width: 100%;
+	height: 100%;
+	background-color:fade(@black, 20);
+	box-shadow: inset 0 0 4px 3px fade(white,50);
+	& h1, h2, h3{
+		text-shadow: none;
+		margin:0;
+		padding:0;
+		color: white;
+		position: relative;
+		padding-left: 33px;
+		
+	}
+		
+	& h1{
+		.news_text;
+		line-height: .8em;
+		padding-top: .3em;
+		
+		font-size: 3.5em;
+		text-shadow: 0 0 4px @orange;
+	
+	
+	}
+	& h2{
+		.news_text;
+		color: darken(@blue, 20%);
+		font-size: 5.5em;
+		background-color: fade(@newsGrey,66);
+		padding-top: .25em;
+		line-height: .7em;
+		text-shadow: 2px 2px 0 fade(white,50);
+		box-shadow: inset 0 0 4px 2px white;
+		border-bottom: 2px solid @blue;
+		outline-offset: -15px;
+	}
+	& h3{
+		.news_text;
+		margin-top: .5em;
+		line-height: .9em;
+		text-shadow: 4px 5px 2px black;
+	}
+}
 .newsborder{
 	box-shadow: inset 5px -20px 30px @black;
 }
