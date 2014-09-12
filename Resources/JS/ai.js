@@ -41,6 +41,8 @@ var aiwamp = function(_behavior) {
 				$(".idletime").html(kwargs.until_round.minutes+":"+kwargs.until_round.seconds);
 			} else if (curScreen == 3) {
 				$("#time").html(kwargs.end_of_phase.minutes+":"+kwargs.end_of_phase.seconds);
+			} else if (curScreen == 5) {
+				$("#tut-time").html(kwargs.until_round.minutes+":"+kwargs.until_round.seconds);
 			}
 
 			function accept(){
@@ -57,7 +59,7 @@ var aiwamp = function(_behavior) {
 				}
 				console.log("ACCEPT OFFER", acceptedOffer);
 				//debugger;
-				if(/*self.params.compare(offer.price, self.params.card.reserve ) */ true) {
+				if(self.params.compare(offer.price, self.params.card.reserve )) {
 					console.log("Attempting to accept offer");
 					self.sess.call("pit.rpc.accept", [],
 					{
@@ -84,12 +86,9 @@ var aiwamp = function(_behavior) {
 			self.params.offers = kwargs;
 		},
 		
-		onPhase: function(args, kwargs, details) {
-			//console.log("OnPhase: ", kwargs);
-
-			var f = {enter:{},exit:{}}
-			f.enter.Signin = function(){
-				console.log("Sign In Attempt");
+		rpcCall: function(call) {
+			if (call == "signinAI") {
+				console.log("AI Signin Attempt");
 				self.sess.call("pit.rpc.signin", [], {
 					id: self.sess.id,
 					player: {
@@ -110,14 +109,25 @@ var aiwamp = function(_behavior) {
 						console.log("Got Offer Template", r);
 						self.params.offer = r;
 					});
-				});
+				}, function(e) {console.log("signin error: ", e)});
 
 				self.sess.call("pit.rpc.offerTemplate").then(function(r){
 					self.params.offer = r;
 				});
 			}
+		},
+		
+		onPhase: function(args, kwargs, details) {
+			//console.log("OnPhase: ", kwargs);
+
+			var f = {enter:{},exit:{}}
+			f.enter.Signin = function(){
+				setTimeout(switchWAMP, 100);
+			}
 			
 			f.enter.Setup = function() {
+				curPhase = 0;
+				
 				if (name != "null") {
 					curScreen = 5;
 					changeScreen();
@@ -126,10 +136,15 @@ var aiwamp = function(_behavior) {
 			
 			f.enter.Round = function(){
 				self.params.isRound = true;
+				
+				curPhase = 1;
 			}
 			
 			f.exit.Round = function(){
 				self.params.isRound = false;
+				bIdling = false;
+				clearInterval(idleInterval);
+				checkedIn = false;
 			}
 			
 			if(f[kwargs.action][kwargs.name]) console.log("calling phase function", f[kwargs.action][kwargs.name]);

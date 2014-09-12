@@ -243,15 +243,32 @@ var bindArrows = function() {
 }
 
 var switchWAMP = function() {
+	console.log("switchWAMP");
 	if (name != "null" && checkedIn) {
 		//If Human and Checked In
-		w.wampMethods.rpcCall("signinPC");
+		ai = false;
+		w = null;
+		w = new playerwamp();
+		setTimeout(signinWAMP, 1000);
+		
 	} else if (!checkedIn) {
+		ai = true;
 		name = "null";
 		w = null;
 		w = new aiwamp("profit");
+		setTimeout(signinWAMP, 1000);
+		
 		curScreen = 0;
 		changeScreen();
+	}
+}
+
+var signinWAMP = function() {
+	console.log("signinWAMP");
+	if (ai) {
+		w.wampMethods.rpcCall("signinAI");
+	} else {
+		w.wampMethods.rpcCall("signinPC");
 	}
 }
 
@@ -329,8 +346,7 @@ var typeLetter = function(k) {
 			lettersTyped = 0;
 			bIdling = false;
 			
-			w = new playerwamp();
-			ai = false;
+			
 			
 		}
 	}

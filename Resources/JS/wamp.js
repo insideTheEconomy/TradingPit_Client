@@ -146,7 +146,7 @@ var playerwamp = function() {
 						} else if (name == "null") {
 							w.wampMethods.rpcCall("signinAI");
 						}*/
-						switchWAMP();
+						setTimeout(switchWAMP, 100);
 						break;
 					
 					case "Setup":
@@ -199,7 +199,6 @@ var playerwamp = function() {
 				switch(kwargs.name){
 					
 					case "Signin":
-					
 						break;
 					
 					case "Setup":
