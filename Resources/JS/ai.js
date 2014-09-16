@@ -33,7 +33,7 @@ var aiwamp = function(_behavior) {
 		onTick: function(args, kwargs, details) {
 			//console.log("On Tick");
 			function roll(){
-				console.log("AI ROLLING",self.params)
+			//	console.log("AI ROLLING",self.params)
 				return (~~(Math.random()*self.params.chance) <= self.params.threshold)
 			}
 			
@@ -57,9 +57,11 @@ var aiwamp = function(_behavior) {
 					//else sort seller orders ascending
 					acceptedOffer = self.params.offers.seller.filter(function(d){return d != null }).sort(function(a,b){ return a.price-b.price})[0]
 				}
-				console.log("ACCEPT OFFER", acceptedOffer);
+				console.log("ACCEPT OFFER", acceptedOffer, self.params.card.reserve);
 				//debugger;
-				if(self.params.compare(offer.price, self.params.card.reserve )) {
+				var checkPrice = self.params.compare(offer.price, self.params.card.reserve );
+				console.log()
+				if(checkPrice) {
 					console.log("Attempting to accept offer");
 					self.sess.call("pit.rpc.accept", [],
 					{
@@ -95,7 +97,7 @@ var aiwamp = function(_behavior) {
 						role: role,
 						position: position,
 						id: self.sess.id,
-						meat: true,
+						meat: false,
 						name: "AI"+String(position)
 					}
 				}).then(function(r) {
@@ -103,7 +105,7 @@ var aiwamp = function(_behavior) {
 					console.log("SIGNED IN",r);
 					self.params.foo = "bar";
 					self.params.direction = ( role == "seller" ) ? +1 : -1 ;
-					self.params.compare = ( role == "seller" ) ? function(price,reseve){return price > reserve } : function(price,reseve){return price < reserve };
+					self.params.compare = ( role == "seller" ) ? function(_p,_r){return _p > _r } : function(_p,_r){return _p < _r };
 					
 					self.sess.call("pit.rpc.offerTemplate").then(function(r){
 						console.log("Got Offer Template", r);
