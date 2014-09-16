@@ -59,8 +59,8 @@ var aiwamp = function(_behavior) {
 				}
 				console.log("ACCEPT OFFER", acceptedOffer, self.params.card.reserve);
 				//debugger;
-				var checkPrice = self.params.compare(offer.price, self.params.card.reserve );
-				console.log()
+				var checkPrice = self.params.compare(acceptedOffer.price, self.params.card.reserve );
+				console.log("PRICE CHECK", checkPrice);
 				if(checkPrice) {
 					console.log("Attempting to accept offer");
 					self.sess.call("pit.rpc.accept", [],
