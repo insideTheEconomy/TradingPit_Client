@@ -235,7 +235,7 @@ var playerwamp = function() {
 						role: role,
 						position: position,
 						id: self.sess.id,
-						meat: false,
+						meat: true,
 						name: name
 					}
 				}).then(function(r){

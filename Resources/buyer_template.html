@@ -2,7 +2,7 @@
 {{#price}}
 <div id = "card" class = "seller {{owner.position}}" style="position:absolute;">
 	<h3>{{owner.name}}'s Offer</h3>
-	<img class="svg-logo" src="IMAGES/wheat-seller.svg">
+	<img class="svg-logo" width="50%" height="50%" src="IMAGES/wheat-seller.svg">
 	<h4 class="{{owner.position}}">${{price}}</h4>
 	<div class="logoDiv{{owner.position}}"></div>
 	<div class="accept {{owner.position}}" position="{{owner.position}}">Accept</div>
@@ -13,17 +13,17 @@
 		console.log("Offerer's Pos: ", {{owner.position}});	
 		
 		if ({{owner.position}} == 4) {
-			$( ".seller.{{owner.position}}" ).css("top", "3px");
-			$( ".seller.{{owner.position}}" ).css("left", "20px");
+			$( ".seller.{{owner.position}}" ).css("top", "-7px");
+			$( ".seller.{{owner.position}}" ).css("left", "10px");
 		} else if ({{owner.position}} == 5) {
-			$( ".seller.{{owner.position}}" ).css("top", "3px");
-			$( ".seller.{{owner.position}}" ).css("left", "295px");
+			$( ".seller.{{owner.position}}" ).css("top", "-7px");
+			$( ".seller.{{owner.position}}" ).css("left", "285px");
 		} else if ({{owner.position}} == 6) {
-			$( ".seller.{{owner.position}}" ).css("top", "200px");
-			$( ".seller.{{owner.position}}" ).css("left", "20px");
+			$( ".seller.{{owner.position}}" ).css("top", "191px");
+			$( ".seller.{{owner.position}}" ).css("left", "10px");
 		} else if ({{owner.position}} == 7) {
-			$( ".seller.{{owner.position}}" ).css("top", "200px");
-			$( ".seller.{{owner.position}}" ).css("left", "295px");
+			$( ".seller.{{owner.position}}" ).css("top", "191px");
+			$( ".seller.{{owner.position}}" ).css("left", "285px");
 		}
 		
 		//Set owners shape on offer card
