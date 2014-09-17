@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>Resources/JS/wamp.js</string>
+	<string>Resources/buyer-tutorial.html</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -40,9 +40,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>14</integer>
+				<integer>50</integer>
 				<key>line</key>
-				<integer>36</integer>
+				<integer>43</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -96,9 +96,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>16</integer>
+				<integer>32</integer>
 				<key>line</key>
-				<integer>237</integer>
+				<integer>249</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -110,9 +110,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>2</integer>
+				<integer>9</integer>
 				<key>line</key>
-				<integer>7</integer>
+				<integer>14</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -131,7 +131,21 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>24</integer>
+			<integer>0</integer>
+		</dict>
+		<key>Resources/buyer_template.html</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>51</integer>
+				<key>line</key>
+				<integer>18</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
 		<key>Resources/index.html</key>
 		<dict>
@@ -210,9 +224,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>9</integer>
+				<integer>28</integer>
 				<key>line</key>
-				<integer>14</integer>
+				<integer>2</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -233,6 +247,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>Resources/seller_template.html</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>49</integer>
+				<key>line</key>
+				<integer>41</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
@@ -241,17 +269,15 @@
 		<string>Resources/JS/selectors.js</string>
 		<string>Resources/seller.html</string>
 		<string>Resources/seller-tutorial.html</string>
+		<string>Resources/CSS/style.less</string>
 		<string>Resources/buyer-tutorial.html</string>
 		<string>Resources/buyer-wait.html</string>
-		<string>Resources/seller-idle.html</string>
-		<string>Resources/CSS/style.less</string>
-		<string>Resources/package.json</string>
-		<string>Resources/index.html</string>
-		<string>Resources/JS/config.js</string>
+		<string>Resources/seller_template.html</string>
+		<string>Resources/buyer_template.html</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{386, 33}, {1284, 995}}</string>
+	<string>{{363, 4}, {1307, 1024}}</string>
 </dict>
 </plist>

@@ -53,8 +53,17 @@ body {
   height: 768px;
   margin: 0px !important;
 }
-#tut-overlay {
+#tut-overlay-buyer {
   background-image: url('../IMAGES/info_screen.png');
+  background-size: 1024px 768px;
+  width: 1024px;
+  height: 768px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+#tut-overlay-seller {
+  background-image: url('../IMAGES/info_screen_sell.png');
   background-size: 1024px 768px;
   width: 1024px;
   height: 768px;
@@ -1245,64 +1254,6 @@ h2.theirs {
 .barWrap.inactive.bottom {
   margin-left: 100%;
 }
-.news_bar {
-  border-top: 2px solid rgba(255, 255, 255, 0.5);
-  background-color: blue;
-  z-index: 20;
-  display: inline-block;
-  /*	float:left; */
-
-}
-.news_bar.top {
-  width: 1075px;
-  background-color: #cacaca;
-  height: 54px;
-}
-.news_bar.top.flag {
-  /*	margin-top:53px;*/
-
-  background-color: rgba(0, 0, 0, 0);
-  content: " ";
-  width: 0;
-  height: 0;
-  border-top: 54px solid transparent;
-  border-bottom: 0px solid transparent;
-  border-left: 54px solid #cacaca;
-}
-.news_bar.mid {
-  background-color: rgba(16, 6, 159, 0.5);
-  width: 1730px;
-  height: 108px;
-}
-.news_bar.mid h1 {
-  text-transform: uppercase;
-  color: white;
-  font-size: 7em;
-  width: auto;
-  font-family: title;
-  margin-top: .15em;
-  float: left;
-  margin-left: 350px;
-  line-height: 108px;
-}
-.news_bar.mid.flag {
-  background-color: rgba(0, 0, 0, 0);
-  content: " ";
-  width: 0;
-  height: 0;
-  border-top: 108px solid transparent;
-  border-bottom: 0px solid transparent;
-  border-left: 108px solid rgba(16, 6, 159, 0.5);
-}
-.news_bar.bottom {
-  height: 37px;
-  width: 1920px;
-  background-color: #cacaca;
-}
-#newswrapper {
-  width: 1920px;
-  height: 1080px;
-}
 .news_block {
   opacity: 1;
   -webkit-transition: opacity 1.5s ease-in;
@@ -1372,22 +1323,6 @@ h2.theirs {
   padding-top: .3em;
   font-size: 3.5em;
   text-shadow: 0 0 4px #f0c135;
-}
-#news_box h2 {
-  text-transform: uppercase;
-  color: white;
-  font-size: 7em;
-  width: auto;
-  font-family: title;
-  color: #06023d;
-  font-size: 5.5em;
-  background-color: rgba(202, 202, 202, 0.66);
-  padding-top: .25em;
-  line-height: .7em;
-  text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
-  box-shadow: inset 0 0 4px 2px white;
-  border-bottom: 2px solid #10069f;
-  outline-offset: -15px;
 }
 #news_box h3 {
   text-transform: uppercase;
