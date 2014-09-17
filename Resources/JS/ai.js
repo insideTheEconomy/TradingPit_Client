@@ -12,7 +12,7 @@ var aiwamp = function(_behavior) {
 			self.params.changeCounter = 0;
 			makeOffer();
 		}else{
-			self.params.changeCounter++;
+			self.params.changeCounter+=1;
 		}
 	}
 	
@@ -21,7 +21,7 @@ var aiwamp = function(_behavior) {
 		var window = self.params.window;
 		var direction = self.params.direction;
 		var offer = self.params.offer;
-		offer.price = Math.min(reserve + (~~(Math.random()*window+1)*direction), 10);
+		offer.price = Math.min(reserve + (~~(Math.random()*window)*direction), 10);
 		console.log("AI MAKE OFFER", offer)
 		self.sess.call("pit.rpc.offer", [], {	id: self.sess.id,	offer: offer		}).then(function(){console.log("MADE OFFER")})
 	}
@@ -30,9 +30,9 @@ var aiwamp = function(_behavior) {
 
 	AIs.profit.params = {
 		card: null,		rolls: 0,
-		chance: 5,		threshold: 1,
-		window: 4,	changeOffer: false,
-		changeTime: ~~(Math.random()*3)+3, changeCounter: 0
+		chance: aiChance,		threshold: 1,
+		window: 3,	
+		changeTime: ~~(Math.random()*5)+4, changeCounter: 0
 	}
 
 	AIs.profit.methods = {
@@ -51,10 +51,10 @@ var aiwamp = function(_behavior) {
 
 		onTick: function(args, kwargs, details) {
 			//console.log("On Tick");
-			makeOffer();
+			checkOffer();
 			function roll(){
 			//	console.log("AI ROLLING",self.params)
-				return (~~(Math.random()*self.params.chance) <= self.params.threshold)
+				return (~~(Math.random()*self.params.chance) < self.params.threshold)
 			}
 			
 			if (curScreen == 0 || curScreen == 2 || curScreen == 4) {
@@ -100,7 +100,7 @@ var aiwamp = function(_behavior) {
 	
 			if(r){ accept()  };
 			
-			self.params.threshold = (self.params.threshold >= chance-1) ? 1 : self.params.threshold+1;
+			self.params.threshold = (self.params.threshold >= chance) ? 1 : self.params.threshold+1;
 		},
 		
 		onOffer: function(args, kwargs, details) {
