@@ -8,5 +8,6 @@
 "curScreen" : 0,
 "kiosk" : false,
 "hideMouse" : false,
-"tipDelay" : 10
+"tipDelay" : 10,
+"aiChance" : 10
 }

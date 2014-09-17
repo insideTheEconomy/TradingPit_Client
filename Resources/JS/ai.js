@@ -30,9 +30,9 @@ var aiwamp = function(_behavior) {
 
 	AIs.profit.params = {
 		card: null,		rolls: 0,
-		chance: 5,		threshold: 1,
+		chance: aiChance,		threshold: 1,
 		window: 4,	changeOffer: false,
-		changeTime: ~~(Math.random()*3)+3, changeCounter: 0;
+		changeTime: ~~(Math.random()*4)+3, changeCounter: 0;
 	}
 
 	AIs.profit.methods = {
@@ -54,7 +54,7 @@ var aiwamp = function(_behavior) {
 			makeOffer();
 			function roll(){
 			//	console.log("AI ROLLING",self.params)
-				return (~~(Math.random()*self.params.chance) <= self.params.threshold)
+				return (~~(Math.random()*self.params.chance) < self.params.threshold)
 			}
 			
 			if (curScreen == 0 || curScreen == 2 || curScreen == 4) {
@@ -100,7 +100,7 @@ var aiwamp = function(_behavior) {
 	
 			if(r){ accept()  };
 			
-			self.params.threshold = (self.params.threshold >= chance-1) ? 1 : self.params.threshold+1;
+			self.params.threshold = (self.params.threshold >= chance) ? 1 : self.params.threshold+1;
 		},
 		
 		onOffer: function(args, kwargs, details) {

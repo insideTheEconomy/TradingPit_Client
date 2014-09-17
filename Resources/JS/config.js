@@ -19,7 +19,7 @@ var name;
 var curPhase;
 var corpName;
 var connection;
-
+var aiChance;
 var checkedIn;
 
 //Debug//
@@ -50,6 +50,7 @@ catch(e){
 }
 
 checkedIn = false;
+aiChance = settings.aiChance || 10;
 role = settings.role;
 opponent = settings.opponent;
 position = settings.position;
