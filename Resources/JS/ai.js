@@ -32,7 +32,7 @@ var aiwamp = function(_behavior) {
 		card: null,		rolls: 0,
 		chance: 5,		threshold: 1,
 		window: 4,	changeOffer: false,
-		changeTime: ~~(Math.random()*3)+3, changeCounter: 0;
+		changeTime: ~~(Math.random()*3)+3, changeCounter: 0
 	}
 
 	AIs.profit.methods = {
