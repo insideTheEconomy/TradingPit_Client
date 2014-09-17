@@ -12,7 +12,7 @@ var aiwamp = function(_behavior) {
 			self.params.changeCounter = 0;
 			makeOffer();
 		}else{
-			self.params.changeCounter++;
+			self.params.changeCounter+=1;
 		}
 	}
 	
@@ -21,7 +21,7 @@ var aiwamp = function(_behavior) {
 		var window = self.params.window;
 		var direction = self.params.direction;
 		var offer = self.params.offer;
-		offer.price = Math.min(reserve + (~~(Math.random()*window+1)*direction), 10);
+		offer.price = Math.min(reserve + (~~(Math.random()*window)*direction), 10);
 		console.log("AI MAKE OFFER", offer)
 		self.sess.call("pit.rpc.offer", [], {	id: self.sess.id,	offer: offer		}).then(function(){console.log("MADE OFFER")})
 	}
@@ -31,8 +31,8 @@ var aiwamp = function(_behavior) {
 	AIs.profit.params = {
 		card: null,		rolls: 0,
 		chance: aiChance,		threshold: 1,
-		window: 4,	changeOffer: false,
-		changeTime: ~~(Math.random()*4)+3, changeCounter: 0;
+		window: 3,	
+		changeTime: ~~(Math.random()*5)+4, changeCounter: 0;
 	}
 
 	AIs.profit.methods = {
