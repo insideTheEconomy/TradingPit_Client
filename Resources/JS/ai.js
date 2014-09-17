@@ -51,7 +51,7 @@ var aiwamp = function(_behavior) {
 
 		onTick: function(args, kwargs, details) {
 			//console.log("On Tick");
-			makeOffer();
+			checkOffer();
 			function roll(){
 			//	console.log("AI ROLLING",self.params)
 				return (~~(Math.random()*self.params.chance) < self.params.threshold)
