@@ -60,7 +60,7 @@ var timeOut = function() {
 			        "Yes!": function() {
 			          $( this ).dialog( "close" );
 					  clearTimeout(idleInterval);
-					  idleInterval = setTimeout(timeOut, 15000);
+					  idleInterval = setTimeout(timeOut, 25000);
 			        }
 			      }
 			    });
@@ -212,7 +212,7 @@ var bindArrows = function() {
 				$(".greyed").removeClass("greyed").html("Update Offer");
 				checkOfferColor();
 				clearTimeout(idleInterval);
-				idleInterval = setTimeout(timeOut, 15000);
+				idleInterval = setTimeout(timeOut, 25000);
 			}
 		});
 
@@ -223,7 +223,7 @@ var bindArrows = function() {
 				$(".greyed").removeClass("greyed").html("Update Offer");
 				checkOfferColor();
 				clearTimeout(idleInterval);
-				idleInterval = setTimeout(timeOut, 15000);
+				idleInterval = setTimeout(timeOut, 25000);
 			}
 		});
 		
@@ -232,7 +232,7 @@ var bindArrows = function() {
 			$(this).addClass("greyed").html("Submitted");
 			w.wampMethods.submitOffer(offerPrice);
 			clearTimeout(idleInterval);
-			idleInterval = setTimeout(timeOut, 15000);
+			idleInterval = setTimeout(timeOut, 25000);
 		});
 	} else if (curScreen == 5) {
 		$( ".accept" ).on( "click", function() {
