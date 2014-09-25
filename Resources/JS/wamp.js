@@ -87,19 +87,38 @@ var playerwamp = function() {
 		// Define an event handler
 		onCard: function(args, kwargs, details){
 			console.log("CARD", kwargs);
+			
 			reserve = kwargs.reserve;
 			self.myPlayer = kwargs;
-			$(".value").html(reserve);
-			$(".moneyCounter").html("$"+kwargs.surplus);
+			
+			$(".value").html("$" + String(reserve));
+			reserveSnd.play();
+
+			$(".value").addClass("anim");
+			setTimeout(function() 
+			{
+				$(".value").removeClass("anim");
+				setTimeout(function() 
+				{
+					$(".value").addClass("anim");
+					setTimeout(function() 
+					{
+						$(".value").removeClass("anim");
+					}, 250);
+				}, 250);
+			}, 250);
+			
+			
 			
 			if (kwargs.message == "OFFER_ACCEPTED") {
 				stampAnim();
 			}
 			
+			$(".moneyCounter").html("$"+kwargs.surplus);
 			$(".dollar").addClass("anim");
 			setTimeout(function() 
 			{
-				$(".dollar").removeClass("anim"); 
+				$(".dollar").removeClass("anim");
 			}, 220);
 
 			$(".greyed").removeClass("greyed").html("Submit");	

@@ -1397,7 +1397,7 @@ h2 {
 			text-align:right;
 			position: absolute;
 			left: 30px;
-			top: -5px;
+			top: 25px;
 			font-size: 30px;
 		}
 
@@ -1412,7 +1412,12 @@ h2 {
 		}
 
 		& .value {
-			
+			transition: all 0.25s ease-out;
+			text-shadow: 0px 0px 0px transparent;
+			&.anim {
+				text-shadow: 0px 0px 15px rgba(150, 150, 150, 1);
+				transition: all 0.25s ease-out;
+			}
 		}
 	}
 }
@@ -1445,7 +1450,7 @@ h2 {
 			text-align:right;
 			position: absolute;
 			left: 20px;
-			top: -5px;
+			top: 25px;
 			font-size: 30px;
 		}
 
@@ -1460,7 +1465,12 @@ h2 {
 		}
 
 		& .value {
-
+			transition: all 0.25s ease-out;
+			text-shadow: 0px 0px 0px transparent;
+			&.anim {
+				text-shadow: 0px 0px 15px rgba(150, 150, 150, 1);
+				transition: all 0.25s ease-out;
+			}
 		}
 	}
 }

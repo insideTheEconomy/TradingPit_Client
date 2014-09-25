@@ -6,6 +6,10 @@ var chaChingSnd = document.createElement('audio');
 chaChingSnd.setAttribute('src', 'SND/payoff.ogg');
 chaChingSnd.load();
 
+var reserveSnd = document.createElement('audio');
+reserveSnd.setAttribute('src', 'SND/reserve.wav');
+reserveSnd.load();
+
 $(function () {
 	//Happens only FIRST time program is run
 	if (!initiated) {
@@ -30,6 +34,25 @@ $(function () {
 		w = new playerwamp();
 	}
 });
+
+var testAnim = function(input) {
+	$(".value").html("$" + String(input));
+	reserveSnd.play();
+	
+	$(".value").addClass("anim");
+	setTimeout(function() 
+	{
+		$(".value").removeClass("anim");
+		setTimeout(function() 
+		{
+			$(".value").addClass("anim");
+			setTimeout(function() 
+			{
+				$(".value").removeClass("anim");
+			}, 250);
+		}, 250);
+	}, 250);
+}
 
 var timeOut = function() {
 	if (bIdling) {
