@@ -1230,6 +1230,62 @@ h2.theirs {
   text-shadow: 0px 0px 15px #969696;
   transition: all 0.25s ease-out;
 }
+.accept.check-in {
+  -webkit-animation: pulse 3s infinite;
+  margin-top: 25px;
+}
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0px #a4dbe8;
+  }
+  15% {
+    box-shadow: 0 0 60px 4px #a4dbe8;
+  }
+  30% {
+    box-shadow: 0 0 30px 0px #a4dbe8;
+  }
+  100% {
+    box-shadow: 0 0 0px #a4dbe8;
+  }
+}
+@-webkit-keyframes textPulse {
+  0% {
+    text-shadow: 0 0 0px #a4dbe8;
+  }
+  50% {
+    text-shadow: 0 0 20px #a4dbe8;
+  }
+  0% {
+    text-shadow: 0 0 0px #a4dbe8;
+  }
+}
+#check-in {
+  padding-top: 10px;
+}
+.tut-time-wrap {
+  float: left;
+  padding: 0;
+  height: 100%;
+  margin: 0;
+}
+.tut-time-wrap.left {
+  width: 40%;
+}
+.tut-time-wrap.right {
+  width: 60%;
+}
+.tut-time-wrap h2 {
+  font-size: 18px;
+  line-height: 1em;
+  position: relative;
+  width: 100%;
+  margin: 0;
+}
+.tut-time-wrap #tut-time {
+  font-family: clock;
+  font-size: 6em;
+  -webkit-animation: textPulse 1s infinite;
+}
 #news_bg {
   position: fixed;
   top: 0px;

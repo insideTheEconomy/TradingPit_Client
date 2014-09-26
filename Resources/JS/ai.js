@@ -7,14 +7,25 @@ var aiwamp = function(_behavior) {
 		var behavior = "profit";
 	}
 	
-	var checkOffer = function(){
-		if(self.params.changeCounter == self.params.ChangeTime){
-			self.params.changeCounter = 0;
-			makeOffer();
+	
+	var checkOfferCounter = function(){
+		if(self.params.isRound){
+				var count = self.params.changeCounter;
+				var time = self.params.changeTime;
+			//	console.log("AI checkOfferCounter - count,time :", count, time)
+				if(count == time){
+					self.params.changeCounter = 0;
+					return true;
+				}else{
+					self.params.changeCounter+=1;
+					return false;
+				}
 		}else{
-			self.params.changeCounter+=1;
+			return false;
 		}
+	
 	}
+	
 	
 	var makeOffer = function(){
 		var reserve = self.params.card.reserve;
@@ -23,16 +34,16 @@ var aiwamp = function(_behavior) {
 		var offer = self.params.offer;
 		offer.price = Math.min(reserve + (~~(Math.random()*window)*direction), 10);
 		console.log("AI MAKE OFFER", offer)
-		self.sess.call("pit.rpc.offer", [], {	id: self.sess.id,	offer: offer		}).then(function(){console.log("MADE OFFER")})
+		self.sess.call("pit.rpc.offer", [], {	id: self.sess.id,	offer: offer		}).then(function(r){console.log("MADE OFFER", r)})
 	}
 	
 	AIs ={profit:{},transaction:{}};
-
+	var changeTime = ~~(Math.random()*5)+4;
 	AIs.profit.params = {
 		card: null,		rolls: 0,
 		chance: aiChance,		threshold: 1,
 		window: 3,	
-		changeTime: ~~(Math.random()*5)+4, changeCounter: 0
+		changeTime: changeTime, changeCounter: changeTime
 	}
 
 	AIs.profit.methods = {
@@ -51,7 +62,7 @@ var aiwamp = function(_behavior) {
 
 		onTick: function(args, kwargs, details) {
 			//console.log("On Tick");
-			checkOffer();
+			if( checkOfferCounter() ) makeOffer();
 			function roll(){
 			//	console.log("AI ROLLING",self.params)
 				return (~~(Math.random()*self.params.chance) < self.params.threshold)
@@ -80,7 +91,7 @@ var aiwamp = function(_behavior) {
 				console.log("ACCEPT OFFER", acceptedOffer, self.params.card.reserve);
 				//debugger;
 				var checkPrice = self.params.compare(acceptedOffer.price, self.params.card.reserve );
-				console.log("PRICE CHECK", checkPrice);
+				console.log("PRICE CHECK", checkPrice, acceptedOffer.price, self.params.card.reserve );
 				if(checkPrice) {
 					console.log("Attempting to accept offer");
 					self.sess.call("pit.rpc.accept", [],
