@@ -10,6 +10,11 @@ var reserveSnd = document.createElement('audio');
 reserveSnd.setAttribute('src', 'SND/reserve.wav');
 reserveSnd.load();
 
+$.ajaxSetup ({
+    // Disable caching of AJAX responses
+    cache: false
+});
+
 $(function () {
 	//Happens only FIRST time program is run
 	if (!initiated) {
