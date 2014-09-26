@@ -7,7 +7,7 @@ var aiwamp = function(_behavior) {
 		var behavior = "profit";
 	}
 	
-	var changeOffer = function(){
+	var checkOffer = function(){
 		if(self.params.changeCounter == self.params.ChangeTime){
 			self.params.changeCounter = 0;
 			makeOffer();

@@ -52,10 +52,10 @@ function WAMP(clientType) {
 		// Subscribe to clock
 		session.subscribe('pit.pub.clock', self.callbacks.onTick).then(
 			function(subscription) {
-				 //console.log("subscription successfull", subscription);
+				 console.log("subscription successfull", subscription);
 				currentSubscription = subscription;
 			}, function(error) {
-				//console.log("subscription failed", error);
+				console.log("subscription failed", error);
 			});
 		
 		

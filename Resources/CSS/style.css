@@ -37,7 +37,7 @@
 }
 /*-- General Styles --*/
 .reflect {
-  -webkit-box-reflect: below -54px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54)));
+  -webkit-box-reflect: below -54px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0)));
   position: absolute;
 }
 * {
@@ -98,13 +98,13 @@ body {
   font-family: "title";
   font-size: 88px;
   color: #bda36c;
-  text-shadow: 2px 2px 0px #222222;
-  -webkit-box-reflect: below -54px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54)));
+  text-shadow: 2px 2px 0px rgba(34, 34, 34, 0);
+  -webkit-box-reflect: below -54px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0)));
   position: absolute;
 }
 .buyer-client-wrap h1.namehere {
   font-size: 60px;
-  -webkit-box-reflect: below -40px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54))) !important;
+  -webkit-box-reflect: below -40px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0))) !important;
 }
 .buyer-client-wrap h1.idle {
   margin-left: 270px;
@@ -186,13 +186,13 @@ body {
   font-family: "title";
   font-size: 88px;
   color: #a4dbe8;
-  text-shadow: 2px 2px 0px #222222;
-  -webkit-box-reflect: below -54px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54)));
+  text-shadow: 2px 2px 0px rgba(34, 34, 34, 0);
+  -webkit-box-reflect: below -54px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0)));
   position: absolute;
 }
 .seller-client-wrap h1.namehere {
   font-size: 60px;
-  -webkit-box-reflect: below -40px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0.54))) !important;
+  -webkit-box-reflect: below -40px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(12%, transparent), to(rgba(255, 255, 255, 0))) !important;
 }
 .seller-client-wrap h1.idle {
   margin-left: 270px;
@@ -272,7 +272,7 @@ h2 {
   font-family: "sub-title";
   font-size: 36px;
   color: #ffffff;
-  text-shadow: 4px 4px 3px #222222;
+  text-shadow: 4px 4px 3px rgba(34, 34, 34, 0);
   margin-top: -15px;
 }
 h2.yours {
@@ -296,7 +296,7 @@ h2.theirs {
   font-size: 20px;
   font-family: "sub-title";
   background-color: rgba(0, 0, 0, 0.5);
-  text-shadow: 4px 4px 0px #222222;
+  text-shadow: 4px 4px 0px rgba(34, 34, 34, 0);
   color: #ffffff;
 }
 .timerWrap.idle {
@@ -404,7 +404,7 @@ h2.theirs {
   font-size: 20px;
   font-family: "sub-title";
   background-color: rgba(0, 0, 0, 0.5);
-  text-shadow: 4px 4px 0px #222222;
+  text-shadow: 4px 4px 0px rgba(34, 34, 34, 0);
   color: #ffffff;
 }
 .dollar {
@@ -505,7 +505,7 @@ h2.theirs {
   padding: 10px;
   display: inline-block;
   border-radius: 12px;
-  text-shadow: 4px 4px 3px #222222;
+  text-shadow: 4px 4px 3px rgba(34, 34, 34, 0);
   margin: 10px;
   width: 240px;
   background: #8a5c00;
@@ -602,7 +602,7 @@ h2.theirs {
   padding: 10px;
   display: inline-block;
   border-radius: 12px;
-  text-shadow: 4px 4px 3px #222222;
+  text-shadow: 4px 4px 3px rgba(34, 34, 34, 0);
   margin: 19px;
   width: 82%;
   height: 85%;
@@ -783,7 +783,7 @@ h2.theirs {
   padding: 10px;
   display: inline-block;
   border-radius: 12px;
-  text-shadow: 4px 4px 3px #222222;
+  text-shadow: 4px 4px 3px rgba(34, 34, 34, 0);
   margin: 10px;
   width: 240px;
   background: rgba(70, 87, 38, 0.88);
@@ -880,7 +880,7 @@ h2.theirs {
   padding: 10px;
   display: inline-block;
   border-radius: 12px;
-  text-shadow: 4px 4px 3px #222222;
+  text-shadow: 4px 4px 3px rgba(34, 34, 34, 0);
   margin: 19px;
   width: 82%;
   height: 85%;
@@ -1055,7 +1055,7 @@ h2.theirs {
   font-size: 24px;
   font-family: "sub-title";
   background-color: rgba(0, 0, 0, 0.5);
-  text-shadow: 4px 4px 0px #222222;
+  text-shadow: 4px 4px 0px rgba(34, 34, 34, 0);
   color: #ffffff;
 }
 .tipWrap #tip {
@@ -1153,7 +1153,7 @@ h2.theirs {
   font-size: 20px;
   font-family: "sub-title";
   background-color: rgba(0, 0, 0, 0.5);
-  text-shadow: 4px 4px 0px #222222;
+  text-shadow: 4px 4px 0px rgba(34, 34, 34, 0);
   color: #ffffff;
 }
 .buyer-client-wrap .valueWrap .svg-logo {
@@ -1197,7 +1197,7 @@ h2.theirs {
   font-size: 20px;
   font-family: "sub-title";
   background-color: rgba(0, 0, 0, 0.5);
-  text-shadow: 4px 4px 0px #222222;
+  text-shadow: 4px 4px 0px rgba(34, 34, 34, 0);
   color: #ffffff;
 }
 .seller-client-wrap .valueWrap .svg-logo {
