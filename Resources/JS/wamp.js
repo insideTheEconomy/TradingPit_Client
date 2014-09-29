@@ -122,6 +122,8 @@ var playerwamp = function() {
 			}, 220);
 
 			$(".greyed").removeClass("greyed").html("Submit");	
+			
+			checkOfferColor();
 		},
 		onTick: function(args, kwargs, details) {
 			//console.log("onTick: ", kwargs);

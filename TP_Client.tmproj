@@ -18,53 +18,9 @@
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
-	<integer>172</integer>
+	<integer>197</integer>
 	<key>metaData</key>
 	<dict>
-		<key>Resources/CSS/style.css</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>7</integer>
-				<key>line</key>
-				<integer>421</integer>
-			</dict>
-			<key>columnSelection</key>
-			<false/>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>391</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>1</integer>
-				<key>line</key>
-				<integer>421</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>7</integer>
-				<key>line</key>
-				<integer>421</integer>
-			</dict>
-		</dict>
-		<key>Resources/CSS/style.less</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>52</integer>
-				<key>line</key>
-				<integer>1470</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>1418</integer>
-		</dict>
 		<key>Resources/IMAGES/icon_1478.svg</key>
 		<dict>
 			<key>caret</key>
@@ -98,28 +54,58 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>14</integer>
+				<integer>22</integer>
 				<key>line</key>
-				<integer>39</integer>
+				<integer>185</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>6</integer>
+			<integer>102</integer>
 		</dict>
 		<key>Resources/JS/wamp.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>11</integer>
+				<integer>44</integer>
 				<key>line</key>
-				<integer>108</integer>
+				<integer>157</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>77</integer>
+			<integer>135</integer>
+		</dict>
+		<key>Resources/buyer-idle.html</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>32</integer>
+				<key>line</key>
+				<integer>3</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>13</integer>
+				<key>line</key>
+				<integer>3</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>32</integer>
+				<key>line</key>
+				<integer>3</integer>
+			</dict>
 		</dict>
 		<key>Resources/buyer-tutorial.html</key>
 		<dict>
@@ -140,14 +126,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>35</integer>
+				<integer>7</integer>
 				<key>line</key>
-				<integer>35</integer>
+				<integer>153</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>24</integer>
+			<integer>0</integer>
 		</dict>
 		<key>Resources/buyer.html</key>
 		<dict>
@@ -161,16 +147,16 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>19</integer>
+			<integer>0</integer>
 		</dict>
 		<key>Resources/index.html</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>23</integer>
+				<integer>41</integer>
 				<key>line</key>
-				<integer>18</integer>
+				<integer>26</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -254,9 +240,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>143</integer>
+				<integer>8</integer>
 				<key>line</key>
-				<integer>50</integer>
+				<integer>12</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -267,16 +253,18 @@
 	<key>openDocuments</key>
 	<array>
 		<string>Resources/JS/selectors.js</string>
+		<string>Resources/buyer-wait.html</string>
 		<string>Resources/JS/wamp.js</string>
-		<string>Resources/CSS/style.less</string>
+		<string>Resources/package.json</string>
 		<string>Resources/seller.html</string>
 		<string>Resources/buyer.html</string>
+		<string>Resources/buyer-idle.html</string>
 		<string>Resources/index.html</string>
 		<string>Resources/JS/config.js</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{443, 63}, {1465, 995}}</string>
+	<string>{{463, 63}, {1455, 995}}</string>
 </dict>
 </plist>

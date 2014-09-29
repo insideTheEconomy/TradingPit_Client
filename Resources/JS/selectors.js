@@ -181,14 +181,14 @@ var changeScreen = function() {
 		if (role == "buyer") {
 			$(document.body).load("buyer.html", function() {
 				$(".namehere").prepend(name);
-				$(".value").html(reserve);
+				$(".value").html("$" + String(reserve));
 				bindArrows();
 				checkOfferColor();
 			});
 		} else if (role == "seller") {
 			$(document.body).load("seller.html", function() {
 				$(".namehere").prepend(name);
-				$(".value").html(reserve);
+				$(".value").html("$" + String(reserve));
 				bindArrows();
 				checkOfferColor();
 			});
