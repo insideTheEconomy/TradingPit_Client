@@ -21,6 +21,7 @@ var corpName;
 var connection;
 var aiChance;
 var checkedIn;
+var firstCheckIn;
 
 //Debug//
 var goKiosk;
@@ -50,6 +51,7 @@ catch(e){
 }
 
 checkedIn = false;
+firstCheckIn = true;
 aiChance = settings.aiChance || 10;
 role = settings.role;
 opponent = settings.opponent;

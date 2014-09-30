@@ -175,8 +175,6 @@ var aiwamp = function(_behavior) {
 			
 			f.exit.Round = function(){
 				self.params.isRound = false;
-				bIdling = false;
-				clearInterval(idleInterval);
 				checkedIn = false;
 			}
 			

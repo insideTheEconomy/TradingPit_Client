@@ -1,6 +1,5 @@
 var lettersTyped;
-var idleInterval;
-var bIdling;
+var checkInTimer;
 
 var chaChingSnd = document.createElement('audio');
 chaChingSnd.setAttribute('src', 'SND/payoff.ogg');
@@ -59,10 +58,8 @@ var testAnim = function(input) {
 	}, 250);
 }
 
-var timeOut = function() {
-	if (bIdling) {
-		
-		var htmlDialog = '<div style="text-align:center; font-size:36px;" id="dialog" title=" "><br/>Are you still there?<br/><br/></div>';
+var openCheckIn = function() {		
+		var htmlDialog = '<div style="width:500px; text-align:center; font-size:36px;" id="dialog" title=" "><br/>Are you ready to enter the pit?<br/><br/></div>';
 		
 		$(document.body).append(htmlDialog);
 		
@@ -74,8 +71,6 @@ var timeOut = function() {
 
 		console.log("isOpen: ", isOpen);
 		if (!isOpen) {
-			clearTimeout(idleInterval);
-			idleInterval = setTimeout(timeOut, 10000);
 	
 			$( "#dialog" ).dialog({
 			      resizable: false,
@@ -83,27 +78,34 @@ var timeOut = function() {
 				  hide: "fade",
 				  show: "drop",
 			      modal: true,
-				  open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); },
+				  open: function(event, ui) {
+					$(".ui-dialog").css("background-color", "black");
+					$(".ui-dialog-buttonset").css("margin-right", "80px");
+					$(".ui-dialog-content").css("background-color", "black");
+					$(".ui-dialog-buttonpane").css("background-color", "black");
+					$(".ui-dialog-titlebar-close").hide();
+					$(".ui-button").addClass("glowAnim");
+					checkInTimer = setTimeout(hardReset, 15000);
+				  },
 			      buttons: {
-			        "Yes!": function() {
+			        "Yes!": function() { 
+					  checkedIn = true;
+					  clearTimeout(checkInTimer);
 			          $( this ).dialog( "close" );
-					  clearTimeout(idleInterval);
-					  idleInterval = setTimeout(timeOut, 25000);
+					  
 			        }
 			      }
 			    });
 		} else {
 			hardReset();
 		}
-	}
 }
 
 var hardReset = function() {
-	clearTimeout(idleInterval);
-	bIdling = false;
 	curScreen = 0;
 	changeScreen();
 	name = "null";
+	firstCheckIn = true;
 	w = null;
 	w = new aiwamp("profit");
 }
@@ -239,8 +241,6 @@ var bindArrows = function() {
 				$("#price").html(offerPrice);
 				$(".greyed").removeClass("greyed").html("Update Offer");
 				checkOfferColor();
-				clearTimeout(idleInterval);
-				idleInterval = setTimeout(timeOut, 25000);
 			}
 		});
 
@@ -250,8 +250,6 @@ var bindArrows = function() {
 				$("#price").html(offerPrice);
 				$(".greyed").removeClass("greyed").html("Update Offer");
 				checkOfferColor();
-				clearTimeout(idleInterval);
-				idleInterval = setTimeout(timeOut, 25000);
 			}
 		});
 		
@@ -259,14 +257,14 @@ var bindArrows = function() {
 			console.log("Submit Offer @ ", offerPrice);
 			$(this).addClass("greyed").html("Submitted");
 			w.wampMethods.submitOffer(offerPrice);
-			clearTimeout(idleInterval);
-			idleInterval = setTimeout(timeOut, 25000);
 		});
-	} else if (curScreen == 5) {
-		$( ".accept" ).on( "click", function() {
+	} else if (curScreen == 5) { // This is the accept button on the tutorial screen
+		if (firstCheckIn == false) {
+			openCheckIn();
+		} else {
+			firstCheckIn = false;
 			checkedIn = true;
-			$(this).addClass("greyed").html("Checked In");
-		});
+		}
 	}
 }
 
@@ -372,7 +370,6 @@ var typeLetter = function(k) {
 			curScreen = 2;
 			changeScreen();
 			lettersTyped = 0;
-			bIdling = false;
 			
 			
 			

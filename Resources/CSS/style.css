@@ -54,7 +54,7 @@ body {
   margin: 0px !important;
 }
 #tut-overlay-buyer {
-  background-image: url('../IMAGES/info_screen.png');
+  background-image: url('../IMAGES/MattInstructions_0.jpg');
   background-size: 1024px 768px;
   width: 1024px;
   height: 768px;
@@ -63,7 +63,7 @@ body {
   left: 0px;
 }
 #tut-overlay-seller {
-  background-image: url('../IMAGES/info_screen_sell.png');
+  background-image: url('../IMAGES/MattInstructions_1.jpg');
   background-size: 1024px 768px;
   width: 1024px;
   height: 768px;
@@ -1076,7 +1076,7 @@ h2.theirs {
   font-size: 28px;
   font-family: "sub-title";
   background-color: rgba(0, 0, 0, 0.5);
-  text-shadow: 4px 4px 0 #222;
+  text-shadow: 4px 4px 0 transparent;
   color: #fff;
   line-height: 40px;
 }
@@ -1092,7 +1092,7 @@ h2.theirs {
 }
 .signinBox {
   background-color: rgba(0, 0, 0, 0.5);
-  text-shadow: 4px 4px 0 #222;
+  text-shadow: 4px 4px 0 transparent;
   font-family: "sub-title";
   font-size: 34px;
   line-height: 170px;
@@ -1233,6 +1233,9 @@ h2.theirs {
 .accept.check-in {
   -webkit-animation: pulse 3s infinite;
   margin-top: 25px;
+}
+.glowAnim {
+  -webkit-animation: pulse 3s infinite;
 }
 @-webkit-keyframes pulse {
   0% {
