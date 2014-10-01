@@ -224,18 +224,18 @@ var changeScreen = function() {
 
 var bindArrows = function() {
 	if (curScreen == 0) {
-		$( ".accept" ).on( "click", function() {
+		$( ".accept" ).on( "mousedown", function() {
 			curScreen = 1;
 			changeScreen();
 		});
 	} else if (curScreen == 1) {
-		$( ".key" ).on( "click", function() {
+		$( ".key" ).on( "mousedown", function() {
 			var keyPressed = $(this).text();
 			typeLetter(keyPressed);
 		});
 	} else if (curScreen == 3) {
 		//Adjust my offer/buyer price
-		$( ".up-arrow" ).on( "click", function() {
+		$( ".up-arrow" ).on( "mousedown", function() {
 			if (offerPrice < 10) {
 				offerPrice++;
 				$("#price").html(offerPrice);
@@ -244,7 +244,7 @@ var bindArrows = function() {
 			}
 		});
 
-		$( ".down-arrow" ).on( "click", function() {
+		$( ".down-arrow" ).on( "mousedown", function() {
 			if (offerPrice > 1) {
 				offerPrice--;
 				$("#price").html(offerPrice);
@@ -253,7 +253,7 @@ var bindArrows = function() {
 			}
 		});
 		
-		$( ".accept" ).on( "click", function() {
+		$( ".accept" ).on( "mousedown", function() {
 			console.log("Submit Offer @ ", offerPrice);
 			$(this).addClass("greyed").html("Submitted");
 			w.wampMethods.submitOffer(offerPrice);

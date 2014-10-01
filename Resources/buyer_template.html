@@ -39,7 +39,7 @@
 		}
 		
 		//What to do if player accepts offer
-		$( ".accept.{{owner.position}}" ).on( "click", function() {
+		$( ".accept.{{owner.position}}" ).on( "mousedown", function() {
 		  	console.log("Clicked Accept Button");
 			console.log(this);
 			var id = $(this).attr("position");
